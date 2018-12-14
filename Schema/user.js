@@ -2,35 +2,33 @@ const mongoose = require("mongoose");
 
 
 let users = new mongoose.Schema({
-    firstName = {
+    firstName : {
         type: String,
         required: true
     },
-    lastName = {
+    lastName : {
         type: String,
         required: true
     },
-    governorates = {
+    governorate :{
         type: Schema.Types.ObjectId,
         ref: "governorates",
-        require: true
+        required: true
     },
-    email = {
+    email : {
         type: String,
         required: true
     },
-    password = {
+    password : {
         type: String,
         required: true
     },
     type: {
         type: String,
-        enum: ["marry", "work"],
-        default: "marry"
+        enum: ["client", "company"],
     },
     phone:{
         type:String,
-        required:true
     },
     telephone:{
         type:String,
@@ -44,7 +42,7 @@ let users = new mongoose.Schema({
         name:String,
         categary:{
             type:Schema.type.ObjectId,
-            ref:"categary"
+            ref:"categories"
         },
         description:{
             type:String
@@ -52,9 +50,6 @@ let users = new mongoose.Schema({
         location:{
             city:String,
             street:String
-        },
-        features:{
-            type:String
         },
         features:{
             type:String
@@ -68,10 +63,13 @@ let users = new mongoose.Schema({
              price :Number   
             }
         ],
-        plan:{
-            type:Schema.type.ObjectId,
-            endDate: Date,
-        },
+        plan : {
+            plan : {
+              type:Schema.type.ObjectId,
+              ref : "plans"
+            },
+            endDate: Date
+          },
         images:[
             {
                 type:String,
