@@ -1,0 +1,47 @@
+
+/* start nav */
+.btn-oow{
+  background-color: $mainColor;
+  color:#fff
+}
+
+.btn-oow:hover,
+.btn-oow:focus,{
+  color:$hoverColorHref;
+  transition: all .5s ease-in-out ;
+}
+
+.oow{
+  color:$mainColor
+}
+
+.oow:hover,
+.oow:focus{
+  color:$hoverColorHref;
+  border-color: $mainColor;
+}
+
+.navbar-light .navbar-toggler::after{
+  content: " +";
+  font-weight: bold;
+}
+
+.nav-item{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .40em
+}
+
+/* Media Query */
+@media(min-width:768px){
+  button{
+      margin-left: calc(30em - 1.5em);
+  }
+}
+@media(max-width:567px){
+  .navbar-brand img {
+      padding-right: 3em;
+  }
+}
+/* End Nav */

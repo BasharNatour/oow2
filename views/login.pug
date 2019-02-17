@@ -1,0 +1,68 @@
+extends index
+block append linksCss  
+  link(rel="stylesheet" , href="css/login/singin.css")
+
+block pageTitle
+  title Sing In
+  
+block pageContent
+  |
+  <!-- start Nav -->
+  nav(class="navbar navbar-toggleable-md navbar-light")
+     .container
+          |
+          |
+          a(class="navbar-brand", href="index.html")
+              img(src="img/Home-page/logo.png")
+
+  |
+  |
+  <!-- End Nav -->
+  |
+  |
+  <!-- start login -->
+  .singin
+    .container
+      .row
+        .left(class="col-lg-6 col-md-12 col-sm-12 text-center")
+          h1 Log In Into Your Account
+          p Welcome back! Please enter your access info
+          img(src="img/login/undraw_freelancer_b0my.svg")
+            
+          .group
+            .birds-one 
+              img(src="img/login/Group 200.svg")  
+            .birds-two 
+              img(src="img/login/Group 200.svg")    
+            .birds-three 
+              img(src="img/login/Group 200.svg")   
+          
+          .group
+            .papple-two 
+              img(src="img/login/Group 197.svg")  
+            .papple-three 
+              img(src="img/login/Group 197.svg")    
+
+        .right(class="col-lg-6 col-md-12 col-sm-12 text-center" )
+          h1 Login
+          p Create New <a href="singup.html"> Account </a>
+          form(id="login-form")
+            .input-field
+              input(type="email"    ,id="login-email"      , class="btn-sub", name="email", placeholder="Enter Your Email Address" required)
+            .input-field
+              input(type="password" , id="login-password"  , class="btn-sub" , placeholder="Enter Your password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required)
+            div(class="form")
+              button(type="submit" , name="submit", class="btn-one") Login As Merry
+              button(type="submit" , name="submit", class="btn-two") Login As work
+            .forget
+              a(href="#") Forget Password    
+            
+        .underfoo
+          .group      
+            .papple-one 
+              img(src="img/login/Group 198.svg")     
+          p @Oow copyright  2018    
+    
+
+            
+ 

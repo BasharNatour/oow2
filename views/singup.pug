@@ -1,0 +1,78 @@
+extends index
+block append linksCss  
+  link(rel="stylesheet" , href="css/singup/singup.css")
+  
+block pageTitle
+  title Sing In
+  
+block pageContent
+  |
+  <!-- start Nav -->
+  nav(class="navbar navbar-toggleable-md navbar-light")
+     .container
+          |
+          |
+          a(class="navbar-brand", href="index.html")
+              img(src="img/Home-page/logo.png")
+
+  |
+  |
+  <!-- End Nav -->
+  |
+  |
+  <!-- start SingUp -->
+  .singup
+    .container
+      .row
+        .left-singup(class="col-lg-6 col-md-12 col-sm-12 text-center")
+          h1 SignUp
+          p Already a member of Oow?  <a href="login.html"> Log In</a>
+          
+          form(id="signup-form", action="/signup",method="post")
+            .input-field
+              input(type="text" , id="firstname", name="first" , placeholder="First Name" , class="half-btn" , required)
+              input(type="text" , id="lastname" , name="last" , placeholder="Last Name" , class="half-btn", required )
+            .input-field
+              input(type="email" , id="signup-email" , class="btn-sub", name="email", placeholder="Email Address" required)
+            .input-field
+              input(type="password" , id="signup-password" , name="password", class="btn-sub" , placeholder="Create password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required)
+            .input-field
+              select
+                  option(value="Alexandria") Alexandria
+                  option(value="Aswan") Aswan
+                  option(value="Asyut") Asyut
+                  option(value="Cairo") Cairo
+                  option(value="Beni Suef") Beni Suef
+                  option(value="Damietta") Damietta
+                  option(value="Faiyum") Faiyum
+                  option(value="Giza") Giza
+                  option(value="Ismailia") Ismailia
+                  option(value="Kafr El Sheikh") Kafr El Sheikh
+                  option(value="Luxor") Luxor
+                  option(value="Minya") Minya
+                  option(value="Red Sea") Red Sea
+                  option(value="Sohag") Sohag
+            .input-field(class="flex")  
+              div
+                input(input type="radio" id="singup-radio" name="contact" required)
+                label(for="singup-radio") I want to marry
+              div  
+                input(input type="radio" id="singup-radio" name="contact")
+                label(for="singup-radio") I want to work
+
+            p(class="upperbutton") I Want To:
+            .input-field
+              input(type="checkbox" id="singup-checkbox" class="type-work" required)
+              label(for="singup-checkbox" ) Send me wedding ideas, tips, and special offers!             
+            button(type="submit" class=" submit") SignUp   
+                         
+        .right-singup(class="col-lg-6 col-md-12 col-sm-12 ")
+          .img-one
+            img(src="img/sing/Path 219.svg")
+          div(class="text-center")  
+            h1 Your personal wedding plan starts now  
+            p Advice, tools, and the best local vendors to have a wedding that's uniquely you (cue the confetti!)
+          .img-two
+            img(src="img/sing/undraw_wedding_t1yl (1).svg")
+  
+            

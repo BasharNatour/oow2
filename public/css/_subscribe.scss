@@ -1,0 +1,89 @@
+.subscribe{
+  min-height: 100vh;
+  padding-top: 100px;
+  padding-bottom: 50px
+}
+
+.sub-img img{
+  width: 100%;
+}
+.sub-content{
+  padding-top: 75px;
+  width: 100%;
+  h2{
+    position: relative;
+    z-index: 1;
+    padding-bottom: 30px;
+  }
+  input{
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  button{
+    margin: 10px auto;
+    display: block;
+    color: #fff;
+    font-weight: bold;
+    background-color: $mainColor
+  }
+  p{
+    font-size: 1.4em ;
+    color: #474B49;
+    font-weight: lighter;
+    padding-top: 15px;
+  }
+}
+
+input::placeholder{
+  color: #474B40;
+}
+
+.btn-sub{
+  width: 400px;
+  height:50px;
+  border-radius:10px;
+  border: none;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+
+
+.sub-color{
+  width: 12vw;
+  height: 4vh;
+  position: absolute;
+  top: 14vh;
+  left: 12.7vw;
+  background: $mainColor;
+  z-index: 0;
+}
+
+@media(max-width:567px){
+  .sub-color,
+  .sub-img img{
+    display: none;
+  }
+  .subscribe{
+    min-height: 0 ;
+    padding-top: 0;
+    padding-bottom: 25px;
+    p{
+      font-size:  0.95em;
+    }
+  }
+  .btn-sub{
+    width: 200px;
+    height: 40px;
+  }
+  .sub-content {
+    padding-top:50px;
+  }
+  .sub-content h2 {
+    padding-bottom: 5px;
+    font-size: 1.8em
+}
+
+  .sub-content input {
+      margin-bottom: 5px;
+    }
+}

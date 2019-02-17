@@ -1,0 +1,176 @@
+.singin{
+  padding-top: 50px
+}
+.left{
+  img{
+    width: 100%
+  }
+}
+
+.right{
+  padding-top: 20px;
+  p{
+    a{
+      color: #000;
+      text-decoration: underline;
+      font-weight: bold;
+      &:hover{
+        color:#FF1744;
+      }
+    }
+  }
+  input{
+    margin-bottom: 10px;
+  }
+
+  .form{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    .btn-one,.btn-two{
+      width: 200px;
+      height:40px;
+      border: none;
+      box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+      font-weight: bold;
+      cursor:pointer;
+    }
+    button{
+      margin: 0;
+
+    }
+  }
+}
+
+.underfoo{
+  p{
+    padding-top: 40px;
+    color: #000;
+    font-weight: bold;
+    margin-bottom: 0rem;
+  }
+}
+
+
+.btn-one{
+  border-radius:10px 0 0 10px ;
+  background-color: #FF1744;
+  color: #fff;
+}
+
+.btn-two:hover {
+  background-color: #FF1744;
+  color: #fff;
+  transition: all .2s ease-in-out
+}
+
+
+.btn-two{
+       border-radius:0 10px 10px  0 ;
+       background-color: #fff;
+       color : #FF1744
+
+}
+
+
+.group{
+  position: relative;
+  .birds-one{
+    position:   absolute;
+    top: -50px;
+    left: -37px
+  }
+  .birds-two{
+    position:   absolute;
+    top: -325px;
+    left: 25vw;
+  }
+  .birds-three {
+    position:   absolute;
+    top:-450px;
+    left: -80px
+  }
+
+  .papple-one {
+    position:   absolute;
+    top: 65px;
+    left: 20vw;
+  }
+
+  .papple-two {
+    position:   absolute;
+    top: -500px;
+    left: 29vw;
+  }
+  .papple-three {
+    position:   absolute;
+    top:-400px;
+    left: -230px
+  }
+}
+
+.forget{
+  padding-top: 20px;
+  a{
+    color: #141414
+
+  }
+}
+
+
+@media(max-width:567px){
+  .navbar-brand img {
+    padding-right: 0em;
+}
+  .singin {
+    padding-top: 15px;
+}
+  h1{
+    font-size: 1.5em;
+    }
+  p{
+    font-size:  0.95em;
+    padding-bottom: 0px;
+
+  }
+  .group{
+    display: none;
+  }
+  .right{
+    padding-top: 40px;
+    h1{
+      padding-bottom: 10px;
+    }
+    .form{
+      display: block;
+      button{
+        margin-bottom:  10px
+      }
+    }
+  }
+  .underfoo{
+    margin: 10px auto;
+    p{
+      padding-top: 25px;
+    }
+  }
+
+
+  .btn-two,
+  .btn-one{
+         border-radius:10px;
+  }
+  .forget{
+    padding-top: 0;
+    a{
+      font-size:  .85em
+    }
+  }
+
+}
+@media(min-width:567px) and (max-width:992px){
+  .group{
+    display: none;
+  }
+}

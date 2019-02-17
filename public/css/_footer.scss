@@ -1,0 +1,108 @@
+.footer{
+  padding-top: 50px;
+}
+
+.foot-img{
+  img{
+    width: 100%
+  }
+}
+.foo-cont {
+  position: relative;
+  .show,
+  p{
+    position: absolute;
+    bottom: 10px
+  }
+
+  p{
+    margin:0 390px 50px;
+    color: #fff
+  }
+  a{
+    color: #fff;
+    &:hover {
+      color: #FF1744;
+      transition: all .2s ease-in-out
+    }
+  }
+}
+
+.show{
+  display: flex;
+}
+
+
+.foo-cont .list-terms{
+  display: flex;
+  padding-left: 370px
+}
+
+.lists{
+  display: flex;
+  li{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0.4em;
+    i{
+      
+    }
+  }
+
+}
+
+
+@media(max-width:567px){
+  .footer{
+    padding-top: 25px;
+    padding-bottom: 15px;
+    background-color: #FF1744;
+    margin: 50px 15px 0px 15px;
+  }
+  .foot-para{
+    padding-bottom: 10px
+  }
+  .foot-img{
+    img{
+      display: none;
+    }
+  }
+  .foo-cont {
+    position: none;
+    p{
+      margin:0;
+      color: #000;
+      font-weight: bold;
+      text-align: center;
+    }
+    .show {
+        display: block;
+        margin: 0;
+
+    }
+  }
+  .foo-cont .list-terms{
+    display: block;
+    padding-left: 0
+
+  }
+
+  .foo-cont .show, .foo-cont p{
+  position: static;
+}
+
+.foo-cont a{
+  color: #fff;
+  &:hover{
+    color: #000;
+  }
+}
+
+.lists{
+  justify-content: center;
+  li{
+    display: inline-block;
+    }
+  }
+}

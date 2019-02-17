@@ -1,0 +1,60 @@
+
+/* start header */
+.header {
+background-image: url("../img/Home-page/home.jpg");
+background-size: cover;
+min-height:  100vh - 11.1vh;
+  h1{
+    position: relative;
+    z-index: 1;
+  }
+}
+
+.header-content{
+    padding-top:  40vh;
+   .btn{
+    margin: 0;
+    font-weight:bold;
+  }
+  p{
+    padding-top: 1.5em;
+  }
+}
+
+.ooww{font-weight: bold;
+      color:$mainColor
+}
+.ooww:hover{
+  color: $mainColorText;
+}
+
+.section-color{
+  width: 25vw;
+  height: 30vh;
+  position: absolute;
+  bottom: 13vh;
+  left: calc(14.7vw - 0.5vw);
+  background: $mainColor;
+  z-index: 0;
+}
+/* Media Query */
+@media(max-width:567px){
+  .header {
+    min-height:  34vh;
+  }
+  .header-content{
+    padding-top:  7vh;
+    h1{
+      font-size: 1.8em
+    }
+  }
+}
+@media(min-width:568px) and (max-width:992px){
+  .header {
+    min-height:  70vh;
+  }
+  .header-content{
+    padding-top:  30vh;
+  }
+}
+/* End Header */

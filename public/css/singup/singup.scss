@@ -1,0 +1,168 @@
+.singup{
+  .left-singup{
+    p{
+      a{
+        color: #FF1744;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+p{
+  padding-bottom: 10px;
+}
+.half-btn{
+  border: none;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  border-radius: 10px ;
+  font-weight: bold;
+  height:50px;
+  margin-bottom: 10px;
+  width: 190px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+select {
+    display: inline-block;
+    width: 400px;
+    height: 50px;
+    padding: 0px 10px;
+    cursor: pointer;
+    color: #9b9b9b;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    background: #fff;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    transition: all 0.2s ease;
+    margin-bottom: 10px;
+    font-weight: bold;
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+
+[type="email"], [type="password"], select, .half-btn {
+  &:hover, &:focus {
+    color: #000;
+    background: #fafafa;
+    border-color: #000;
+    outline: none;
+  }
+}
+
+.flex{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding-top: 20px;
+  color: #494949;
+  font-weight: bold;
+
+}
+
+
+
+.upperbutton{
+  margin-bottom: 0;
+  font-size: 0.8em
+}
+.checkbox_option{
+  padding-top: 10px
+}
+
+.submit{
+  margin: 0 auto;
+  background: #FF1744;
+  color: #fff;
+  font-weight: bold;
+  margin-top:  20px;
+  width: 20%;
+  border:none ;
+  height: 30px;
+  border-radius: 2px;
+  &:hover, &:focus {
+    color: #FF1744;
+    background: #fafafa;
+    border-color: #000;
+    outline: none;
+    border: 2px solid #222
+  }
+
+}
+
+.right-singup{
+  position: relative;
+  color:#fff;
+  div{
+    z-index: 1;
+    position: relative;
+    padding-left: 75px
+  }
+  .img-one{
+    position: absolute;
+    top: -75px;
+    left: -50px;
+    z-index: 0;
+  }
+  p{
+    color:#fff;
+
+  }
+  .img-two{
+    position: absolute;
+    bottom: 0
+  }
+}
+
+
+
+@media(max-width:567px){
+  .navbar-brand img {
+      padding-right: 0;
+
+  }
+
+  .half-btn , select{
+
+      width: 200px;
+      height: 40px;
+      margin-bottom: 15px;
+  }
+  h1{
+    font-size: 1.5em;
+    }
+  p{
+    font-size:  0.95em;
+    padding-bottom: 0px;
+
+  }
+  .form{
+    display: block;
+    button{
+      margin-bottom:  10px
+    }
+  }
+
+  .btn-two,
+  .btn-one{
+         border-radius:10px;
+  }
+
+  .upperbutton{
+    margin-bottom: 10px;
+  }
+  .right-singup{
+    display: none;
+  }
+}
+
+@media(min-width:567px) and (max-width:992px){
+  .right-singup{
+    display: none;
+  }
+}
