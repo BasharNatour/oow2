@@ -1,4 +1,4 @@
-const subscription = require("../../schema/subscription");
+const Subscription = require("../../schema/subscription");
 const validator = require("validator");
 const ValidationError = require("../../errors/validationError");
 
@@ -11,24 +11,16 @@ module.exports = function auth(req, res, next) {
     }
     // else if (Object.keys(errors).length) {
     // }
-    subscription.findOne({email}).then((doc)=>{
-        if(doc){
-            errors.email ="This email already exists";
+    Subscription.findOne({
+        email
+    }).then((doc) => {
+        if (doc) {
+            errors.email = "This email already exists";
             return next(new ValidationError(errors));
         }
-        else{
-            email = new subscription({
-                email
-            }).save(function (err) {
-                if (err) return handleError(err);
-              
-                else{
-                    return next();
-                }
-              });
-
-              
-              
-        }
+        req.email = email;
+        return next();
+    }).catch((err)=>{
+        console.log(err);
     });
 }

@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env MONGO_URL=mongodb://localhost:27017/oow ENVIRONMENT=devolopment nodemon app.js"
+    "dev": "cross-env MONGO_URL=mongodb://localhost:27017/oow ENVIRONMENT=devolopment nodemon app.js",
+    "seed":"cross-env MONGO_URL=mongodb://localhost:27017/oow node src/seeds/index.js"
   },
   "author": "",
   "license": "ISC",

@@ -6,7 +6,7 @@ let governorates = new mongoose.Schema({
         type:String,
         },
     country:{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref:"countries"
     }
 });

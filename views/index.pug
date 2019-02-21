@@ -133,7 +133,7 @@ html(lang="en")
                       h2 SUBSCRIBE
                       .sub-color(class="hide-on-small-only hide-on-med-only")
                       form(id="sub-form",action="/subscribe",method="Post")
-                        input(type="text" , class=`btn-sub${errors.email?' invalid':''}`, name="email", placeholder="Enter Your Email Address")
+                        input(type="email" , class=`btn-sub${errors.email?' invalid':''}`, name="email", placeholder="Enter Your Email Address")
                         .invalid-feedback=errors.email
                         button(type="submit" , class="btn-sub") Subscribe now
                       p Subscribe and receive our newsletter to follow the news about the Oow  
