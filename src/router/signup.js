@@ -3,7 +3,7 @@ const router = new express();
 module.exports = router;
 const Country = require("../schema/country");
 const Governorate = require("../schema/governorates");
-
+const Signup   =require("../middleware/validation/signup")
 
 router.get("/", (req, res, next) => {
     const countries = Country.find({});
@@ -15,4 +15,8 @@ router.get("/", (req, res, next) => {
                 governorates
             });
         }).catch(next);
+});
+
+router.post("/",(req,res,next)=>{
+
 });
