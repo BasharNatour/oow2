@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "cross-env MONGO_URL=mongodb://localhost:27017/oow ENVIRONMENT=devolopment MAIL_HOST=smtp.mailtrap.io MAIL_PORT=465 MAIL_USER=c34bfb6d113c0d MAIL_PASS=bc13da42f80623 nodemon app.js",
+    "debug": "cross-env MONGO_URL=mongodb://localhost:27017/oow ENVIRONMENT=devolopment MAIL_HOST=smtp.mailtrap.io MAIL_PORT=465 MAIL_USER=c34bfb6d113c0d MAIL_PASS=bc13da42f80623 node --inspect app.js",
     "seed": "cross-env MONGO_URL=mongodb://localhost:27017/oow node src/seeds/index.js"
 
   },

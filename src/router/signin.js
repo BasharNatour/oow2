@@ -8,15 +8,12 @@ router.get("/",(req,res)=>{
     res.render("login");
 });
 
-router.post("/",SigninValiadtion,(req,res)=>{
+router.post("/",SigninValiadtion,(req,res,next)=>{
     const {email,password} = req.body;
     User.findOne({email}).then((doc)=>{
-        // req.session.user_id = user._id;
-        if(doc.type ===  "work"){
-            res.redirect("/yourProfile");
-        }
-        else{
+        req.session.user_id = user._id;
+
             res.redirect("/dashboard");
-        }
-    });
+
+    }).catch(next);
 });

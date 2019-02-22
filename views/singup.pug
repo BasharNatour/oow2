@@ -76,6 +76,7 @@ block pageContent
       var filter = governorates.filter(function (governorate){return governorate.country === country_id;});
       $governorates.innerHTML = "";
       const oldValue = $governorates.dataset.value;
+      delete $governorates.dataset.value;
       filter.forEach(function(governorate){
           var option = document.createElement("option");
           option.value = governorate._id;

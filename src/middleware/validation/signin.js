@@ -1,5 +1,6 @@
 const User = require("../../schema/user");
 const ValidationError = require("../../errors/validationError");
+const bcrypt = require("bcrypt");
 
 
 
@@ -11,16 +12,22 @@ module.exports = function (req,res,next){
     errors = {};
 
     User.findOne({email}).then((doc)=>{
-        if(!doc || !doc.password === password){
+        if(!doc){
             errors.signinError = "Email Or Password is invalid";
-            return next( new ValidationError(errors));
+            return next(new ValidationError(errors));
         }
-        else{
-            next();
-        }
+        bcrypt.compare(password, doc.password).then((truthy) => {
+            if(!truthy){
+                errors.signinError = "Email Or Password is invalid";
+                return next( new ValidationError(errors));
+            }
+            else{
+                next();
+            }
+        }).catch(next)
 
         
-    }).catch(console.log);
+    }).catch(next);
 
 
 
