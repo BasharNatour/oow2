@@ -8,14 +8,12 @@ const ValidationError = require("./src/errors/validationError");
 const flash = require("connect-flash");
 
 
-
 let url = process.env.MONGO_URL;
 mongoose.connect(url, {
     useNewUrlParser: true
 });
-
-
 app.set("view engine", "pug");
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
@@ -39,14 +37,18 @@ app.use(flash());
 app.use(express.static("public"));
 app.use((req, res, next) => {
     res.locals = {
-        errors: req.flash("error")[0] || {}
+        errors: req.flash("error")[0] || {},
+        old: req.flash("old")[0]||{}
     };
     next();
 });
 app.use(require("./src/router"));
+
 app.use((error, req, res, next) => {
     if (error instanceof ValidationError) {
         req.flash("error", error.errors);
+        req.flash("old", req.body);
+        console.log(error.errors);
         res.redirect('back');
     } else {
         console.log(error);

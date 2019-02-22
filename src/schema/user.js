@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const bcrypt  = require("bcrypt");
 
 
 let users = new mongoose.Schema({
@@ -11,7 +12,7 @@ let users = new mongoose.Schema({
         required: true
     },
     governorate :{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: "governorates",
         required: true
     },
@@ -26,6 +27,7 @@ let users = new mongoose.Schema({
     type: {
         type: String,
         enum: ["client", "company"],
+        default:"client"
     },
     phone:{
         type:String,
@@ -41,7 +43,7 @@ let users = new mongoose.Schema({
     companyData:{
         name:String,
         categary:{
-            type:Schema.type.ObjectId,
+            type:mongoose.Schema.Types.ObjectId,
             ref:"categories"
         },
         description:{
@@ -65,7 +67,7 @@ let users = new mongoose.Schema({
         ],
         plan : {
             plan : {
-              type:Schema.type.ObjectId,
+              type:mongoose.Schema.Types.ObjectId,
               ref : "plans"
             },
             endDate: Date
@@ -85,4 +87,11 @@ let users = new mongoose.Schema({
 
 
 });
+users.pre("save",function(next){
+    bcrypt.hash(this.password, 10).then((hash) => {
+        this.password = hash;
+        next();
+    }).catch(console.log);
+});
+
 module.exports = mongoose.model("users", users);

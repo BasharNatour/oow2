@@ -1,0 +1,58 @@
+.form-varify img {
+  padding-top: 25px;
+  padding-bottom: 10px;
+}
+.form-varify button {
+  border: none;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  font-weight: bold;
+  height: 50px;
+  margin-bottom: 10px;
+  width: 240px;
+  margin-right: 10px;
+  margin-left: 10px;
+  background-color: #65E3B9;
+}
+.form-varify button:hover {
+  background-color: #474747;
+}
+.form-varify button a {
+  color: #fff;
+}
+
+.underfoo p {
+  padding-top: 60px;
+  color: #000;
+  font-weight: bold;
+  margin-bottom: 0rem;
+}
+
+@media (max-width: 567px) {
+  .navbar-brand img {
+    padding-right: 0;
+  }
+
+  .form-varify img {
+    width: 100%;
+    padding-bottom: 40px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+  }
+
+  p {
+    font-size: 0.95em;
+    padding-bottom: 0px;
+  }
+
+  .underfoo {
+    margin: 10px auto;
+  }
+  .underfoo p {
+    padding-top: 15px;
+  }
+}
+
+/*# sourceMappingURL=verify.css.map */

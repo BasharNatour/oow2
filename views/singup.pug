@@ -3,7 +3,7 @@ block append linksCss
   link(rel="stylesheet" , href="/css/singup/singup.css")
   
 block pageTitle
-  title Sign In
+  title Sign Up
   
 block pageContent
   |
@@ -26,35 +26,37 @@ block pageContent
       .row
         .left-singup(class="col-lg-6 col-md-12 col-sm-12 text-center")
           h1 SignUp
-          p Already a member of Oow?  <a href="login.html"> Log In</a>
+          p Already a member of Oow?  <a href="/signin"> Log In</a>
           
           form(id="signup-form", action="/signup",method="post")
             .input-field
-              input(type="text" , id="firstname", name="first" , placeholder="First Name" , class="half-btn" , required)
-              input(type="text" , id="lastname" , name="last" , placeholder="Last Name" , class="half-btn", required )
+              input.half-btn(type="text" ,id="firstname", name="firstName" , placeholder="First Name", required value=`${old.firstName || ""}`)
+
+              input.half-btn(type="text", id="lastname" , name="lastName" , placeholder="Last Name", required value=`${old.lastName || ""}`)
             .input-field
-              input(type="email" , id="signup-email" , class="btn-sub", name="email", placeholder="Email Address" required)
+              input(type="email", id="signup-email", class="btn-sub", name="email", placeholder="Email Address" required value=`${old.email || ""}`)
             .input-field
-              input(type="password" , id="signup-password" , name="password", class="btn-sub" , placeholder="Create password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required)
+              input(type="password" , id="signup-password" , name="password", class="btn-sub" , placeholder="Create password"  pattern="^.{7,}$" title="The password most contain 7 characters at least" required)
             .input-field
-              select#country
+              select#country(name ="country")
                 each country in countries
                   option(value=`${country._id}`)=country.name
             .input-field
-              select(id="governorates" placeholder="Select your city")
+              select(id="governorates" placeholder="Select your city" name="governorate")
 
             .input-field(class="flex")  
-              div
-                input(input type="radio" name="contact"  value="marry" checked)
-                label(for="singup-radio") I want to marry
-              div  
-                input(input type="radio" name="contact" value="work")
-                label(for="singup-radio") I want to work
+              .custom-control.custom-radio
+                input.custom-control-input(id="marry-radio" type="radio" name="type"  value="client" checked)
+                label.custom-control-label(for="marry-radio") I want to marry
+              .custom-control.custom-radio 
+                input.custom-control-input(id="work-radio" type="radio" name="type" value="company")
+                label.custom-control-label(for="work-radio") I want to work
 
             p(class="upperbutton") I Want To:
-            .input-field
-              input(type="checkbox" id="singup-checkbox" class="type-work" required)
-              label(for="singup-checkbox" ) Send me wedding ideas, tips, and special offers!             
+            .custom-control.custom-checkbox
+              input.custom-control-input(type="checkbox" id="singup-checkbox" class="type-work")
+              label.custom-control-label(for="singup-checkbox" ) Send me wedding ideas, tips, and special offers! 
+            .text-danger.text-centered= errors.email            
             button(type="submit" class=" submit") SignUp   
                          
         .right-singup(class="col-lg-6 col-md-12 col-sm-12 ")

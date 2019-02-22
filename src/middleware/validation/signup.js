@@ -10,21 +10,24 @@ const Governorates = require("../../schema/governorates");
 
 module.exports = function (req, res, next) {
     const {
-        first,
-        last,
+        firstName,
+        lastName,
         email,
         password,
-        city,
-        contact
+        governorate,
     } = req.body;
-    const err = {};
+    const errs = {};
 
-    if (first.length < 4 || last.length < 4) {
-        errs.name = "The name most contain 5 characters at least";
+    if (!(firstName && firstName.length)) {
+        errs.firstName = "The name most contain 5 characters at least";
+
+    }
+    if (!(firstName && lastName.length)) {
+        errs.lastName = "The name most contain 5 characters at least";
 
     }
     if (!/.{7,}/.test(password)) {
-        errs.password = "The password most contain 7 charactersat least";
+        errs.password = "The password most contain 7 characters at least";
     }
     if (!/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i.test(email)) {
         errs.email = "The email your entered is invalid";
@@ -38,17 +41,18 @@ module.exports = function (req, res, next) {
         return Promise.resolve();
     }).then(() => {
         Governorates.countDocuments({
-            city
+            _id:governorate
         }).then((count) => {
             if (count === 0) {
                 errs.governorate = "error";
             }
             if (Object.keys(errs).length) {
+                console.log(errs);
                 return next(new ValidationError(errs));
             } else {
                 next();
             }
-        })
+        }).catch(next);
 
     }).catch(next);
 

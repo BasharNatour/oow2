@@ -45,17 +45,16 @@ block pageContent
 
         .right(class="col-lg-6 col-md-12 col-sm-12 text-center" )
           h1 Login
-          p Create New <a href="singup.html"> Account </a>
-          form(id="login-form")
+          p Create New <a href="/signup"> Account </a>
+          form(id="login-form" action="/signin" method="post")
             .input-field
               input(type="email"    ,id="login-email"      , class="btn-sub", name="email", placeholder="Enter Your Email Address" required)
             .input-field
-              input(type="password" , id="login-password"  , class="btn-sub" , placeholder="Enter Your password" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" title="Please include at least 1 uppercase character, 1 lowercase character, and 1 number." required)
+              input(type="password" , id="login-password"  , class="btn-sub" ,name="password", placeholder="Enter Your password" minlength="8" pattern="^.{7,}$" title="This password incorrect" required)
             div(class="form")
-              button(type="submit" , name="submit", class="btn-one") Login As Merry
-              button(type="submit" , name="submit", class="btn-two") Login As work
+              button(type="submit", name="submit", class="btn-two") Login
             .forget
-              a(href="#") Forget Password    
+              a(href="#") Forget Password ?   
             
         .underfoo
           .group      

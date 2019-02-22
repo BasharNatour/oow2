@@ -4,25 +4,31 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "cross-env MONGO_URL=mongodb://localhost:27017/oow ENVIRONMENT=devolopment nodemon app.js",
-    "seed":"cross-env MONGO_URL=mongodb://localhost:27017/oow node src/seeds/index.js"
+    "dev": "cross-env MONGO_URL=mongodb://localhost:27017/oow ENVIRONMENT=devolopment MAIL_HOST=smtp.mailtrap.io MAIL_PORT=465 MAIL_USER=c34bfb6d113c0d MAIL_PASS=bc13da42f80623 nodemon app.js",
+    "seed": "cross-env MONGO_URL=mongodb://localhost:27017/oow node src/seeds/index.js"
+
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bcrypt": "^3.0.2",
+    "bcrypt": "^3.0.4",
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^2.0.3",
-    "cors": "^2.8.5",
     "express": "^4.16.4",
-    "express-jwt": "^5.3.1",
     "express-session": "^1.15.6",
+    "flash": "^1.1.0",
     "method-override": "^3.0.0",
-    "mongoose": "^5.4.0",
+    "mongoose": "^5.4.14",
     "morgan": "^1.9.1",
-    "node-bcrypt": "0.0.1",
-    "nodemailer": "^4.7.0",
-    "pug": "^2.0.3"
+    "nodemailer": "^5.1.1",
+    "pug": "^2.0.3",
+    "validator": "^10.11.0"
+  },
+  "devDependencies": {
+    "chalk": "^2.4.2",
+    "cross-env": "^5.2.0",
+    "faker": "^4.1.0",
+    "nodemon": "^1.18.10"
   }
 }

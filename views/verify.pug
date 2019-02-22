@@ -1,0 +1,37 @@
+extends index
+block append linksCss  
+  link(rel="stylesheet" , href="css/verify/verify.css")
+
+  
+  
+block pageTitle
+    title Verify Email 
+
+block pageContent
+  |
+  <!-- start Nav -->
+  nav(class="navbar navbar-toggleable-md navbar-light")
+     .container
+          a(class="navbar-brand", href="index.html")
+              img(src="img/Home-page/logo.png")
+
+  |
+  |
+  <!-- End Nav -->
+  |
+  |
+  hr
+  |
+  |
+  <!-- start Verify --> 
+  .verfy
+    .container
+      .row
+        .form-varify(class="col-lg-12 text-center")
+          img(src="img/verify/Group 133.svg" class="img-verify")  
+          h2 Verify your email to proceed
+          p Please check your email and click on the link provided to verify your address.
+          button(type="button") 
+           a(href="/resend") Resend Verification Email
+        .underfoo
+          p @Oow copyright  2018       
