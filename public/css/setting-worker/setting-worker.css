@@ -1,0 +1,251 @@
+.navbar {
+  background-color: #fff;
+}
+
+.setting-workers {
+  background-color: #F1F3F5;
+  height: 100%;
+}
+
+.content-worker {
+  background-color: #fff;
+  width: 75em;
+  margin: 50px auto;
+  padding: 2em 1em;
+}
+.content-worker .submit-worker {
+  margin-left: calc(30em - -25.1em);
+  font-weight: bold;
+}
+
+.btn-oow {
+  padding: 0.5em 2.5em;
+}
+
+.sections {
+  padding-bottom: 30px;
+}
+.sections h4 {
+  background-color: #EEF3F6;
+  padding: 0.5em 1em;
+  color: #474B49;
+}
+.sections p {
+  padding-left: 1em;
+  padding-bottom: 10px;
+  font-size: 1.1em;
+}
+
+.btn-setting-worker {
+  width: 600px;
+  height: 50px;
+  border: none;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+[type=text]:hover, [type=text]:focus, [type=email]:hover, [type=email]:focus, [type=password]:hover, [type=password]:focus, select:hover, select:focus, .half-btn:hover, .half-btn:focus, textarea:hover, textarea:focus {
+  color: #4b4b4b;
+  background: #fafafa;
+  border-color: #000;
+  outline: none;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  transition: all 0.2s ease;
+  display: inline-block;
+  padding-left: 1em;
+  color: #474B40;
+  margin-bottom: 30px;
+}
+
+span {
+  font-size: 0.85em;
+  font-weight: lighter;
+}
+
+textarea {
+  color: #4b4b4b;
+  margin-top: 20px;
+  padding: 25px;
+}
+
+input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
+  font-size: 0.75em;
+  color: #999;
+  top: -5px;
+  -webkit-transition: all 0.225s ease;
+  transition: all 0.225s ease;
+}
+
+.styled-input {
+  width: 293px;
+  margin: 0;
+  position: relative;
+  border-radius: 4px;
+}
+
+label {
+  color: #999;
+  padding: 2.3rem 30px 1rem 30px;
+  position: absolute;
+  top: 10px;
+  left: 0;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  pointer-events: none;
+}
+
+v body {
+  font-family: sans-serif;
+  background-color: #eeeeee;
+}
+
+.file-upload {
+  background-color: #ffffff;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+
+.file-upload-btn {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  background: #757575;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 20px;
+  border: 1px solid #757575;
+}
+
+.file-upload-btn:hover {
+  background: #fff;
+  color: #757575;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border: 1px solid #757575;
+}
+
+.file-upload-btn:active {
+  border: 0;
+  transition: all 0.2s ease;
+}
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin-top: 21px;
+  border: 5px dashed #757575;
+  position: relative;
+  border-radius: 13px;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: #E8E8E8;
+  color: #fff;
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: #222;
+}
+
+.drag-text {
+  text-align: center;
+}
+
+.drag-text h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #757575;
+  padding: 59px 0;
+  font-size: 1.5em;
+}
+
+.file-upload-image {
+  max-height: 175px;
+  max-width: 175px;
+  margin: auto;
+  padding: 20px;
+}
+
+.remove-image {
+  width: 200px;
+  margin: 0;
+  color: #fff;
+  background: #cd4535;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #b02818;
+  transition: all 0.2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.remove-image:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all 0.2s ease;
+}
+
+.sections .location {
+  margin-bottom: 25px;
+}
+
+@media (max-width: 576px) {
+  .content-worker {
+    width: 24em;
+  }
+
+  h4 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 0.95em;
+    padding-bottom: 0px;
+  }
+
+  .btn-setting-worker {
+    width: 284px;
+  }
+
+  .content-worker .submit-worker {
+    margin-left: 0;
+    font-weight: bold;
+  }
+}
+
+/*# sourceMappingURL=setting-worker.css.map */

@@ -1,6 +1,5 @@
-class ValidationError extends Error {
+class ValidationError {
     constructor(errors) {
-        super();
         this.errors = errors;
     }
 }

@@ -35,7 +35,7 @@ router.post("/",signupvalidation,(req,res,next)=>{
     });
     user.save().then(()=>{
         req.session.user_id = user._id;
-        verifyMailer(email).catch(console.log);
+        verifyMailer(user).catch(console.log);
         res.redirect("/verify");
     }).catch(next);
 });

@@ -6,7 +6,7 @@ const verifyMailer = require("../mail/verify");
 
 router.get("/",(req,res)=>{
 User.findById(req.session.user_id).then((doc)=>{
-        verifyMailer(doc.email).catch(console.log);
-        res.render("verify");
+        verifyMailer(doc).catch(console.log);
+        res.redirect("/verify");
     })
 });

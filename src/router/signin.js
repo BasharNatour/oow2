@@ -11,9 +11,11 @@ router.get("/",(req,res)=>{
 router.post("/",SigninValiadtion,(req,res,next)=>{
     const {email,password} = req.body;
     User.findOne({email}).then((doc)=>{
-        req.session.user_id = user._id;
-
+        req.session.user_id = doc._id;
+        if(req.query.redirect){
+            res.redirect(req.query.redirect);
+        }else{
             res.redirect("/dashboard");
-
+        }
     }).catch(next);
 });

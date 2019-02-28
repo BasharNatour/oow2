@@ -50,7 +50,8 @@ app.use((error, req, res, next) => {
         req.flash("old", req.body);
         console.log(error.errors);
         res.redirect('back');
-    } else {
+    } else{
+        res.end("Server error 500");
         console.log(error);
     }
 });

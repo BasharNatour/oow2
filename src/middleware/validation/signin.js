@@ -16,8 +16,8 @@ module.exports = function (req,res,next){
             errors.signinError = "Email Or Password is invalid";
             return next(new ValidationError(errors));
         }
-        bcrypt.compare(password, doc.password).then((truthy) => {
-            if(!truthy){
+        bcrypt.compare(password, doc.password).then((truthy) => { 
+            if(!truthy){ 
                 errors.signinError = "Email Or Password is invalid";
                 return next( new ValidationError(errors));
             }

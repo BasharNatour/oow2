@@ -58,9 +58,9 @@
 }
 
 .btn-two {
-  border-radius: 10px;
-  background-color: #FF1744;
-  color: #FFF;
+  border-radius: 0 10px 10px 0;
+  background-color: #fff;
+  color: #FF1744;
 }
 
 .group {

@@ -1,7 +1,8 @@
+
 const mongoose = require("mongoose");
 const bcrypt  = require("bcrypt");
-
-
+const Verify = require("./verify");
+const randomstring = require("randomstring");
 let users = new mongoose.Schema({
     firstName : {
         type: String,
@@ -10,6 +11,10 @@ let users = new mongoose.Schema({
     lastName : {
         type: String,
         required: true
+    },
+    activated:{
+        type : Boolean,
+        default:false
     },
     governorate :{
         type: mongoose.Schema.Types.ObjectId,
@@ -93,5 +98,19 @@ users.pre("save",function(next){
         next();
     }).catch(console.log);
 });
+users.methods.generateVerifyToken = function generateVerifyToken(){
+    return Verify.findOne({user:this._id}).then((doc)=>{
+        if(doc){
+            doc.token = randomstring.generate(200);
+            return doc.save();
+        }
+        const verify = new Verify({
+            token : randomstring.generate(200),
+            user: this._id
+        });
+        return verify.save();
+    });
+    
+};
 
 module.exports = mongoose.model("users", users);
