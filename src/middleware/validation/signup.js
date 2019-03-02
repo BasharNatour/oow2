@@ -22,7 +22,7 @@ module.exports = function (req, res, next) {
         errs.firstName = "The name most contain 5 characters at least";
 
     }
-    if (!(firstName && lastName.length)) {
+    if (!(lastName && lastName.length)) {
         errs.lastName = "The name most contain 5 characters at least";
 
     }

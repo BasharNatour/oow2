@@ -10,9 +10,11 @@ const signup  = require("./signup");
 const signin = require("./signin");
 const verify  = require("./verify");
 const resend  = require("./resend");
-const dashboard  = require("./dashboard");
 const authenticated =require("../middleware/authenticated");
 const guest=require("../middleware/guest");
+const company =require("./company");
+
+
 
 
 router.use("/",main);
@@ -22,6 +24,7 @@ router.use("/signup",guest,signup);
 router.use("/signin",guest,signin);
 router.use("/verify",authenticated,verify);
 router.use("/resend",authenticated,resend);
+router.use(company);
 
-router.use("/dashboard",authenticated,dashboard);
+
 

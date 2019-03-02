@@ -22,7 +22,7 @@ $('.navbar-nav li a').click(function(){
 
 
 
-
+// button img setting account for workers
 function readURL(input) {
   if (input.files && input.files[0]) {
 
@@ -54,4 +54,16 @@ $('.image-upload-wrap').bind('dragover', function () {
 	});
 	$('.image-upload-wrap').bind('dragleave', function () {
 		$('.image-upload-wrap').removeClass('image-dropping');
+});
+
+
+
+// selected pricing
+
+$(".whole").on("click","a",function(){
+  event.preventDefault();
+  $(".plan").removeClass("selected");
+  $(this).closest(".whole").find(".plan").addClass("selected");
+
+
 });

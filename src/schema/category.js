@@ -1,7 +1,7 @@
 const mongoose =require("mongoose");
 
 
-let category = new mongoose.Schema({
+let categories = new mongoose.Schema({
     name:{
         type:String,
     }

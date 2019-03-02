@@ -57,13 +57,40 @@ select {
 
 .flex{
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   padding-top: 20px;
   color: #494949;
   font-weight: bold;
 
+  input[type="radio"] + label {
+  background: #fff;
+  padding: 1em 3.8em;
+  width: 100%;
+  display: inline-block;
+  margin-bottom:  10px;
+  box-sizing: border-box;
+  border: 1px solid #333;
+  cursor:pointer;
+  transition: .2s;
+  }
+input[type="radio"]:checked + label {
+ background: #FF1744;
+  color: #fff;
+  border-color:  #fff;
+  }
+  input[type="radio"] {
+    display:none;
+  }
+
+  .c1 + label{
+    border-radius: 10px 0 0 10px;
+  }
+  .c2 + label{
+    border-radius: 0 10px 10px 0;
+  }
 }
+
+
 
 
 
@@ -122,6 +149,9 @@ select {
 
 
 @media(max-width:567px){
+  .singup{
+    margin-bottom: 25px;
+  }
   .navbar-brand img {
       padding-right: 0;
 
@@ -159,6 +189,19 @@ select {
   .right-singup{
     display: none;
   }
+  .flex{
+    display: block;
+     input[type=radio] + label {
+      width: 200px;
+      padding: 1em;
+
+    }
+    .c1 + label, .c2 + label{
+      border-radius: 10px;
+    }
+
+  }
+
 }
 
 @media(min-width:567px) and (max-width:992px){

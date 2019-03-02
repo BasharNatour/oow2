@@ -14,7 +14,11 @@ router.post("/",SigninValiadtion,(req,res,next)=>{
         req.session.user_id = doc._id;
         if(req.query.redirect){
             res.redirect(req.query.redirect);
-        }else{
+        }
+        if(doc.type === "company"){
+            res.redirect("/dashboard/company_setting");
+        }
+        else{
             res.redirect("/dashboard");
         }
     }).catch(next);

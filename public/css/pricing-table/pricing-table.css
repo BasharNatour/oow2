@@ -1,0 +1,73 @@
+sup {
+  font-size: 40px;
+}
+
+.whole-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.plan {
+  width: 300px;
+  background-color: #fff;
+  border-radius: 0px 0px 5px 5px;
+  font-family: "Open Sans";
+  text-align: center;
+  padding-bottom: 20px;
+}
+.plan .headers {
+  border-bottom: 1px solid #494a5a;
+  padding-bottom: 40px;
+  font-size: 90px;
+  font-family: "Open Sans";
+}
+.plan .headers span {
+  font-size: 32px;
+}
+.plan .headers .month {
+  font-size: 16px;
+  color: #FF1744;
+  padding: 0px;
+  margin: -10px;
+  font-weight: bold;
+}
+.plan .content ul {
+  list-style: none;
+  font-size: 15px;
+  font-family: "Open Sans";
+  color: #474B49;
+  padding: 0px;
+  margin: 0px;
+}
+.plan .content ul li {
+  border-bottom: 1px solid #E8E8E8;
+  padding: 0px;
+  margin: 0px;
+  text-align: center;
+  height: 52px;
+  line-height: 52px;
+}
+
+.price a:hover {
+  text-decoration: none;
+}
+.price a:focus {
+  outline: none;
+  text-decoration: none;
+}
+.price p {
+  background-color: #FF1744;
+  padding: 0.5em 1em;
+  color: #fff;
+  font-weight: bold;
+  margin: 0;
+}
+
+.selected {
+  background-color: #fff;
+  margin: 0px;
+  padding: 0px;
+  border: 10px solid #FF1744;
+}
+
+/*# sourceMappingURL=pricing-table.css.map */

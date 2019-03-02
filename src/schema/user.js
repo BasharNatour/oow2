@@ -63,6 +63,7 @@ let users = new mongoose.Schema({
         },
         conditions:{
             type:String
+            //optional
         },
         services:[
             {name :String,
@@ -93,10 +94,14 @@ let users = new mongoose.Schema({
 
 });
 users.pre("save",function(next){
+    if(this.isNew){
     bcrypt.hash(this.password, 10).then((hash) => {
         this.password = hash;
         next();
     }).catch(console.log);
+}else{
+    next();
+}
 });
 users.methods.generateVerifyToken = function generateVerifyToken(){
     return Verify.findOne({user:this._id}).then((doc)=>{
