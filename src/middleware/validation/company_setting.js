@@ -11,12 +11,13 @@ module.exports = function companyValidation(req, res, next) {
         image,
         city,
         street,
+        phone,
+        telephone,
         features,
         conditions
 
     } = req.body;
     let errors = {};
-    console.log(req.file);
     
     if(name.length < 4){
         errors.name = "This field is required";
@@ -36,6 +37,10 @@ module.exports = function companyValidation(req, res, next) {
     }
     if(features.length < 4){
         errors.features = "This field is required";
+        return next(new ValidationError(errors));
+    }
+    if(phone.length < 11){
+        errors.phone = "This number must be 11 characters";
         return next(new ValidationError(errors));
     }
     else{

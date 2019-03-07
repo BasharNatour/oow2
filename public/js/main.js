@@ -67,3 +67,42 @@ $(".whole").on("click","a",function(){
 
 
 });
+
+
+// table Services
+function addRow(tableID) {
+  var tr = $("#" + tableID).find("tr:last-child").clone();
+  var n = +tr.attr("data-id") + 1;
+  tr.attr("data-id", n);
+  tr.find("input").each(function () {
+    var name = $(this).attr("name");
+
+    $(this).attr("name", name.replace(/\[\d+\]/, "[" + n + "]"))
+    $(this).val("");
+  });
+
+  // var table = document.getElementById(tableID);
+  // var rowCount = table.rows.length;
+  // var row = table.insertRow(rowCount);
+  // var colCount = table.rows[0].cells.length;
+
+  // for(var i=0; i<colCount; i++) {
+  //   var newRow = row.insertCell(i);
+
+  //   newRow.innerHTML = table.rows[0].cells[i].innerHTML;
+  //   newRow.childNodes[0].value = "";
+  // }
+  $("#" + tableID).find("tbody").append(tr);
+}
+
+function deleteRow(row) {
+  var table = document.getElementById("data");
+  var rowCount = table.rows.length;
+  if (rowCount > 1) {
+    var rowIndex = row.parentNode.parentNode.rowIndex;
+    document.getElementById("data").deleteRow(rowIndex);
+  }
+  else {
+    alert("Please specify at least one value.");
+  }
+}

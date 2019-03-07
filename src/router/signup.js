@@ -33,6 +33,10 @@ router.post("/",signupvalidation,(req,res,next)=>{
     const user = new User({
         firstName,lastName,email,password,governorate,type
     });
+    if(user.type === "company"){
+        user.companyData={};
+        user.companyData.location={};
+    }
     user.save().then(()=>{
         req.session.user_id = user._id;
         verifyMailer(user).catch(console.log);

@@ -32,72 +32,73 @@ block pageContent
     .row
       .container
         .content-worker(class="col-lg-12 col-md-12 col-sm-12")
-          form(id="setting-worker-form",action="/dashboard/company_setting",method="Post")
+          form(id="setting-worker-form",action="/dashboard/company_setting",method="Post", enctype="multipart/form-data")
 
               .sections
                 h4 Company Name 
                 p Please Write The Name Of Company
                 .input-field
-                  input(type="text" , id="Company-name" ,name="name" class="btn-setting-worker" , placeholder="Company Name"  required)
+                  input(type="text" , id="Company-name" ,name="name" class="btn-setting-worker" , placeholder="Company Name" value=user.companyData.name required)
                   .text-danger.text-centered= errors.name 
             
               .sections
                 h4 Job Category
                 p Please select what exactly your jobs
                 .input-field
-                  select(class="btn-setting-worker" required)
+                  select(class="btn-setting-worker" ,name="categary" ,required)
                     each category in categories
-                      option(value=`${category._id}`,name="categary")=category.name
+                      option(value=`${category._id}`,selected=category._id.equals(user.companyData.categary))=category.name
               
               .sections
                 h4 Description
                 p Here are some good examples: <br><span> What the deliverable is.<br> Anything unique about the work or team.</span>
                 .input-field(class="styled-input")
-                  textarea(required class="btn-setting-worker",name="description")
+                  textarea(required class="btn-setting-worker",name="description")=user.companyData.description
                   label Details 
                 .text-danger.text-centered= errors.description  
                   
               .sections
                 h4 Add Profile Image      
                 div(class="file-upload")
-                  div(class="image-upload-wrap")
+                  div(class=`image-upload-wrap`)
                     input(class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" name="myImage")
                     div(class="drag-text")
                       h3 Drag and drop a file or select add Image
-                  div(class="file-upload-content")
-                    img(class="file-upload-image" src="#" alt="your image")
+                  div(class=`file-upload-content`)
+                    img(class="file-upload-image" src=user.profileimage alt="your image")
                     div(class="image-title-wrap")
                       button(type="button" onclick="removeUpload()" class="remove-image") Remove <span class="image-title"> Uploaded Image </span>
     
               .sections
                 h4(class="location") Add Location 
                 .input-field
-                  input(type="text" , id="location-city" ,name="city" class="btn-setting-worker" , placeholder="Enter Your City"
+                  input(type="text" , id="location-city" ,name="city" class="btn-setting-worker" , placeholder="Enter Your City",value=user.companyData.location.city,
                    required)
                   .text-danger.text-centered= errors.city  
                 .input-field
-                  input(type="text" , id="location-city" , name="street" class="btn-setting-worker" , placeholder="Enter Your Address"  required)
+                  input(type="text" , id="location-city" , name="street" class="btn-setting-worker" , placeholder="Enter Your Address",value=user.companyData.location.street, required)
                   .text-danger.text-centered= errors.street  
 
               .sections
                 h4(class="location") Your Number
                 .input-field
-                  input(type="tel" , id="phone-number" , class="btn-setting-worker" , placeholder="Enter Your Phone Number"  required)
+                  input(type="tel" , id="phone-number" , class="btn-setting-worker" , placeholder="Enter Your Phone Number" ,name="phone",value=user.phone ,required)
                   .text-danger.text-centered= errors.phone
                 .input-field
-                  input(type="tel" , id="telephone-number" , class="btn-setting-worker" , placeholder="Enter telephone Number"  )
+                  input(type="tel" , id="telephone-number" ,name="telephone", class="btn-setting-worker" , placeholder="Enter telephone Number"
+                  value=user.telephone)
             
               .sections
                 h4 Features
                 .input-field(class="styled-input")
-                  textarea( required class="btn-setting-worker" name="features")
+                  textarea( required class="btn-setting-worker" name="features")=user.companyData.features
                   label Write The Futures About your Works 
                   .text-danger.text-centered= errors.features
 
               .sections
                 h4 The Conditions
                 .input-field(class="styled-input")
-                  textarea( required class="btn-setting-worker" name="conditions")
+                  textarea( required class="btn-setting-worker" name="conditions")=user.companyData.conditions
                   label Write The Conditions About your Works 
             
               button(class="btn btn-oow submit-worker",type="submit") Submit        
