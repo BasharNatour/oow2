@@ -1,3 +1,6 @@
+h1 {
+    font-size: 2.6rem;
+}
 .singup{
   .left-singup{
     p{
@@ -10,7 +13,7 @@
 }
 
 p{
-  padding-bottom: 10px;
+  padding-bottom: 5px;
 }
 .half-btn{
   border: none;
@@ -58,7 +61,7 @@ select {
 .flex{
   display: flex;
   justify-content: center;
-  padding-top: 20px;
+  padding-top: 5px;
   color: #494949;
   font-weight: bold;
 
@@ -107,7 +110,7 @@ input[type="radio"]:checked + label {
   background: #FF1744;
   color: #fff;
   font-weight: bold;
-  margin-top:  20px;
+  margin-top:  5px;
   width: 20%;
   border:none ;
   height: 30px;
