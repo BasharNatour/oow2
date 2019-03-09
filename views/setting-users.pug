@@ -1,0 +1,61 @@
+extends index
+block append linksCss
+  link(rel="stylesheet" , href="css/setting-worker/setting-worker.css")
+
+
+block pageTitle
+      title Setting
+
+
+block pageContent
+  |
+  <!-- start Nav -->
+  nav(class="navbar navbar-toggleable-md navbar-light")
+     .container
+          |
+          |
+          a(class="navbar-brand", href="index.html")
+              img(src="img/Home-page/logo.png")
+
+          button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
+
+          div(class="collapse navbar-collapse", id="silver")
+            ul(class="navbar-nav ml-auto")
+                li(class="nav-item")
+                  a(href="#" role="button" class="btn oow" aria-pressed="true") LOG OUT
+
+  |
+  |
+  <!-- End Nav -->
+  |
+  |
+  <!-- start setting users --> 
+  .setting-users
+    .row
+      .container
+        .content-worker(class="col-lg-12 col-md-12 col-sm-12")
+          form(id="setting-worker-form")
+            .sections
+              h4 Add Profile Image      
+              div(class="file-upload")
+                div(class="image-upload-wrap")
+                  input(class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" required)
+                  div(class="drag-text")
+                    h3 Drag and drop a file or select add Image
+                div(class="file-upload-content")
+                  img(class="file-upload-image" src="#" alt="your image")
+                  div(class="image-title-wrap")
+                    button(type="button" onclick="removeUpload()" class="remove-image") Remove <span class="image-title"> Uploaded Image </span>
+  
+            .sections
+              h4(class="location") Your Number
+              .input-field
+                input(type="tel" , id="phone-number" , class="btn-setting-worker" , placeholder="Enter Your Phone Number"  required)
+              .input-field
+                input(type="tel" , id="telephone-number" , class="btn-setting-worker" , placeholder="Enter telephone Number"  )
+                            
+            button(class="btn btn-oow submit-worker") Submit
+    
+  |
+  |
+  <!-- End -->
