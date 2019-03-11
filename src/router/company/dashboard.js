@@ -4,6 +4,10 @@ module.exports = router;
 
 const company_setting = require("./company_setting");
 const plain = require("./plain");
+const service = require("./service");
+
+
+
 const authenticated = require("../../middleware/authenticated");
 
 
@@ -11,3 +15,4 @@ const authenticated = require("../../middleware/authenticated");
 
 router.use("/company_setting",authenticated,company_setting);
 router.use("/plain",plain);
+router.use("/service",service);

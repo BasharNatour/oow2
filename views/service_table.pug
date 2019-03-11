@@ -1,0 +1,81 @@
+extends index
+block append linksCss 
+  link(rel="stylesheet" , href="/css/pricing-table/pricing-table.css")
+
+block pageTitle
+  title Pricing & Table 
+        
+block pageContent
+  |
+  <!-- start Nav -->
+  |
+  <!-- start Nav -->
+  nav(class="navbar navbar-toggleable-md navbar-light")
+     .container
+          |
+          |
+          a(class="navbar-brand", href="index.html")
+              img(src="/img/Home-page/logo.png")
+          
+          button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
+                
+          div(class="collapse navbar-collapse", id="silver")
+            ul(class="navbar-nav ml-auto")
+                li(class="nav-item")
+                  a(href="#" role="button" class="btn oow" aria-pressed="true") LOG OUT      
+  hr                                                 
+  |
+  |
+  <!-- End Nav -->
+  |
+  |
+  <!-- start Pricing section -->
+    |
+    |
+    <!-- start Table --> 
+    |
+    |
+    <!-- between -->
+    .back
+      .face    
+      img(src="img/Plant.svg" class="one")
+      img(src="img/Corner Plants.svg" class="two")  
+    |
+    |  
+    <!-- between -->  
+    |
+    |
+    <!-- End Table --> 
+    div(id="main")
+      h2(class="text-center")  Specialty Services <Br> Please Select
+      div(class="container")
+        table(id="data" class="data-table data-table-horizontal data-table-highlight")
+          tbody
+            ul(class="heade-table list-unstyled")
+              li  service
+              li  Details
+              li  Price
+            tr(data-id="0")
+              td 
+                input(type="text", name="services[0]name")
+              td
+                input(type="text", name="services[0]description") 
+              td
+                input(type="number", name="services[0]price") 
+              td
+                a(type="button" value="Delete" onclick="deleteRow(this)")
+                  i(class="fas fa-trash-alt fa-fw")
+                    
+
+        
+        div(class="pull-right")
+          input(type="button" value="Add" class="top-buffer" onclick="addRow('data')")  
+          
+        
+    div(class="pull-right")
+      .container
+        button(value="" class="top-buffer" )
+          a(href="#") Save
+                      
+
+  

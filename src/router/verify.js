@@ -14,7 +14,7 @@ router.get("/:token",(req,res,next)=>{
             doc.user.save().then(() => {
                 doc.delete().catch(console.log);
                 
-                res.redirect("/dashboard");
+                res.redirect("/dashboard/company_setting");
             });
         }else{
             next(new ServerError());
