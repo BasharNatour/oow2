@@ -3,7 +3,7 @@ block append linksCss
   link(rel="stylesheet" , href="/css/pricing-table/pricing-table.css")
 
 block pageTitle
-  title Pricing & Table 
+  title Service
         
 block pageContent
   |
@@ -36,16 +36,17 @@ block pageContent
     |
     |
     <!-- between -->
-    .back
-      .face    
-      img(src="img/Plant.svg" class="one")
-      img(src="img/Corner Plants.svg" class="two")  
+    //- .back
+    //-   .face    
+    //-   img(src="img/Plant.svg" class="one")
+    //-   img(src="img/Corner Plants.svg" class="two")  
     |
     |  
     <!-- between -->  
     |
     |
     <!-- End Table --> 
+  form(action="/dashboard/service",method="post")
     div(id="main")
       h2(class="text-center")  Specialty Services <Br> Please Select
       div(class="container")
@@ -57,11 +58,11 @@ block pageContent
               li  Price
             tr(data-id="0")
               td 
-                input(type="text", name="services[0]name")
+                input(type="text", name="services[0][name]",required)
               td
-                input(type="text", name="services[0]description") 
+                input(type="text", name="services[0][description]") 
               td
-                input(type="number", name="services[0]price") 
+                input(type="number", name="services[0][price]", min="1",value="1",required)
               td
                 a(type="button" value="Delete" onclick="deleteRow(this)")
                   i(class="fas fa-trash-alt fa-fw")
@@ -74,8 +75,8 @@ block pageContent
         
     div(class="pull-right")
       .container
-        button(value="" class="top-buffer" )
-          a(href="#") Save
+        button(type="submit",class="top-buffer" ) Next
+          //- a(href="#") 
                       
 
   

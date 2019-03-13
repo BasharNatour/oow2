@@ -1,10 +1,10 @@
 const mongoose =require("mongoose");
 
-let plan = new mongoose.Schema({
+let plans = new mongoose.Schema({
     name:{
         type:String,
     },
-    type:{
+    feature:{
         type:String,
     },
     price:{
@@ -15,4 +15,4 @@ let plan = new mongoose.Schema({
     }
 });
 
-module.exports = mongoose.model("plans",plan);
+module.exports = mongoose.model("plans",plans);

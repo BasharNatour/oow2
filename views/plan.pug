@@ -31,6 +31,7 @@ block pageContent
   |
   
   <!-- start Pricing section -->
+  form(action="/dashboard/plan",method="post")
     div(class="pricing-section")
       div(class="container")
           h2(class="text-center") pricing
@@ -50,7 +51,7 @@ block pageContent
                         li 15 Email Accounts  
                         li 15 Email Accounts  
                     div(class="price")
-                      a(href="#" class="bottom")
+                      a(href="#" class="bottom selectplan",data-id=docs[0]._id)
                         p(class="cart") Select  
               div(class="col-lg-4")                 
                 div(class="whole")      
@@ -66,7 +67,7 @@ block pageContent
                         li 15 Email Accounts  
                         li 15 Email Accounts  
                     div(class="price")
-                      a(href="#" class="bottom")
+                      a(href="#" class="bottom selectplan", data-id=docs[1]._id)
                         p(class="cart") Select  
                         
               div(class="col-lg-4")           
@@ -83,5 +84,17 @@ block pageContent
                         li 15 Email Accounts  
                         li 15 Email Accounts  
                     div(class="price")
-                      a(href="#" class="bottom")
-                        p(class="cart") Select 
+                      a(href="#" class="bottom selectplan", data-id=docs[2]._id)
+                        p(class="cart") Select
+              input#planInput(type="hidden", name="plan_id")
+    div(class="pull-right")
+      .container
+        button(type="submit",class="top-buffer" ) Next
+  script(src="/js/jquery-3.2.1.min.js")
+  script.
+    $planInput = $("#planInput");
+    $("a.selectplan").on("click",function(){
+      $planInput.val($(this).attr("data-id"));
+    });
+
+

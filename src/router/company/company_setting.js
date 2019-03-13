@@ -59,7 +59,7 @@ router.post("/",[upload.single('myImage')],companyValidation,(req,res,next)=>{
         if(phone){doc.telephone = telephone}
         doc.phone = phone;
         doc.save().then(()=>{
-            res.redirect("/dashboard/company_setting");
+            res.redirect("/dashboard/service");
         }).catch(next);
     }).catch(next);
     

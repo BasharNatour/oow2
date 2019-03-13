@@ -13,6 +13,7 @@ const resend  = require("./resend");
 const authenticated =require("../middleware/authenticated");
 const guest=require("../middleware/guest");
 const company =require("./company");
+const client =require("./client");
 
 
 
@@ -25,6 +26,7 @@ router.use("/signin",guest,signin);
 router.use("/verify",authenticated,verify);
 router.use("/resend",authenticated,resend);
 router.use(company);
+router.use(client);
 
 
 
