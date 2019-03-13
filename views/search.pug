@@ -1,0 +1,65 @@
+extends index
+block append linksCss  
+  link(rel="stylesheet" , href="/css/search/search.css")
+
+block pageTitle
+  title Settings
+  
+block pageContent
+  |
+  <!-- start Nav -->
+  nav(class="navbar navbar-toggleable-md navbar-light")
+     .container
+          |
+          |
+          a(class="navbar-brand", href="index.html")
+              img(src="img/Home-page/logo.png")
+          
+          button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
+                
+          div(class="collapse navbar-collapse", id="silver")
+            ul(class="navbar-nav ml-auto")
+              li(class="nav-item dropdown")
+                a(class="nav-link dropdown-toggle" data-toggle="dropdown" href="#") SETTINGS
+                div(class="dropdown-menu")
+                  a(href="#" class="dropdown-item") Profile
+                  a(href="#" class="dropdown-item") Account Settings
+                  a(href="#" class="dropdown-item") Complaints
+                  a(href="#" class="dropdown-item") Remove Account
+                  a(href="#" class="dropdown-item") Log Out 
+
+
+  |
+  |
+  <!-- End Nav -->
+  |
+  |
+  <!-- start search -->
+  |
+  |
+  .search(class="text-center")
+      .container
+        .row
+          .col-lg
+            p(class="first") Let's find your wedding team
+            p(class="two") Search  local professionals with reviews, pricing, availability, and more
+            .input-field
+              select(required)
+                  option(value="" hidden) Search Governorates
+                  option Alexandria
+                  option Aswan
+                  option Asyut
+                  option Cairo
+                  option Beni Suef
+                  option Damietta
+                  option Faiyum
+                  option Giza
+                  option Ismailia
+                  option Kafr El Sheikh
+                  option Luxor
+                  option Minya
+                  option Red Sea
+                  option Sohag
+              button(class="search-btn")
+                a(href="")
+                  i(class="fa fa-search ")
