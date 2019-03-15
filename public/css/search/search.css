@@ -1,3 +1,26 @@
+.dropdown-menu {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20%);
+  transition: all 0.5s;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+.nav-link {
+  color: #ff1a47 !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+  color: #ff1a47;
+  background-color: #f7f7f9;
+}
+
 .first {
   font-size: 3em;
   padding: 75px 0 0 0;
