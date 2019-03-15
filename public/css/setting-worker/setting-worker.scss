@@ -1,7 +1,7 @@
 .navbar {
 background-color: #fff;
 }
-.setting-workers{
+.setting-workers , .setting-users , .setting-account-users  {
 background-color: #F1F3F5;
 height: 100%
 }
@@ -10,7 +10,7 @@ height: 100%
   background-color: #fff;
   width: 75em;
   margin: 50px auto;
-  padding: 2em 1em;
+  padding: 2em 2em;
   .submit-worker{
     margin-left: calc(30em - -25.1em);
     font-weight:  bold
@@ -43,7 +43,7 @@ height: 100%
 }
 
 
-[type="text"],[type="email"], [type="password"], select, .half-btn , textarea{
+[type="text"],[type="email"], [type="password"], select, .half-btn , textarea , select{
   &:hover, &:focus {
     color: #4b4b4b;
     background: #fafafa;
@@ -228,13 +228,77 @@ body {
   margin-bottom: 25px
 }
 
+/* */
+.setting-account-users{
+  h2,h3{
+    padding-bottom: 25px;
+    color: #474B49
+  }
+  .input-field{
+    margin-bottom: 10px
+  }
+}
+
+.account-sett-btn {
+  width: 425px;
+  height: 50px;
+  border: none ;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  margin-top: 5px;
+  font-size: 1.3em
+}
+
+.up{
+  padding-top: 25px
+}
+
+.submit-save{
+  margin-left: calc(30em - -22em);
+  font-weight:  bold
+}
+
+
+.footer-new{
+  height: 150px;
+  background-color: #1F2931;
+  .social{
+    a{
+      color: #fff!important;
+      :hover{
+        color: #FF1744
+      }
+    }
+  }
+}
+.link-footer ul{
+  display: flex;
+  a{
+    color: #d2d2d2
+  }
+}
+
+.lists li {
+    padding-right: 27px;
+    margin-left: 14px;
+    padding-top: 25px;
+
+}
+
+.white  {
+  color: #fff
+}
+
+
+/* */
+
 
 
 @media(max-width:576px){
   .content-worker{
     width: 24em;
   }
-  h4{
+  h4, h3{
     font-size: 1.3em;
   }
   p{
@@ -244,8 +308,22 @@ body {
   .btn-setting-worker{
     width: 284px
   }
-  .content-worker .submit-worker {
+  .account-sett-btn{
+    width: 250px
+  }
+  .content-worker .submit-worker , .submit-save {
     margin-left: 0;
     font-weight: bold;
+  }
+  .white{
+    text-align: center;
+  }
+  .footer-new {
+    height: 165px;
+  }
+  .setting-account-users{
+    h2{
+      font-size: 1.5em;
+    }
   }
 }

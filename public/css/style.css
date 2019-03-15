@@ -36,10 +36,8 @@
 }
 
 .nav-item {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   padding: 0.4em;
+  text-align: center;
 }
 
 /* Media Query */
@@ -63,6 +61,12 @@
 .header h1 {
   position: relative;
   z-index: 1;
+}
+
+.search {
+  background-image: url("../img/search/xxx.jpg");
+  background-size: cover;
+  min-height: 89vh;
 }
 
 .header-content {
@@ -661,7 +665,6 @@ textarea {
   margin: 0;
 }
 
-html,
 body {
   overflow-x: hidden;
   font: 90%/1.6 "Merriweather", serif !important;
@@ -691,6 +694,29 @@ h2 {
 h3 {
   font-size: 1.85rem;
   line-height: 110%;
+}
+
+.dropdown-menu {
+  display: block;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20%);
+  transition: all 0.5s;
+}
+
+.dropdown:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0%);
+}
+
+.href-color {
+  color: #ff1a47 !important;
+}
+
+.dropdown-item:focus, .dropdown-item:hover {
+  color: #ff1a47;
+  background-color: #f7f7f9;
 }
 
 @media only screen and (min-width: 0) {

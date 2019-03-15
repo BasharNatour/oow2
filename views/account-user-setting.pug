@@ -1,0 +1,133 @@
+extends index
+block append linksCss  
+  link(rel="stylesheet" , href="css/setting-worker/setting-worker.css")
+  
+block pageTitle
+    title Account Settings
+
+
+block pageContent  
+    |
+    <!-- start Nav -->
+    nav(class="navbar navbar-toggleable-md navbar-light")
+       .container
+            |
+            |
+            a(class="navbar-brand", href="index.html")
+                img(src="img/Home-page/logo.png")
+            
+            button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
+                  
+            div(class="collapse navbar-collapse", id="silver")
+              ul(class="navbar-nav ml-auto")
+                li(class="nav-item dropdown")
+                  a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
+                  div(class="dropdown-menu")
+                    a(href="#" class="dropdown-item") Profile
+                    a(href="#" class="dropdown-item") Account Settings
+                    a(href="#" class="dropdown-item") Complaints
+                    a(href="#" class="dropdown-item") Remove Account
+                    a(href="#" class="dropdown-item") Log Out 
+  
+  
+    |
+    |
+    <!-- End Nav -->
+    |
+    |
+    <!-- start account Settings users --> 
+    |
+    |
+    .setting-account-users
+      .row
+        .container
+          .content-worker(class="col-lg-12 col-md-12 col-sm-12")
+            h2(class="text-center") Account Settings
+            .sections
+              .row
+                div(class="col-lg-6")
+                  .input-field
+                    lebal First Name 
+                    input(type="text" class="account-sett-btn"  required)
+                div(class="col-lg-6")
+                  .input-field
+                    lebal Last Name 
+                    input(type="text"  class="account-sett-btn" required)
+            .sections
+              .row
+                div(class="col-lg-6")
+                  .input-field
+                    lebal Email 
+                    input(type="text" class="account-sett-btn"  required)
+                div(class="col-lg-6")
+                  .input-field
+                    lebal Governorates 
+                    select(class="account-sett-btn"  required)
+                        option(value="" hidden) Governorate
+                        option Alexandria
+                        option Aswan
+                        option Asyut
+                        option Cairo
+                        option Beni Suef
+                        option Damietta
+                        option Faiyum
+                        option Giza
+                        option Ismailia
+                        option Kafr El Sheikh
+                        option Luxor
+                        option Minya
+                        option Red Sea
+                        option Sohag          
+            .sections
+              h3 Update Your Password
+              .row
+                div(class="col-lg-6 ")   
+                  .input-field
+                    lebal Current Password 
+                    input(type="Password" class="account-sett-btn" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required)
+              .row(class="up")
+                div(class="col-lg-6")
+                  .input-field
+                    lebal New Password (6 Characters Required)
+                    input(type="Password" class="account-sett-btn"  minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required)
+                div(class="col-lg-6")
+                  .input-field
+                    lebal Confirm Password
+                    input(type="Password" class="account-sett-btn" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required)
+                          
+            button(class="btn btn-oow submit-save") Save Change
+    |
+    |
+    <!-- End setting account users -->
+    |
+    |   
+    <!-- start footer --> 
+    .footer-new
+      .container
+        .row
+          div(class="col-lg-6 col-sm-12")
+          div(class="col-lg-6 col-sm-12")
+            .social
+              ul(class="list-unstyled lists")
+                li
+                  a(href="#")
+                    <i class="fab fa-facebook-square fa-2x"></i>
+                li  
+                  a(href="#")
+                    <i class="fab fa-twitter-square fa-2x"></i>
+                li
+                  a(href="#")
+                    <i class="fab fa-instagram fa-2x"></i>  
+        .row            
+          div(class="col-lg-6 col-sm-12")
+            p(class="white") © 2018 Oow, all rights reserved 
+          div(class="col-lg-6 col-sm-12")
+            .link-footer
+              ul(class="list-unstyled")
+                    li(class="nav-item")
+                      a(class="nav-link" href="#Terms & Conditions") TERMS & CONDITIONS
+
+                    li(class="nav-item")
+                      a(class="nav-link" href="#Privacy Policy") PRIVACY POLICY
+    
+    <!-- End footer -->                
