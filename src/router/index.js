@@ -15,6 +15,8 @@ const guest=require("../middleware/guest");
 const company =require("./company");
 const client =require("./client");
 
+const search =require("./search");
+
 
 
 
@@ -25,6 +27,7 @@ router.use("/signup",guest,signup);
 router.use("/signin",guest,signin);
 router.use("/verify",authenticated,verify);
 router.use("/resend",authenticated,resend);
+router.use("/search",search);
 router.use(company);
 router.use(client);
 

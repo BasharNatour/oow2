@@ -65,6 +65,12 @@
   z-index: 1;
 }
 
+.search {
+  background-image: url("/img/search/xxx.jpg");
+  background-size: cover;
+  min-height: 89vh;
+}
+
 .header-content {
   padding-top: 40vh;
 }
@@ -661,7 +667,6 @@ textarea {
   margin: 0;
 }
 
-html,
 body {
   overflow-x: hidden;
   font: 90%/1.6 "Merriweather", serif !important;
