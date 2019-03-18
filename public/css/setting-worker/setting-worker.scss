@@ -1,10 +1,16 @@
 .navbar {
 background-color: #fff;
 }
-.setting-workers , .setting-users , .setting-account-users  {
+.setting-workers , .setting-users , .setting-account-users {
 background-color: #F1F3F5;
 height: 100%
 }
+ .remove-account {
+   height: 64.5vh;
+   background-color: #F1F3F5;
+
+}
+
 
 .content-worker{
   background-color: #fff;
@@ -257,10 +263,14 @@ body {
   margin-left: calc(30em - -22em);
   font-weight:  bold
 }
-
+.remove-submit{
+  margin-left: calc(30em - -23em);
+  margin-top: 10px;
+  font-weight:  bold
+}
 
 .footer-new{
-  height: 150px;
+  height: 160px;
   background-color: #1F2931;
   .social{
     a{
@@ -311,19 +321,27 @@ body {
   .account-sett-btn{
     width: 250px
   }
-  .content-worker .submit-worker , .submit-save {
+  .content-worker .submit-worker , .submit-save{
     margin-left: 0;
     font-weight: bold;
   }
+  .remove-submit {
+    margin-left: 15px;
+    font-weight: bold;
+  }
+
   .white{
     text-align: center;
   }
   .footer-new {
-    height: 165px;
+    height: 190px;
   }
   .setting-account-users{
     h2{
       font-size: 1.5em;
     }
+  }
+  .remove-account {
+    height: 68.5vh;
   }
 }

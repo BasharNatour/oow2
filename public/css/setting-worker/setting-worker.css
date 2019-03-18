@@ -7,6 +7,11 @@
   height: 100%;
 }
 
+.remove-account {
+  height: 64.5vh;
+  background-color: #F1F3F5;
+}
+
 .content-worker {
   background-color: #fff;
   width: 75em;
@@ -252,8 +257,14 @@ v body {
   font-weight: bold;
 }
 
+.remove-submit {
+  margin-left: calc(30em - -23em);
+  margin-top: 10px;
+  font-weight: bold;
+}
+
 .footer-new {
-  height: 150px;
+  height: 160px;
   background-color: #1F2931;
 }
 .footer-new .social a {
@@ -308,16 +319,25 @@ v body {
     font-weight: bold;
   }
 
+  .remove-submit {
+    margin-left: 15px;
+    font-weight: bold;
+  }
+
   .white {
     text-align: center;
   }
 
   .footer-new {
-    height: 165px;
+    height: 190px;
   }
 
   .setting-account-users h2 {
     font-size: 1.5em;
+  }
+
+  .remove-account {
+    height: 68.5vh;
   }
 }
 
