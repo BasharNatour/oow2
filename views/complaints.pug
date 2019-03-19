@@ -1,0 +1,88 @@
+extends index
+block append linksCss  
+  link(rel="stylesheet" , href="css/setting-worker/setting-worker.css")
+  
+block pageTitle
+    title Complaints
+
+
+block pageContent
+  |
+  <!-- start Nav -->
+  nav(class="navbar navbar-toggleable-md navbar-light")
+     .container
+          |
+          |
+          a(class="navbar-brand", href="index.html")
+              img(src="img/Home-page/logo.png")
+          
+          button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
+                
+          div(class="collapse navbar-collapse", id="silver")
+            ul(class="navbar-nav ml-auto")
+              li(class="nav-item dropdown")
+                a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
+                div(class="dropdown-menu")
+                  a(href="#" class="dropdown-item") Profile
+                  a(href="#" class="dropdown-item") Account Settings
+                  a(href="#" class="dropdown-item") Edit Settings
+                  a(href="#" class="dropdown-item") Complaints
+                  a(href="#" class="dropdown-item") Remove Account
+                  a(href="#" class="dropdown-item") Log Out 
+
+
+  |
+  |
+  <!-- End Nav -->
+  |
+  |
+  <!-- start Contant Us -->
+  .contact(id="contact")
+    .container
+      .row
+        div(class="col-lg-5 col-md-12 col-sm-12  contact-content")
+          h2 CONTACT US
+          .cont-color(class="hide-on-small-only hide-on-med-only")
+          p Fill in the filed below and we'll get back to you.
+          form(class="contact-form")
+            input(type="text" , name="name" , placeholder="Name", class="btn-cont")
+            input(type="email" , name="email" , placeholder="Email", class="btn-cont")
+            textarea(class="btn-cont")
+            button(type="submit" , name="submit") Submit
+        div(class="col-lg-5 offset-lg-2 col-md-12 col-sm-12 cont-img")
+            img(src="img/Home-page/undraw_messaging_uok8.svg")    
+  |
+  |
+  <!-- End CONTACT us -->
+  |
+  |
+  <!-- start footer -->
+  .footer-new
+    .container
+      .row
+        div(class="col-lg-6 col-sm-12")
+        div(class="col-lg-6 col-sm-12")
+          .social
+            ul(class="list-unstyled lists")
+              li
+                a(href="#")
+                  <i class="fab fa-facebook-square fa-2x"></i>
+              li  
+                a(href="#")
+                  <i class="fab fa-twitter-square fa-2x"></i>
+              li
+                a(href="#")
+                  <i class="fab fa-instagram fa-2x"></i>  
+      .row            
+        div(class="col-lg-6 col-sm-12")
+          p(class="white") © 2018 Oow, all rights reserved 
+        div(class="col-lg-6 col-sm-12")
+          .link-footer
+            ul(class="list-unstyled")
+                  li(class="nav-item")
+                    a(class="nav-link" href="#Terms & Conditions") TERMS & CONDITIONS
+
+                  li(class="nav-item")
+                    a(class="nav-link" href="#Privacy Policy") PRIVACY POLICY
+  
+  <!-- End footer -->
