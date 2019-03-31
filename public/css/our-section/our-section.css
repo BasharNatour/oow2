@@ -1,0 +1,130 @@
+.our-section {
+  background-color: #F4F4F4;
+  padding-top: 100px;
+}
+
+.card-img-top {
+  max-height: 50vh;
+}
+
+.card .card-body h2 {
+  font-size: 31px;
+  padding-top: 15px;
+  font-family: Raleway;
+}
+.card .card-body p {
+  margin: 10px 5px 0 5px;
+  font-size: 1.2em;
+}
+
+.card {
+  margin: 0 20px 100px;
+  position: relative;
+  border: none;
+}
+
+.more {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(28, 48, 36, 0.7777);
+  text-align: center;
+  color: #fff;
+  line-height: 400px;
+  font-weight: bold;
+  display: none;
+  font-size: 32px;
+  font-family: sans-serif;
+}
+
+.card:hover .more {
+  display: block;
+  transition: all 0.5s ease-in-out;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer-new {
+  height: 160px;
+  background-color: #1F2931;
+}
+.footer-new .social a {
+  color: #fff !important;
+}
+.footer-new .social a :hover {
+  color: #FF1744;
+}
+
+.link-footer ul {
+  display: flex;
+}
+.link-footer ul a {
+  color: #d2d2d2;
+}
+
+.lists li {
+  padding-right: 27px;
+  margin-left: 14px;
+  padding-top: 25px;
+}
+
+.white {
+  color: #fff;
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    max-height: 35vh;
+  }
+
+  .content-worker {
+    width: 24em;
+  }
+
+  h4, h3 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 0.95em;
+    padding-bottom: 15px;
+  }
+
+  .btn-setting-worker {
+    width: 284px;
+  }
+
+  .account-sett-btn {
+    width: 250px;
+  }
+
+  .content-worker .submit-worker, .submit-save {
+    margin-left: 0;
+    font-weight: bold;
+  }
+
+  .remove-submit {
+    margin-left: 15px;
+    font-weight: bold;
+  }
+
+  .white {
+    text-align: center;
+  }
+
+  .footer-new {
+    height: 190px;
+  }
+
+  .setting-account-users h2 {
+    font-size: 1.5em;
+  }
+
+  .remove-account {
+    height: 68.5vh;
+  }
+}
+
+/*# sourceMappingURL=our-section.css.map */
