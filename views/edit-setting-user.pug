@@ -58,10 +58,10 @@ block pageContent
                 div(class="col-lg-6")
                   .input-field
                     lebal Country
-                    select(class="account-sett-btn"  required)
-                      option#country(value="" hidden) Country
+                    select#country(class="account-sett-btn" required)
+                      option(value="" hidden) Country
                       each country in countries
-                        option(value=`${country._id}`,selected=`${country._id.equals(user.governorate.country._id)}`)=country.name
+                        option(value=`${country._id}`,selected=country._id.equals(user.governorate.country._id))=country.name
                 div(class="col-lg-6")
                   .input-field
                     lebal Governorates 
