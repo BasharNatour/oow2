@@ -48,36 +48,25 @@ block pageContent
                 div(class="col-lg-6")
                   .input-field
                     lebal First Name 
-                    input(type="text" class="account-sett-btn"  required)
+                    input(type="text" class="account-sett-btn" value=`${!user.firstName?"":user.firstName}` required)
                 div(class="col-lg-6")
                   .input-field
                     lebal Last Name 
-                    input(type="text"  class="account-sett-btn" required)
+                    input(type="text"  class="account-sett-btn" value=`${!user.lastName?"":user.lastName}` required)
             .sections
               .row
                 div(class="col-lg-6")
                   .input-field
-                    lebal Email 
-                    input(type="text" class="account-sett-btn"  required)
+                    lebal Country
+                    select(class="account-sett-btn"  required)
+                      option#country(value="" hidden) Country
+                      each country in countries
+                        option(value=`${country._id}`,selected=`${country._id.equals(user.governorate.country._id)}`)=country.name
                 div(class="col-lg-6")
                   .input-field
                     lebal Governorates 
-                    select(class="account-sett-btn"  required)
+                    select#governorates(class="account-sett-btn" data-value=user.governorate._id required)
                         option(value="" hidden) Governorate
-                        option Alexandria
-                        option Aswan
-                        option Asyut
-                        option Cairo
-                        option Beni Suef
-                        option Damietta
-                        option Faiyum
-                        option Giza
-                        option Ismailia
-                        option Kafr El Sheikh
-                        option Luxor
-                        option Minya
-                        option Red Sea
-                        option Sohag  
                
             .sections
               h4 Add Profile Image      
@@ -156,4 +145,25 @@ block pageContent
                     li(class="nav-item")
                       a(class="nav-link" href="#Privacy Policy") PRIVACY POLICY
     
-    <!-- End footer -->                
+    <!-- End footer -->   
+    script.
+      var governorates = !{JSON.stringify(governorates)};
+      var $country = document.querySelector("#country");
+      var $governorates = document.querySelector("#governorates")
+      $country.addEventListener("change",renderCities);
+      renderCities();
+      function renderCities(){
+        console.log($country.options);
+        var country_id = $country.options[$country.selectedIndex].value;
+        var filter = governorates.filter(function (governorate){return governorate.country === country_id;});
+        $governorates.innerHTML = "";
+        const oldValue = $governorates.dataset.value;
+        delete $governorates.dataset.value;
+        filter.forEach(function(governorate){
+            var option = document.createElement("option");
+            option.value = governorate._id;
+            option.innerHTML=governorate.name;
+            option.selected = governorate._id === oldValue;
+            $governorates.appendChild(option);
+        });
+      }             
