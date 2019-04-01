@@ -7,6 +7,9 @@ $medium: 768px;
 $large: 992px;
 $x-large: 1200px;
 
+.content{
+  margin-bottom:  50px
+}
 
 .our-section{
   background-color: #F4F4F4;
@@ -17,8 +20,9 @@ $x-large: 1200px;
   max-height: 50vh;
 }
 
-.card{
   .card-body{
+    background-color: #fff;
+    margin: 0px 15px 0px;
     h2{
       font-size: 31px;
       padding-top: 15px;
@@ -29,11 +33,10 @@ $x-large: 1200px;
       font-size: 1.2em
     }
   }
-}
 
 
 .card {
-  margin: 0 20px 100px ;
+  margin: 0px 15px 0px;
   position: relative;
   border: none ;
 }
@@ -48,7 +51,7 @@ $x-large: 1200px;
   background-color: rgba(28, 48, 36, 0.7777);
   text-align: center;
   color: #fff;
-  line-height: 400px;
+  line-height: 325px;
   font-weight: bold;
   display: none;
   font-size: 32px;
@@ -141,5 +144,8 @@ $x-large: 1200px;
   }
   .remove-account {
     height: 68.5vh;
+  }
+  .more{
+    line-height: 250px
   }
 }
