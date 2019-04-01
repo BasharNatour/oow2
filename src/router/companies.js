@@ -5,7 +5,7 @@ const router = new express.Router({
 module.exports = router;
 
 router.get("/",(req,res)=>{
-    governarate = req.params;
+    governarate = req.query;
     console.log(governarate);
     res.render("photography");
 });

@@ -25,7 +25,6 @@ block pageContent
                   div(class="dropdown-menu")
                     a(href="#" class="dropdown-item") Profile
                     a(href="#" class="dropdown-item") Account Settings
-                    a(href="#" class="dropdown-item") Edit Settings
                     a(href="#" class="dropdown-item") Complaints
                     a(href="#" class="dropdown-item") Remove Account
                     a(href="#" class="dropdown-item") Log Out 
@@ -78,8 +77,33 @@ block pageContent
                         option Luxor
                         option Minya
                         option Red Sea
-                        option Sohag          
+                        option Sohag  
+               
             .sections
+              h4 Add Profile Image      
+              div(class="file-upload")
+                div(class="image-upload-wrap")
+                  input(class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" required)
+                  div(class="drag-text")
+                    h3 Drag and drop a file or select add Image
+                div(class="file-upload-content")
+                  img(class="file-upload-image" src="#" alt="your image")
+                  div(class="image-title-wrap")
+                    button(type="button" onclick="removeUpload()" class="remove-image") Remove <span class="image-title"> Uploaded Image </span>
+  
+            .sections
+              h4(class="location") Your Number
+              .input-field
+                input(type="tel" , id="phone-number" , class="btn-setting-worker" , placeholder="Enter Your Phone Number"  required)
+              .input-field
+                input(type="tel" , id="telephone-number" , class="btn-setting-worker" , placeholder="Enter telephone Number"  )
+
+            .sections
+              h4(class="id-national ") Id National Card
+              .input-field
+                input(type="tel" , id="id-national" , class="btn-setting-worker" , placeholder="Enter Your Id  National Card"  required)      
+            .sections
+              button(class="btn btn-oow submit-save") Save Change 
               h3 Update Your Password
               .row
                 div(class="col-lg-6 ")   
@@ -96,7 +120,8 @@ block pageContent
                     lebal Confirm Password
                     input(type="Password" class="account-sett-btn" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required)
                           
-            button(class="btn btn-oow submit-save") Save Change
+            button(class="btn btn-oow submit-save") update password
+    
     |
     |
     <!-- End setting account users -->
