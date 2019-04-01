@@ -9,5 +9,6 @@ const editSetting = require("./editSetting");
 
 
 
+
 router.use("/user_setting",user_setting);
 router.use("/editSetting",editSetting);

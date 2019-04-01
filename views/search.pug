@@ -5,6 +5,7 @@ block append linksCss
 block pageTitle
   title Settings
   
+  
 block pageContent
   |
   <!-- start Nav -->
@@ -23,11 +24,11 @@ block pageContent
                 a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
                 div(class="dropdown-menu")
                   a(href="#" class="dropdown-item") Profile
-                  a(href="#" class="dropdown-item") Account Settings
+                  a(href="/dashboard/editSetting" class="dropdown-item") Account Settings
                   a(href="#" class="dropdown-item") Edit Settings
-                  a(href="#" class="dropdown-item") Complaints
-                  a(href="#" class="dropdown-item") Remove Account
-                  a(href="#" class="dropdown-item") Log Out 
+                  a(href="/complaints" class="dropdown-item") Complaints
+                  a(href="/remove-account" class="dropdown-item") Remove Account
+                  a(href="/logout" class="dropdown-item") Log Out 
 
 
   |
@@ -44,23 +45,18 @@ block pageContent
           .col-lg
             p(class="first") Let's find your wedding team
             p(class="two") Search  local professionals with reviews, pricing, availability, and more
-            .input-field
-              select(required)
-                  option(value="" hidden) Search Governorates
-                  option Alexandria
-                  option Aswan
-                  option Asyut
-                  option Cairo
-                  option Beni Suef
-                  option Damietta
-                  option Faiyum
-                  option Giza
-                  option Ismailia
-                  option Kafr El Sheikh
-                  option Luxor
-                  option Minya
-                  option Red Sea
-                  option Sohag
-              button(class="search-btn")
-                a(href="")
+            form(action="/ourSections",method="get",id="form1")
+              .input-field
+                select(required,name="governorate")
+                  option(hidden) Search Governorates
+                    each governorate in result
+                      option(value=`${governorate._id}`)=governorate.name
+                button(type="submit",form="form1",class="search-btn")
+                  a(href="/ourSections")
                   i(class="fa fa-search ")
+
+
+
+                
+
+                                  

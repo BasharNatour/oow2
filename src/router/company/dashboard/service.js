@@ -1,11 +1,12 @@
 const express = require("express");
 const router = new express.Router();
 module.exports = router;
-const User =require("../../schema/user");
-const populate_user = require("../../middleware/populate_user");
+const User =require("../../../schema/user");
+const populate_user = require("../../../middleware/populate_user");
 
-router.get("/",(req,res)=>{
-    res.render("service_table");
+router.get("/",populate_user,(req,res)=>{
+    res.render("service_table",{user:req.user});
+    console.log(req.user);
 
 });
 

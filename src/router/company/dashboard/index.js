@@ -8,7 +8,7 @@ const service = require("./service");
 
 
 
-const authenticated = require("../../middleware/authenticated");
+const authenticated = require("../../../middleware/authenticated");
 
 
 
