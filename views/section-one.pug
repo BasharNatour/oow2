@@ -1,11 +1,11 @@
 extends index
 block append linksCss
-  link(rel="stylesheet" , href="css/our-section/our-section.css")
-  link(rel="stylesheet" , href="css/our-section/section-one.css")
+  link(rel="stylesheet" , href="/css/our-section/our-section.css")
+  link(rel="stylesheet" , href="/css/our-section/section-one.css")
 
 
 block pageTitle
-      title wedding venues
+      title=sections.name
 
 
 block pageContent
@@ -16,7 +16,7 @@ block pageContent
           |
           |
           a(class="navbar-brand", href="index.html")
-              img(src="img/Home-page/logo.png")
+              img(src="/img/Home-page/logo.png")
           
           button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
                 
@@ -38,10 +38,10 @@ block pageContent
   |
   |
   <!-- start header wedding venues -->
-  .main-section-one
+  .main-section-one(style=`background-image: url(${sections.background})`)
     .content-section(class="text-center")
-      h2 Wedding Venues
-      p  Browsing wedding venues is among the very first steps of planning your big day. But with so many wedding venues to choose from, how do you find The One? First, consider the style of venue you’d like: Garden or beach? Ballroom or barn? Then, read reviews of wedding venues in your desired city and select a few to tour in person. Happy venue hunting!
+      h2=sections.name
+      p=sections.longdescription
   <!-- End header wedding venues -->
   |
   |
@@ -51,7 +51,7 @@ block pageContent
         div(class="worker-section")
           .row
             div(class="col-lg-3  first")
-              img(src="img/our-section/worker/1.png" class="img-worker")
+              img(src="/img/our-section/worker/1.png" class="img-worker")
             div(class="col-lg-7  second")
               h3 The White Mountain Hotel & Resort
               p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?
@@ -63,7 +63,7 @@ block pageContent
         div(class="worker-section")
           .row
             div(class="col-lg-3  first")
-              img(src="img/our-section/worker/2.png" class="img-worker")
+              img(src="/img/our-section/worker/2.png" class="img-worker")
             div(class="col-lg-7  second")
               h3 The White Mountain Hotel & Resort
               p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?
@@ -75,7 +75,7 @@ block pageContent
         div(class="worker-section")
           .row
             div(class="col-lg-3  first")
-              img(src="img/our-section/worker/3.png" class="img-worker")
+              img(src="/img/our-section/worker/3.png" class="img-worker")
             div(class="col-lg-7  second")
               h3 The White Mountain Hotel & Resort
               p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?

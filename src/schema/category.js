@@ -10,7 +10,13 @@ let categories = new mongoose.Schema({
     },
     image:{
         type:String
-    }
+    },
+    background:{
+        type:String
+    },
+    longdescription:{
+        type:String
+    },
 });
 
 module.exports = mongoose.model("categories",categories);

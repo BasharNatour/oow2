@@ -47,9 +47,9 @@ block pageContent
             form(action="/ourSections",method="get",id="form1")
               .input-field
                 select(required,name="governorate")
-                  option(hidden) Search Governorates
-                    each governorate in result
-                      option(value=`${governorate._id}`)=governorate.name
+                  option(hidden,value="") Search Governorates
+                  each governorate in result
+                    option(value=`${governorate._id}`)=governorate.name
                 button(type="submit",form="form1",class="search-btn")
                   a(href="/ourSections")
                   i(class="fa fa-search ")
