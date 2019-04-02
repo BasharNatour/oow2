@@ -72,11 +72,13 @@ let users = new mongoose.Schema({
             }
         ],
         plan : {
-            plan : {
+            planId : {
               type:mongoose.Schema.Types.ObjectId,
               ref : "plans"
             },
-            endDate: Date
+            endDate: {
+                type:Date,
+            },
           },
         images:[
             {

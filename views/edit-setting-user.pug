@@ -1,6 +1,6 @@
 extends index
 block append linksCss  
-  link(rel="stylesheet" , href="css/setting-worker/setting-worker.css")
+  link(rel="stylesheet" , href="/css/setting-worker/setting-worker.css")
   
 block pageTitle
     title Edit Settings
@@ -14,7 +14,7 @@ block pageContent
             |
             |
             a(class="navbar-brand", href="index.html")
-                img(src="img/Home-page/logo.png")
+                img(src="/img/Home-page/logo.png")
             
             button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
                   
@@ -25,7 +25,6 @@ block pageContent
                   div(class="dropdown-menu")
                     a(href="#" class="dropdown-item") Profile
                     a(href="#" class="dropdown-item") Account Settings
-                    a(href="#" class="dropdown-item") Edit Settings
                     a(href="#" class="dropdown-item") Complaints
                     a(href="#" class="dropdown-item") Remove Account
                     a(href="#" class="dropdown-item") Log Out 
@@ -49,37 +48,51 @@ block pageContent
                 div(class="col-lg-6")
                   .input-field
                     lebal First Name 
-                    input(type="text" class="account-sett-btn"  required)
+                    input(type="text" class="account-sett-btn" value=`${!user.firstName?"":user.firstName}` required)
                 div(class="col-lg-6")
                   .input-field
                     lebal Last Name 
-                    input(type="text"  class="account-sett-btn" required)
+                    input(type="text"  class="account-sett-btn" value=`${!user.lastName?"":user.lastName}` required)
             .sections
               .row
                 div(class="col-lg-6")
                   .input-field
-                    lebal Email 
-                    input(type="text" class="account-sett-btn"  required)
+                    lebal Country
+                    select#country(class="account-sett-btn" required)
+                      option(value="" hidden) Country
+                      each country in countries
+                        option(value=`${country._id}`,selected=country._id.equals(user.governorate.country._id))=country.name
                 div(class="col-lg-6")
                   .input-field
                     lebal Governorates 
-                    select(class="account-sett-btn"  required)
+                    select#governorates(class="account-sett-btn" data-value=user.governorate._id required)
                         option(value="" hidden) Governorate
-                        option Alexandria
-                        option Aswan
-                        option Asyut
-                        option Cairo
-                        option Beni Suef
-                        option Damietta
-                        option Faiyum
-                        option Giza
-                        option Ismailia
-                        option Kafr El Sheikh
-                        option Luxor
-                        option Minya
-                        option Red Sea
-                        option Sohag          
+               
             .sections
+              h4 Add Profile Image      
+              div(class="file-upload")
+                div(class="image-upload-wrap")
+                  input(class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" required)
+                  div(class="drag-text")
+                    h3 Drag and drop a file or select add Image
+                div(class="file-upload-content")
+                  img(class="file-upload-image" src="#" alt="your image")
+                  div(class="image-title-wrap")
+                    button(type="button" onclick="removeUpload()" class="remove-image") Remove <span class="image-title"> Uploaded Image </span>
+  
+            .sections
+              h4(class="location") Your Number
+              .input-field
+                input(type="tel" , id="phone-number" , class="btn-setting-worker" , placeholder="Enter Your Phone Number"  required)
+              .input-field
+                input(type="tel" , id="telephone-number" , class="btn-setting-worker" , placeholder="Enter telephone Number"  )
+
+            .sections
+              h4(class="id-national ") Id National Card
+              .input-field
+                input(type="tel" , id="id-national" , class="btn-setting-worker" , placeholder="Enter Your Id  National Card"  required)      
+            .sections
+              button(class="btn btn-oow submit-save") Save Change 
               h3 Update Your Password
               .row
                 div(class="col-lg-6 ")   
@@ -96,7 +109,8 @@ block pageContent
                     lebal Confirm Password
                     input(type="Password" class="account-sett-btn" minlength="8" pattern="^(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required)
                           
-            button(class="btn btn-oow submit-save") Save Change
+            button(class="btn btn-oow submit-save") update password
+    
     |
     |
     <!-- End setting account users -->
@@ -131,4 +145,25 @@ block pageContent
                     li(class="nav-item")
                       a(class="nav-link" href="#Privacy Policy") PRIVACY POLICY
     
-    <!-- End footer -->                
+    <!-- End footer -->   
+    script.
+      var governorates = !{JSON.stringify(governorates)};
+      var $country = document.querySelector("#country");
+      var $governorates = document.querySelector("#governorates")
+      $country.addEventListener("change",renderCities);
+      renderCities();
+      function renderCities(){
+        console.log($country.options);
+        var country_id = $country.options[$country.selectedIndex].value;
+        var filter = governorates.filter(function (governorate){return governorate.country === country_id;});
+        $governorates.innerHTML = "";
+        const oldValue = $governorates.dataset.value;
+        delete $governorates.dataset.value;
+        filter.forEach(function(governorate){
+            var option = document.createElement("option");
+            option.value = governorate._id;
+            option.innerHTML=governorate.name;
+            option.selected = governorate._id === oldValue;
+            $governorates.appendChild(option);
+        });
+      }             

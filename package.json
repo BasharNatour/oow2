@@ -8,7 +8,8 @@
     "debug": "cross-env DOMAIN=http://localhost MONGO_URL=mongodb://localhost:27017/oow ENVIRONMENT=devolopment MAIL_HOST=smtp.mailtrap.io MAIL_PORT=465 MAIL_USER=c34bfb6d113c0d MAIL_PASS=bc13da42f80623 node --inspect app.js",
     "seed": "cross-env MONGO_URL=mongodb://localhost:27017/oow node src/seeds/index.js",
     "start": "node app.js",
-    "deploy": "now -e DOMAIN=@domain MONGO_URL=@mongo-url ENVIRONMENT=@environment MAIL_HOST=@mail-host MAIL_PORT=@mail-port MAIL_USER=@mail-user MAIL_PASS=@mail-pass"
+    "deploy": "now -e DOMAIN=@domain MONGO_URL=@mongo-url ENVIRONMENT=@environment MAIL_HOST=@mail-host MAIL_PORT=@mail-port MAIL_USER=@mail-user MAIL_PASS=@mail-pass",
+    "style":"sass public\\css\\style.scss public\\css\\style.css"
   },
   "author": "",
   "license": "ISC",

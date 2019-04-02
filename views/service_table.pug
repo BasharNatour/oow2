@@ -22,7 +22,7 @@ block pageContent
           div(class="collapse navbar-collapse", id="silver")
             ul(class="navbar-nav ml-auto")
                 li(class="nav-item")
-                  a(href="#" role="button" class="btn oow" aria-pressed="true") LOG OUT      
+                  a(href="/logout" role="button" class="btn oow" aria-pressed="true") LOG OUT      
   hr                                                 
   |
   |
@@ -56,16 +56,18 @@ block pageContent
               li  service
               li  Details
               li  Price
-            tr(data-id="0")
-              td 
-                input(type="text", name="services[0][name]",required)
-              td
-                input(type="text", name="services[0][description]") 
-              td
-                input(type="number", name="services[0][price]", min="1",value="1",required)
-              td
-                a(type="button" value="Delete" onclick="deleteRow(this)")
-                  i(class="fas fa-trash-alt fa-fw")
+            - var services = user.companyData.services && user.companyData.services.length? user.companyData.services : [{ name : "", description: "" , price: 1  }]
+            each service , i in services
+              tr(data-id=i)
+                td 
+                  input(type="text",value=service.name ,name=`services[${i}][name]`,required)
+                td
+                  input(type="text",value=service.description ,name=`services[${i}][description]`) 
+                td
+                  input(type="number",value=service.price ,name=`services[${i}][price]`, min="1",required)
+                td
+                  a(type="button" value="Delete" onclick="deleteRow(this)")
+                    i(class="fas fa-trash-alt fa-fw")
                     
 
         
@@ -76,7 +78,9 @@ block pageContent
     div(class="pull-right")
       .container
         button(type="submit",class="top-buffer" ) Next
+        h1=user.firstName
           //- a(href="#") 
                       
 
   
+    

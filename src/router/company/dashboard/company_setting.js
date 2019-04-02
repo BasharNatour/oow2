@@ -1,13 +1,13 @@
 const express = require("express");
 const router = new express.Router();
 module.exports = router;
-const Category = require("../../schema/category");
-const ValidationError = require("../../errors/validationError");
-const companyValidation = require("../../middleware/validation/company_setting");
-const User =require("../../schema/user");
+const Category = require("../../../schema/category");
+const ValidationError = require("../../../errors/validationError");
+const companyValidation = require("../../../middleware/validation/company_setting");
+const User =require("../../../schema/user");
 const multer = require("multer");
 const path   = require("path");
-const populate_user =require("../../middleware/populate_user");
+const populate_user =require("../../../middleware/populate_user");
 
 router.get("/",populate_user,(req,res,next)=>{
     Category.find({}).then((categories)=>{
