@@ -46,41 +46,18 @@ block pageContent
   |
   |
   <!-- start wedding venues -->
-  .file-worker
-      .container
-        div(class="worker-section")
-          .row
-            div(class="col-lg-3  first")
-              img(src="/img/our-section/worker/1.png" class="img-worker")
-            div(class="col-lg-7  second")
-              h3 The White Mountain Hotel & Resort
-              p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?
-              button 
-                a(href="#") View More    
-  
-  .file-worker
-      .container
-        div(class="worker-section")
-          .row
-            div(class="col-lg-3  first")
-              img(src="/img/our-section/worker/2.png" class="img-worker")
-            div(class="col-lg-7  second")
-              h3 The White Mountain Hotel & Resort
-              p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?
-              button 
-                a(href="#") View More   
-                
-  .file-worker
-      .container
-        div(class="worker-section")
-          .row
-            div(class="col-lg-3  first")
-              img(src="/img/our-section/worker/3.png" class="img-worker")
-            div(class="col-lg-7  second")
-              h3 The White Mountain Hotel & Resort
-              p Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?
-              button 
-                a(href="#") View More   
+  each user in users
+    .file-worker
+        .container
+          div(class="worker-section")
+            .row
+              div(class="col-lg-3  first")
+                img(src=user.profileimage class="img-worker")
+              div(class="col-lg-7  second")
+                h3=user.companyData.name
+                p=user.companyData.description
+                button 
+                  a(href="#") View More    
                 
                 
         
