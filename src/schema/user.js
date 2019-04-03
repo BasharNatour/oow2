@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bcrypt  = require("bcrypt");
 const Verify = require("./verify");
 const randomstring = require("randomstring");
+const mongoosePaginate =require("mongoose-paginate");
 let users = new mongoose.Schema({
     firstName : {
         type: String,
@@ -119,5 +120,5 @@ users.methods.generateVerifyToken = function generateVerifyToken(){
     });
     
 };
-
+users.plugin(mongoosePaginate);
 module.exports = mongoose.model("users", users);

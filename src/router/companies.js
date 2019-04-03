@@ -5,17 +5,20 @@ const router = new express.Router({
 module.exports = router;
 const Category = require("../schema/category");
 const User = require("../schema/user");
+const qureryString = require("query-string");
 
 router.get("/", (req, res, next) => {
     let governorate = req.query.governorate;
     let section =req.query.section;
-    console.log(req.query);
     Category.findById(req.query.section).then((sections) => {
-        User.find({governorate,type:"company","companyData.categary":section}).then((users)=>{
-            console.log(users);
+        User.paginate({governorate,type:"company","companyData.categary":section}, {page: +req.query.page || 1 , limit:7}).then((data)=>{
             res.render("section-one", {
                 sections,
-                users
+                users :data.docs,
+                page : data.page,
+                pages: data.pages,
+                baseUrl:`/companies?${qureryString.stringify({ section , governorate })}`
+
             });
         });
     }).catch(next);

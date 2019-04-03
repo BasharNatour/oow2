@@ -9,7 +9,7 @@
     "seed": "cross-env MONGO_URL=mongodb://localhost:27017/oow node src/seeds/index.js",
     "start": "node app.js",
     "deploy": "now -e DOMAIN=@domain MONGO_URL=@mongo-url ENVIRONMENT=@environment MAIL_HOST=@mail-host MAIL_PORT=@mail-port MAIL_USER=@mail-user MAIL_PASS=@mail-pass",
-    "style":"sass public\\css\\style.scss public\\css\\style.css"
+    "style": "sass public\\css\\style.scss public\\css\\style.css"
   },
   "author": "",
   "license": "ISC",
@@ -23,10 +23,12 @@
     "flash": "^1.1.0",
     "method-override": "^3.0.0",
     "mongoose": "^5.4.16",
+    "mongoose-paginate": "^5.0.3",
     "morgan": "^1.9.1",
     "multer": "^1.4.1",
     "nodemailer": "^5.1.1",
     "pug": "^2.0.3",
+    "query-string": "^6.4.2",
     "randomstring": "^1.1.5",
     "validator": "^10.11.0"
   },

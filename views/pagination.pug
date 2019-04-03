@@ -1,0 +1,15 @@
+mixin pagination(page, pages, baseUrl)
+    nav(aria-label='Page navigation example')
+        ul.pagination
+            if page === 1
+                li.page-item.disabled
+                    a.page-link(href='#') Previous
+            else
+                li.page-item
+                    a.page-link(href=`${baseUrl}&page=${page - 1}`) Previous
+            if page === pages
+                li.page-item.disabled
+                    a.page-link(href='#') Next
+            else
+                li.page-item
+                    a.page-link(href=`${baseUrl}&page=${page + 1}`) Next

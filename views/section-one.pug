@@ -57,7 +57,14 @@ block pageContent
                 h3=user.companyData.name
                 p=user.companyData.description
                 button 
-                  a(href="#") View More    
+                  a(href="#") View More   
+  if users.length > 0 && pages > 1
+    .pagination-outer(style="display : flex; justify-content : center")
+      include pagination
+      +pagination(page,pages,baseUrl)
+  if users.length === 0
+    h1.text-center.text-danger.m-5 No companies were found
+  
                 
                 
         

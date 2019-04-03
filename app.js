@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use(session({
+let SESSION_CONFIG = {
     secret: 'keyboard cat',
     resave: false,
     saveUninitialized: true,
@@ -27,11 +27,14 @@ app.use(session({
         secure: process.env.ENVIRONMENT === "production",
         expires: 1000 * 60 * 60 * 24
     },
-    store: new connectMongo({
+    store:new connectMongo({
         url: url,
         ttl: 60 * 60 * 24,
     })
-}));
+};
+
+
+app.use(session(SESSION_CONFIG));
 
 app.use(flash());
 app.use(express.static("public"));
