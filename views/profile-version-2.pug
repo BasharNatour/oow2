@@ -1,0 +1,127 @@
+extends index
+block append linksCss 
+  link(rel="stylesheet" , href="/css/profile-worker/worker-version-2.css")
+  link(rel="stylesheet" , href="/css/our-section/our-section.css")
+
+block pageTitle
+  title Pricing & Table 
+        
+block pageContent
+    // start Nav
+    nav.navbar.navbar-toggleable-md.navbar-light
+      .container
+        a.navbar-brand(href='index.html')
+          img(src='/img/Home-page/logo.png')
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
+        #silver.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle.href-color(data-toggle='dropdown', href='#') SETTINGS
+              .dropdown-menu
+                a.dropdown-item(href='#') Profile
+                a.dropdown-item(href='#') Account Settings
+                a.dropdown-item(href='#') Complaints
+                a.dropdown-item(href='#') Remove Account
+                a.dropdown-item(href='#') Log Out 
+    // End Nav
+    // start profile-wroker
+    .profile-worker
+      .container
+        .row
+          .col-lg-2.up
+            .one
+              img(src='/img/our-section/worker/3.png')
+          .col-lg-10.down
+            .two
+              p(clas='name')
+                | Johan Dou - 
+                span.company-name Company Name
+              p.city
+                | Cairo , New Cairo - 
+                span.date  9:26 pm local time
+              p.phone 011 112 04545 
+          .col-lg.under
+            h4.job Photographer
+            p.discretion I'm a photographer wedding sine 4 years work in many companies.
+    .future-worker
+      .heading-future
+        h3 Features
+      .para-future
+        p
+          | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?
+    .portfolio-worker
+      .heading-portfolio
+        h3 Portfolio
+      .upload-portfolio
+        .container
+          .row
+            // START FOREACH
+            .col-lg-4(style='position : relative')
+              input(type='hidden', value='')
+              img.img-fluid(src='/img/our-section/Mask Group 11.png')
+              form.delete(style='position : absolute; top: 10px; right : 25px;')
+                input(type='hidden', value='img/our-section/Mask Group 11.png')
+                .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
+            // END FOREACH
+            .col-lg-12
+              form.mt-4.mb-4(style='display : flex; justify-content: space-between')
+                div
+                  input.file-upload-input(type='file', accept='image/*', multiple='')
+                button.btn.btn-success(type='submit') Add
+    // End profile-worker
+    .portfolio-worker
+      .heading-portfolio
+        h3 Videos
+      .upload-portfolio
+        .container
+          .row
+            // START FOREACH
+            .col-md-6(style='position : relative')
+              input(type='hidden', value='')
+              video(style='width : 100%;', controls='')
+                source(src='video.mp4', type='video/mp4')
+                |                 Your browser does not support the video tag.
+              form.delete(style='position : absolute; top: 10px; right : 25px;')
+                input(type='hidden', value='img/our-section/Mask Group 11.png')
+                .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
+            // END FOREACH
+            .col-lg-12
+              form.mt-4.mb-4(style='display : flex; justify-content: space-between')
+                div
+                  input.file-upload-input(type='file', accept='video/mp4')
+                button.btn.btn-success(type='submit') Add
+    // End profile-worker
+    // start footer
+    .footer-new
+      .container
+        .row
+          .col-lg-6.col-sm-12
+          .col-lg-6.col-sm-12
+            .social
+              ul.list-unstyled.lists
+                li
+                  a(href='#')
+                    i.fab.fa-facebook-square.fa-2x
+                li
+                  a(href='#')
+                    i.fab.fa-twitter-square.fa-2x
+                li
+                  a(href='#')
+                    i.fab.fa-instagram.fa-2x
+        .row
+          .col-lg-6.col-sm-12
+            p.white © 2018 Oow, all rights reserved 
+          .col-lg-6.col-sm-12
+            .link-footer
+              ul.list-unstyled
+                li.nav-item
+                  a.nav-link(href='#Terms & Conditions') TERMS & CONDITIONS
+                li.nav-item
+                  a.nav-link(href='#Privacy Policy') PRIVACY POLICY
+    // End footer
+    script.
+      $(".delete-portfolio").on("click", function () {
+      $(this).parents("form").submit();
+      });
+
+

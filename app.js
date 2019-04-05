@@ -55,7 +55,7 @@ app.use((error, req, res, next) => {
     if (error instanceof ValidationError) {
         req.flash("error", error.errors);
         req.flash("old", req.body);
-        console.log(error.errors);
+        // console.log(error.errors);
         res.redirect('back');
     }
     if(error instanceof NotFoundError) {
@@ -63,7 +63,7 @@ app.use((error, req, res, next) => {
     }
     else{
         res.end("Server error 500");
-        console.log(error);
+        // console.log(error);
     }
 });
 

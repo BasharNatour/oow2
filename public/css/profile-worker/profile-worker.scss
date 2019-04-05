@@ -1,0 +1,207 @@
+.profile-worker{
+  background-color: #fff;
+  width: 75em;
+  margin: 50px auto;
+  padding: 3.5em 2em;
+  box-shadow:  0 0 5px rgba(0, 0, 0, 16%);
+  border-radius: 3px;
+  font-family: Raleway;
+
+  .up{
+      display: flex;
+      justify-content: space-around;
+    img{
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+    }
+  }
+  .down{
+    p{
+      font-weight: bold;
+      color: #1C3024;
+      font-size: 1.7em;
+      .company-name{
+        font-weight: lighter;
+      }
+    }
+    .city{
+      font-weight: bold;
+      font-size: 1.1em;
+      .date{
+        font-weight: lighter;
+        color: #474B49;
+
+      }
+    }
+    .phone{
+      font-size: 1.2em;
+      font-weight: 600;
+      margin-top: 5px
+    }
+  }
+  .under{
+    padding-top: 30px;
+    color: #222222;
+    h4{
+      font-size: 22px;
+    }
+
+  }
+}
+
+p{
+  padding-bottom: 0px;
+  margin-bottom: -0.3rem;
+  font-weight: 400;
+  color: #414141;
+  font-size: 1.2em
+}
+
+.future-worker,.portfolio-worker{
+  background-color: #fff;
+  width: 75em;
+  margin: 50px auto;
+  box-shadow:  0 0 5px rgba(0, 0, 0, 16%);
+  border-radius: 3px;
+  font-family: Raleway;
+  .heading-future, .heading-portfolio{
+      background-color: #EEF3F6;
+      width: 100%;
+      padding: 1.5em 2.8rem;
+  }
+  .para-future{
+    padding: 1.5em 2.8rem;
+  }
+}
+
+
+
+
+/* Upload */
+
+.file-upload {
+  width: 372.5px;
+  height: 240px;
+  margin: 20px
+}
+
+.file-upload-btn:hover {
+  background: #fff;
+  color: #757575;
+  transition: all .2s ease;
+  cursor: pointer;
+  border: 1px solid #757575
+}
+
+
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin:  20px;
+  border: 1px dashed #757575;
+  border-radius: 2px;
+  width: 372.5px;
+  height: 240px;
+  background-color: #F9F9F9;
+  &:hover{
+    background-color: rgba(0,0,0,0.1)
+  }
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: #E8E8E8;
+  color:#fff
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: #222;
+}
+
+.drag-text {
+  text-align: center;
+}
+
+.drag-text h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #757575;
+  padding: 59px 0;
+  font-size: 1.5em
+}
+
+.file-upload-image {
+  width: 372.5px;
+  height: 240px;
+  margin: auto;
+}
+
+.remove-image {
+  width: 250px;
+  margin: 0;
+  color: #fff;
+  background: #cd4535;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #b02818;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.remove-image:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+
+.sections  .location{
+  margin-bottom: 25px
+}
+
+
+
+
+@media(max-width:576px){
+    .profile-worker,.future-worker, .portfolio-worker{
+      width: 75vw;
+  }
+  .down{
+    text-align: center;
+    margin-top:  20px;
+    p{
+      font-size: 1.2em!important;
+      padding-bottom: 10px
+    }
+  }
+  .under{
+    text-align: center;
+  }
+
+}

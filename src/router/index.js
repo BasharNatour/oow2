@@ -26,6 +26,7 @@ const authenticated = require("../middleware/authenticated");
 const populateUser  = require("../middleware/populate_user");
 const isUser        = require("../middleware/is-user");
 const isCompany     = require("../middleware/is-company");
+const companyProfile = require("./company-profile");
 
 
 const search =require("./search");
@@ -45,6 +46,7 @@ router.use("/logout",logout);
 router.use("/remove-account",[authenticated,populateUser,activeted],removeAccount);
 router.use("/complaints",[authenticated,populateUser,activeted],complaints);
 router.use("/oursections",[authenticated,populateUser,isUser,activeted],ourSections);
+router.use("/company-profile",companyProfile);
 router.use(company);
 router.use(client);
 router.use("/companies",[authenticated,populateUser,isUser,activeted],companies);
