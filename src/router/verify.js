@@ -17,9 +17,13 @@ router.get("/:token",(req,res,next)=>{
             doc.user.activated = true;
             doc.user.save().then(() => {
                 doc.delete().catch(console.log);
-                
-                res.redirect("/dashboard/company_setting");
-            });
+                if(doc.user.type === "company"){
+                    return res.redirect("/dashboard/company_setting");
+                }
+                if(doc.user.type === "client"){
+                    return res.redirect("/dashboard/editSetting");
+                }
+            }).catch(next);
         }else{
             next(new ServerError());
         }

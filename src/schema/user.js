@@ -46,6 +46,9 @@ let users = new mongoose.Schema({
         type:String,
         // optional
     },
+    idNationalCard:{
+        type:String
+    },
     companyData:{
         name:String,
         categary:{

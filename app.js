@@ -5,6 +5,7 @@ const app = express();
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const ValidationError = require("./src/errors/validationError");
+const NotFoundError   = require("./src/errors/not-found-error");
 const flash = require("connect-flash");
 
 
@@ -41,8 +42,11 @@ app.use(express.static("public"));
 app.use((req, res, next) => {
     res.locals = {
         errors: req.flash("error")[0] || {},
-        old: req.flash("old")[0]||{}
+        old: req.flash("old")[0]||{},
+        success: req.flash("success")[0] || {}
+
     };
+    console.log(res.locals);
     next();
 });
 app.use(require("./src/router"));
@@ -53,7 +57,11 @@ app.use((error, req, res, next) => {
         req.flash("old", req.body);
         console.log(error.errors);
         res.redirect('back');
-    } else{
+    }
+    if(error instanceof NotFoundError) {
+        res.end("Not Found Page 404")
+    }
+    else{
         res.end("Server error 500");
         console.log(error);
     }

@@ -4,6 +4,7 @@ module.exports = router;
 const activeted     = require("../../middleware/activeted");
 const authenticated = require("../../middleware/authenticated");
 const populateUser  = require("../../middleware/populate_user");
+// const isCompany = require("../../middleware/is-company");
 
 const dashboard = require("./dashboard");
 
