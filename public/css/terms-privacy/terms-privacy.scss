@@ -1,0 +1,123 @@
+h3 , h4 {
+  font-family: Raleway;
+  font-weight: bold;
+
+}
+span, a{
+  color: #FF1744;
+  font-weight: 700;
+}
+
+a:hover{
+  color: #FF1744
+}
+
+.head-main{
+  margin: 20px 0 20px ;
+}
+
+.up {
+  padding-top: 20px
+}
+
+p{
+  font-size: calc(2em - 0.6rem);
+}
+
+
+.nav-tabs {
+    border-bottom: none;
+    margin-top: 20pxpx
+}
+
+
+.nav-link{
+  background-color: #FF1744;
+  color: #fff;
+  &:hover{
+    color: #fff
+  }
+}
+
+
+.footer-new{
+  height: 160px;
+  background-color: #1F2931;
+  .social{
+    a{
+      color: #fff!important;
+      :hover{
+        color: #FF1744
+      }
+    }
+  }
+}
+
+.link-footer ul{
+  display: flex;
+  a{
+    color: #d2d2d2
+  }
+}
+
+.lists li {
+    padding-right: 27px;
+    margin-left: 14px;
+    padding-top: 25px;
+
+}
+
+.white  {
+  color: #fff
+}
+
+
+@media(max-width:576px){
+  .card-img-top {
+
+    max-height: 35vh;
+
+}
+  .content-worker{
+    width: 24em;
+  }
+  h4, h3{
+    font-size: 1.3em;
+  }
+  p{
+    font-size:  0.95em;
+    padding-bottom: 15px;
+  }
+  .btn-setting-worker{
+    width: 284px
+  }
+  .account-sett-btn{
+    width: 250px
+  }
+  .content-worker .submit-worker , .submit-save{
+    margin-left: 0;
+    font-weight: bold;
+  }
+  .remove-submit {
+    margin-left: 15px;
+    font-weight: bold;
+  }
+
+  .white{
+    text-align: center;
+  }
+  .footer-new {
+    height: 190px;
+  }
+  .setting-account-users{
+    h2{
+      font-size: 1.5em;
+    }
+  }
+  .remove-account {
+    height: 68.5vh;
+  }
+  .more{
+    line-height: 250px
+  }
+}

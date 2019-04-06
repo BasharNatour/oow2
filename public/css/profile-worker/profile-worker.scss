@@ -1,7 +1,7 @@
 .profile-worker{
   background-color: #fff;
   width: 75em;
-  margin: 50px auto;
+  margin: 102.5px auto;
   padding: 3.5em 2em;
   box-shadow:  0 0 5px rgba(0, 0, 0, 16%);
   border-radius: 3px;
@@ -186,6 +186,39 @@ p{
 }
 
 
+// down
+
+
+.footer-new{
+  height: 160px;
+  background-color: #1F2931;
+  .social{
+    a{
+      color: #fff!important;
+      :hover{
+        color: #FF1744
+      }
+    }
+  }
+}
+.link-footer ul{
+  display: flex;
+  a{
+    color: #d2d2d2
+  }
+}
+
+.lists li {
+    padding-right: 27px;
+    margin-left: 14px;
+    padding-top: 25px;
+
+}
+
+.white  {
+  color: #fff
+}
+
 
 
 @media(max-width:576px){
@@ -204,4 +237,14 @@ p{
     text-align: center;
   }
 
+    .white{
+      text-align: center;
+    }
+    .footer-new {
+      height: 190px;
+    }
+    .link-footer ul {
+        display: flex;
+        justify-content: center;
+    }
 }
