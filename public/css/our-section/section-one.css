@@ -22,6 +22,10 @@
 .file-worker {
   padding: 50px 0 50px 0;
 }
+.file-worker .worker-section {
+  border-bottom: 2px solid #E7EBF1;
+  padding-bottom: 50px;
+}
 .file-worker .worker-section .first .img-worker {
   height: 200px;
   border-radius: 180px;
