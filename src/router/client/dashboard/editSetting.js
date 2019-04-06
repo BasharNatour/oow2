@@ -31,14 +31,14 @@ const storage = multer.diskStorage({
 var upload = multer({ storage: storage });
 
 router.post("/",[upload.single('myImage')],(req,res,next)=>{
-     const {firestName , lastName, country, governorate,phone , telephone ,idNationalCard} = req.body;
+     const {firstName , lastName, country, governorate,phone , telephone ,idNationalCard} = req.body;
 
    
     if(req.file){
         req.user.profileimage = "/uploads/" + req.file.filename;
     }
 
-    req.user.firestName = firestName;
+    req.user.firstName = firstName;
     req.user.lastName = lastName;
     req.user.governorate =  governorate;
     req.user.governorate.country = country;

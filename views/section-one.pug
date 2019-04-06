@@ -57,7 +57,7 @@ block pageContent
                 h3=user.companyData.name
                 p=user.companyData.description
                 button 
-                  a(href="#") View More   
+                  a(href="/company-profile") View More   
   if users.length > 0 && pages > 1
     .pagination-outer(style="display : flex; justify-content : center")
       include pagination

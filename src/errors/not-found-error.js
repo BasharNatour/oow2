@@ -1,4 +1,4 @@
-class notFoundError {
+class NotFoundError {
 
 }
-module.exports = notFoundError;
+module.exports = NotFoundError;

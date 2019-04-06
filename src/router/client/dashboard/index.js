@@ -13,4 +13,4 @@ const editSetting = require("./editSetting");
 
 
 
-router.use("/editSetting",[authenticated,populateUser,isUser,activeted],editSetting);
+router.use("/editSetting",[authenticated,populateUser,activeted],editSetting);

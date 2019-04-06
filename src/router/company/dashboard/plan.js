@@ -23,7 +23,7 @@ router.post("/", populate_user, (req, res, next) => {
             endDate: new Date(futureTime)
         };
         req.user.save().then(() => {
-           res.redirect("/search");
+           res.redirect("/company-profile");
         }).catch(next);
     }).catch(next);
 

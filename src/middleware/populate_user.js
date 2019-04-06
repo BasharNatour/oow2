@@ -6,7 +6,7 @@ module.exports = function populate_user(req,res,next){
         if(req.user){
             return next();w
         }
-        User.findById(req.session.user_id).populate({ path: 'governorate', populate: { path: 'country' }}).then((doc)=>{
+        User.findById(req.session.user_id).populate("companyData.categary").populate({ path: 'governorate', populate: { path: 'country' }}).then((doc)=>{
             req.user = doc;
             next();
         }).catch(next)

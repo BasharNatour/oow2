@@ -4,7 +4,7 @@ block append linksCss
   link(rel="stylesheet" , href="/css/our-section/our-section.css")
 
 block pageTitle
-  title Pricing & Table 
+  title Profile
         
 block pageContent
     // start Nav
@@ -30,44 +30,54 @@ block pageContent
         .row
           .col-lg-2.up
             .one
-              img(src='/img/our-section/worker/3.png')
+              img(src=user.profileimage)
           .col-lg-10.down
             .two
-              p(clas='name')
-                | Johan Dou - 
-                span.company-name Company Name
+              p(class='name')
+                span=user.firstName
+                span.px-2= user.lastName
+              p
+                span.company-name=user.companyData.name 
+                span.company-name.m-2 
               p.city
-                | Cairo , New Cairo - 
-                span.date  9:26 pm local time
-              p.phone 011 112 04545 
+                span=user.governorate.name 
+                |  
+                span.px-2=user.companyData.location.city 
+              span.phone=user.phone 
+              span.phone.px-2=user.telephone 
           .col-lg.under
-            h4.job Photographer
-            p.discretion I'm a photographer wedding sine 4 years work in many companies.
+            h4.job=user.companyData.categary.name
+            p.discretion=user.companyData.description
     .future-worker
       .heading-future
         h3 Features
       .para-future
-        p
-          | Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sed neque officia fugiat nemo unde, ipsa ipsum mollitia vero? Vel, non! Nostrum quaerat a delectus numquam fuga sapiente similique modi magni?
+        p=user.companyData.features
+    .future-worker
+      .heading-future
+        h3 conditions
+      .para-future
+        p=(`${user.companyData.conditions?user.companyData.conditions:""}`)
     .portfolio-worker
       .heading-portfolio
         h3 Portfolio
       .upload-portfolio
         .container
           .row
-            // START FOREACH
-            .col-lg-4(style='position : relative')
-              input(type='hidden', value='')
-              img.img-fluid(src='/img/our-section/Mask Group 11.png')
-              form.delete(style='position : absolute; top: 10px; right : 25px;')
-                input(type='hidden', value='img/our-section/Mask Group 11.png')
-                .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
-            // END FOREACH
+            each image in user.companyData.images
+              .mt-4.mb-4.col-lg-4(style='position : relative')
+                input(type='hidden')
+                img.img-fluid(src=image)
+                form.delete(style='position : absolute; top: 10px; right : 25px;'
+                  action="/remove/picture" method="post")
+                    input(type='hidden', value=image name="myImage")
+                    .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
+              // END FOREACH
             .col-lg-12
-              form.mt-4.mb-4(style='display : flex; justify-content: space-between')
+              form.mt-4.mb-4(action="/company-profile" method="post",enctype="multipart/form-data" id="add" style='display : flex; justify-content: space-between')
                 div
-                  input.file-upload-input(type='file', accept='image/*', multiple='')
-                button.btn.btn-success(type='submit') Add
+                  input.file-upload-input(type='file', accept='image/*', multiple='multiple',name="myImages")
+                button.btn.btn-success(type='submit' form="add") Add
     // End profile-worker
     .portfolio-worker
       .heading-portfolio
@@ -75,20 +85,19 @@ block pageContent
       .upload-portfolio
         .container
           .row
-            // START FOREACH
-            .col-md-6(style='position : relative')
-              input(type='hidden', value='')
-              video(style='width : 100%;', controls='')
-                source(src='video.mp4', type='video/mp4')
-                |                 Your browser does not support the video tag.
-              form.delete(style='position : absolute; top: 10px; right : 25px;')
-                input(type='hidden', value='img/our-section/Mask Group 11.png')
-                .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
-            // END FOREACH
+            each video in user.companyData.videos
+              .col-md-6(style='position : relative')
+                input(type='hidden', value=video)
+                video(style='width : 100%;', controls='')
+                  source(src=video, type='video/mp4')
+                  |                 Your browser does not support the video tag.
+                form.delete(style='position : absolute; top: 10px; right : 25px;'    action="/remove/video" method="post")
+                  input(type='hidden', value=video name="delvideo")
+                  .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
             .col-lg-12
-              form.mt-4.mb-4(style='display : flex; justify-content: space-between')
+              form.mt-4.mb-4(style='display : flex; justify-content: space-between' enctype="multipart/form-data" action="/company-video" method="post")
                 div
-                  input.file-upload-input(type='file', accept='video/mp4')
+                  input.file-upload-input(type='file', accept='video/mp4' name="video")
                 button.btn.btn-success(type='submit') Add
     // End profile-worker
     // start footer
@@ -123,5 +132,3 @@ block pageContent
       $(".delete-portfolio").on("click", function () {
       $(this).parents("form").submit();
       });
-
-

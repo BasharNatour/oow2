@@ -6,7 +6,9 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const ValidationError = require("./src/errors/validationError");
 const NotFoundError   = require("./src/errors/not-found-error");
+const Unauthorized   = require("./src/errors/unauthorized");
 const flash = require("connect-flash");
+
 
 
 let url = process.env.MONGO_URL;
@@ -58,12 +60,15 @@ app.use((error, req, res, next) => {
         // console.log(error.errors);
         res.redirect('back');
     }
-    if(error instanceof NotFoundError) {
-        res.end("Not Found Page 404")
+    else if (error instanceof NotFoundError) {
+        res.end("Not Found Page 404");
+    }
+    else if(error instanceof Unauthorized){
+        res.end(" Unauthorized 403");
     }
     else{
         res.end("Server error 500");
-        // console.log(error);
+        console.log(error);
     }
 });
 
