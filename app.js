@@ -62,6 +62,7 @@ app.use((error, req, res, next) => {
     }
     else if (error instanceof NotFoundError) {
         res.end("Not Found Page 404");
+        console.log(error.stack);
     }
     else if(error instanceof Unauthorized){
         res.end(" Unauthorized 403");

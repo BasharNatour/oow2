@@ -10,7 +10,8 @@ router.get("/",(req,res)=>{
         const result = governorates.filter(governorates => governorates.country.name === "Egypt" );
         // console.log(result);
         res.render("search",{
-            result
+            result,
+            user:req.user
         });
     }).catch(console.log);
 });

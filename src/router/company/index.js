@@ -4,8 +4,8 @@ module.exports = router;
 const activeted     = require("../../middleware/activeted");
 const authenticated = require("../../middleware/authenticated");
 const populateUser  = require("../../middleware/populate_user");
-// const isCompany = require("../../middleware/is-company");
+const isCompany = require("../../middleware/is-company");
 
 const dashboard = require("./dashboard");
 
-router.use("/dashboard",[authenticated,populateUser,activeted],dashboard);
+router.use("/dashboard",dashboard);

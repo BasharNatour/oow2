@@ -5,7 +5,7 @@ const multer = require("multer");
 const path   = require("path");
 
 router.get("/",(req,res)=>{
-    res.render("profile-version-2",{user:req.user});
+    res.render("profile-version-2",{user:req.user,readOnly:false});
     
 });
 const storage = multer.diskStorage({

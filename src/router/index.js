@@ -29,6 +29,7 @@ const isCompany     = require("../middleware/is-company");
 const companyProfile = require("./company-profile");
 const removePictureOrvideo = require("./remove-picture-video");
 const companyVideo = require("./company-video");
+const viewCompany  = require("./view-company");
 
 
 const search =require("./search");
@@ -36,7 +37,7 @@ const search =require("./search");
 
 
 
-router.use("/",main);
+router.use("/",populateUser,main);
 router.use("/subscribe",subscription);
 
 router.use("/signup",guest,signup);
@@ -48,9 +49,10 @@ router.use("/logout",logout);
 router.use("/remove-account",[authenticated,populateUser,activeted],removeAccount);
 router.use("/complaints",[authenticated,populateUser,activeted],complaints);
 router.use("/oursections",[authenticated,populateUser,activeted],ourSections);
-router.use("/company-profile",[authenticated,populateUser,activeted],companyProfile);
-router.use("/company-video",[authenticated,populateUser,activeted],companyVideo);
-router.use("/remove",[authenticated,populateUser,activeted],removePictureOrvideo);
+router.use("/company-profile",[authenticated,populateUser,isCompany,activeted],companyProfile);
+router.use("/view-company",[authenticated,populateUser,activeted],viewCompany);
+router.use("/company-video",[authenticated,populateUser,isCompany,activeted],companyVideo);
+router.use("/remove",[authenticated,populateUser,isCompany,activeted],removePictureOrvideo);
 router.use(company);
 router.use(client);
 router.use("/companies",[authenticated,populateUser,activeted],companies);

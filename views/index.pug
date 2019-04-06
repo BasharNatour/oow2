@@ -41,12 +41,16 @@ html(lang="en")
                               
                           li(class="nav-item")
                             a(class="nav-link" href="#contact" data-value="contact") CONTACT US
-                            
-                          li(class="nav-item")
-                            a(href="/signin" role="button" class="btn oow" aria-pressed="true") LOG IN
-                                                      
-                          li(class="nav-item")
-                            a(href="/signup" class="btn btn-oow" role="button" aria-pressed="true") SIGN UP         
+                          if user
+                            li(class="nav-item")
+                            a(href="/search" class="btn oow" role="button" aria-pressed="true") Go To Search
+                            li(class="nav-item")
+                              a(href="/logout" class="btn btn-oow" role="button" aria-pressed="true") Logout 
+                          else
+                            li(class="nav-item")
+                              a(href="/signin" role="button" class="btn oow" aria-pressed="true") LOG IN                          
+                            li(class="nav-item")
+                              a(href="/signup" class="btn btn-oow" role="button" aria-pressed="true") SIGN UP         
             |
             |
             <!-- End nav -->

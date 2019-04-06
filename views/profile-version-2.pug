@@ -68,16 +68,18 @@ block pageContent
               .mt-4.mb-4.col-lg-4(style='position : relative')
                 input(type='hidden')
                 img.img-fluid(src=image)
-                form.delete(style='position : absolute; top: 10px; right : 25px;'
-                  action="/remove/picture" method="post")
-                    input(type='hidden', value=image name="myImage")
-                    .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
+                if !readOnly 
+                  form.delete(style='position : absolute; top: 10px; right : 25px;'
+                    action="/remove/picture" method="post")
+                      input(type='hidden', value=image name="myImage")
+                      .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
               // END FOREACH
-            .col-lg-12
-              form.mt-4.mb-4(action="/company-profile" method="post",enctype="multipart/form-data" id="add" style='display : flex; justify-content: space-between')
-                div
-                  input.file-upload-input(type='file', accept='image/*', multiple='multiple',name="myImages")
-                button.btn.btn-success(type='submit' form="add") Add
+            if !readOnly
+              .col-lg-12
+                form.mt-4.mb-4(action="/company-profile" method="post",enctype="multipart/form-data" id="add" style='display : flex; justify-content: space-between')
+                  div
+                    input.file-upload-input(type='file', accept='image/*', multiple='multiple',name="myImages")
+                  button.btn.btn-success(type='submit' form="add") Add
     // End profile-worker
     .portfolio-worker
       .heading-portfolio
@@ -91,14 +93,16 @@ block pageContent
                 video(style='width : 100%;', controls='')
                   source(src=video, type='video/mp4')
                   |                 Your browser does not support the video tag.
-                form.delete(style='position : absolute; top: 10px; right : 25px;'    action="/remove/video" method="post")
-                  input(type='hidden', value=video name="delvideo")
-                  .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
-            .col-lg-12
-              form.mt-4.mb-4(style='display : flex; justify-content: space-between' enctype="multipart/form-data" action="/company-video" method="post")
-                div
-                  input.file-upload-input(type='file', accept='video/mp4' name="video")
-                button.btn.btn-success(type='submit') Add
+                if !readOnly
+                  form.delete(style='position : absolute; top: 10px; right : 25px;'    action="/remove/video" method="post")
+                    input(type='hidden', value=video name="delvideo")
+                    .delete-portfolio(style='text-align : center;display : flex; flex-direction: column; justify-content : center;cursor:pointer;font-size:16px;font-family:sans-serif;font-weight : bold; color : white; background : black; width : 30px; height : 30px; border-radius : 50%;') ✕
+            if !readOnly
+              .col-lg-12
+                form.mt-4.mb-4(style='display : flex; justify-content: space-between' enctype="multipart/form-data" action="/company-video" method="post")
+                  div
+                    input.file-upload-input(type='file', accept='video/mp4' name="video")
+                  button.btn.btn-success(type='submit') Add
     // End profile-worker
     // start footer
     .footer-new
