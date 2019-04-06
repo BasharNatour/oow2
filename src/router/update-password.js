@@ -14,7 +14,6 @@ router.get("/",(req,res)=>{
 
 router.post("/",ValidationUpdatePassword,(req,res)=>{
     const {currentPassword , newPassword , confirmPassword} = req.body;
-    console.log(currentPassword,req.user.password);
     bcrypt.compare( currentPassword , req.user.password, function(err, result) {
         if(result){
             bcrypt.hash(newPassword, 10).then((hash) => {

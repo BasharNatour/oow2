@@ -46,7 +46,7 @@ app.use((req, res, next) => {
         success: req.flash("success")[0] || {}
 
     };
-    console.log(res.locals);
+    // console.log(res.locals);
     next();
 });
 app.use(require("./src/router"));

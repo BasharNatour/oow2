@@ -48,7 +48,8 @@ router.post("/",[upload.single('myImage')],(req,res,next)=>{
         req.user.telephone = telephone;
     }
     req.user.save().then(()=>{
-        res.redirect("/search");
+        req.flash("success", {message : " Saved your changed "});
+        res.redirect("/dashboard/editSetting");
     }).catch(next);
 
 });

@@ -91,7 +91,8 @@ block pageContent
               .sections
                 h4(class="id-national ") Id National Card
                 .input-field
-                  input(type="tel" , id="id-national" ,name="idNationalCard" class="btn-setting-worker" , placeholder="Enter Your Id  National Card"  required)      
+                  input(type="tel" , id="id-national" ,name="idNationalCard" class="btn-setting-worker" , placeholder="Enter Your Id  National Card" value=`${user.idNationalCard?user.idNationalCard:""}` required)
+                  h4.text-success.text-centered=success.message      
                 button(type="submit" class="btn btn-oow submit-save" form="form1") Save Change 
     |
     |
