@@ -27,9 +27,13 @@ const populateUser  = require("../middleware/populate_user");
 const isUser        = require("../middleware/is-user");
 const isCompany     = require("../middleware/is-company");
 const companyProfile = require("./company-profile");
+const userProfile = require("./user-profile");
 const removePictureOrvideo = require("./remove-picture-video");
 const companyVideo = require("./company-video");
 const viewCompany  = require("./view-company");
+const termsPrivacy =require("./termsPrivacy");
+const homePlan =require("./homePlan");
+
 
 
 const search =require("./search");
@@ -50,6 +54,7 @@ router.use("/remove-account",[authenticated,populateUser,activeted],removeAccoun
 router.use("/complaints",[authenticated,populateUser,activeted],complaints);
 router.use("/oursections",[authenticated,populateUser,activeted],ourSections);
 router.use("/company-profile",[authenticated,populateUser,isCompany,activeted],companyProfile);
+router.use("/user-profile",[authenticated,populateUser,isUser,activeted],userProfile);
 router.use("/view-company",[authenticated,populateUser,activeted],viewCompany);
 router.use("/company-video",[authenticated,populateUser,isCompany,activeted],companyVideo);
 router.use("/remove",[authenticated,populateUser,isCompany,activeted],removePictureOrvideo);
@@ -57,6 +62,9 @@ router.use(company);
 router.use(client);
 router.use("/companies",[authenticated,populateUser,activeted],companies);
 router.use("/update",[authenticated,populateUser,activeted],updatePassword);
+router.use("/termsPrivacy",termsPrivacy);
+router.use("/homePlan",homePlan);
+
 
 
 

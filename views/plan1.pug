@@ -1,6 +1,6 @@
 extends index
 block append linksCss  
-  link(rel="stylesheet" , href="css/planning/planning.css")
+  link(rel="stylesheet" , href="/css/planning/planning.css")
 
   
   
@@ -14,7 +14,7 @@ block pageContent
           |
           |
           a(class="navbar-brand", href="index.html")
-              img(src="img/Home-page/logo.png")
+              img(src="/img/Home-page/logo.png")
           
 
           button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
@@ -22,10 +22,10 @@ block pageContent
           div(class="collapse navbar-collapse", id="silver")
             ul(class="navbar-nav ml-auto")
                 li(class="nav-item")
-                  a(href="#" role="button" class="btn oow" aria-pressed="true") LOG IN
+                  a(href="/signin" role="button" class="btn oow" aria-pressed="true") LOG IN
                                             
                 li(class="nav-item")
-                  a(href="#" class="btn btn-oow" role="button" aria-pressed="true") SING UP         
+                  a(href="/signup" class="btn btn-oow" role="button" aria-pressed="true") SIGN UP        
   |
   |
   <!-- End Nav -->
@@ -39,7 +39,7 @@ block pageContent
         .content(class="col-lg-12 col-md-12 col-sm-12 text-center")
           h2 Essential Wedding Planning Tips And Tricks  
           p Cover all your wedding planning bases with these expert tips no to-be-wed should be without.
-          img(src="img/planning/aisle-beach-celebration-169198.jpg")
+          img(src="/img/planning/aisle-beach-celebration-169198.jpg")
           p(class="under") When planning your wedding, there are things that are nice to know, and there are things you need to know—advice so essential any bride who's lucky enough to hear it thinks, "I'm so glad someone told me that!" If you're wondering whether there's something 
         .tips(class="col-lg-12 col-md-12 col-sm-12")
           h3(class="main-color") 1. Guests Come First 
@@ -91,7 +91,7 @@ block pageContent
   .footer
     .row
       div(class="col-lg-12 col-md-12 col-sm-12 foot-img")
-        img(src="img/Home-page/Mask Group 9.svg") 
+        img(src="/img/Home-page/Mask Group 9.svg") 
         div(class="foo-cont")
           p(class="foot-para") &copy; 2019 Oow All Rights Reserved              
           div(class="show")

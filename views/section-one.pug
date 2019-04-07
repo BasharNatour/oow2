@@ -25,11 +25,18 @@ block pageContent
               li(class="nav-item dropdown")
                 a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
                 div(class="dropdown-menu")
-                  a(href="#" class="dropdown-item") Profile
-                  a(href="#" class="dropdown-item") Account Settings
-                  a(href="#" class="dropdown-item") Complaints
-                  a(href="#" class="dropdown-item") Remove Account
-                  a(href="#" class="dropdown-item") Log Out 
+                  if user.type === "company"
+                    a(href="/company-profile" class="dropdown-item") Profile
+                  else
+                    a(href="/user-profile" class="dropdown-item") Profile
+                  a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
+                  if user.type === "company"
+                    a(href="/dashboard/service" class="dropdown-item") your Services
+                    a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
+                  a(href="/complaints" class="dropdown-item") Complaints
+                  a(href="/update" class="dropdown-item") updatePassword
+                  a(href="/remove-account" class="dropdown-item") Remove Account
+                  a(href="/logout" class="dropdown-item") Log Out 
 
 
   |

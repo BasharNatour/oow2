@@ -3,7 +3,7 @@ block append linksCss
   link(rel="stylesheet" , href="css/profile-worker/profile-worker.css")
 
 block pageTitle
-  title Pricing & Table 
+  title Profile
         
 block pageContent
     // start Nav
@@ -17,11 +17,18 @@ block pageContent
             li.nav-item.dropdown
               a.nav-link.dropdown-toggle.href-color(data-toggle='dropdown', href='#') SETTINGS
               .dropdown-menu
-                a.dropdown-item(href='#') Profile
-                a.dropdown-item(href='#') Account Settings
-                a.dropdown-item(href='#') Complaints
-                a.dropdown-item(href='#') Remove Account
-                a.dropdown-item(href='#') Log Out 
+                if user.type === "company"
+                  a(href="/company-profile" class="dropdown-item") Profile
+                else
+                  a(href="/user-profile" class="dropdown-item") Profile
+                a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
+                if user.type === "company"
+                  a(href="/dashboard/service" class="dropdown-item") your Services
+                  a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
+                a(href="/complaints" class="dropdown-item") Complaints
+                a(href="/update" class="dropdown-item") updatePassword
+                a(href="/remove-account" class="dropdown-item") Remove Account
+                a(href="/logout" class="dropdown-item") Log Out 
     // End Nav
     // start profile-wroker
     div(class="profile-worker down")
@@ -29,15 +36,20 @@ block pageContent
         .row
           .col-lg-2.up
             .one
-              img(src='img/our-section/worker/3.png')
+              img(src=user.profileimage)
           .col-lg-10.down
             .two
               p(clas='name')
-                | Johan Dou  
+                span=user.firstName  
+                span.px-2=user.lastName  
               p.city
-                | Cairo , New Cairo - 
-                span.date  9:26 pm local time
-              p.phone 011 112 04545 
+                span=user.governorate.country.name  
+                span.px-2=user.governorate.name
+              p.city
+                span=user.email 
+              p(clas='name')
+              span.phone=user.phone
+              span.phone.px-4=user.telephone
     // start footer
     .footer-new
       .container

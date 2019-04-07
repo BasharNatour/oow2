@@ -3,13 +3,18 @@ const mongoose = require("mongoose");
 
 let complaints = new mongoose.Schema({
     user:{
-        type:Schema.type.ObjectId,
+        type:mongoose.Schema.Types.ObjectId,
         ref:"user"
     },
-    description:{
+    name:{
+        type:String
+    },
+    email:{
         type:String
     },
     title:{
         type:String
     }   
-});                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+});           
+
+module.exports = mongoose.model("complaints",complaints);

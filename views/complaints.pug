@@ -23,12 +23,18 @@ block pageContent
               li(class="nav-item dropdown")
                 a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
                 div(class="dropdown-menu")
-                  a(href="#" class="dropdown-item") Profile
-                  a(href="#" class="dropdown-item") Account Settings
-                  a(href="#" class="dropdown-item") Edit Settings
-                  a(href="#" class="dropdown-item") Complaints
-                  a(href="#" class="dropdown-item") Remove Account
-                  a(href="#" class="dropdown-item") Log Out 
+                  if user.type === "company"
+                    a(href="/company-profile" class="dropdown-item") Profile
+                  else
+                    a(href="/user-profile" class="dropdown-item") Profile
+                  a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
+                  if user.type === "company"
+                    a(href="/dashboard/service" class="dropdown-item") your Services
+                    a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
+                  a(href="/complaints" class="dropdown-item") Complaints
+                  a(href="/update" class="dropdown-item") updatePassword
+                  a(href="/remove-account" class="dropdown-item") Remove Account
+                  a(href="/logout" class="dropdown-item") Log Out
 
 
   |
@@ -44,11 +50,12 @@ block pageContent
           h2 CONTACT US
           .cont-color(class="hide-on-small-only hide-on-med-only")
           p Fill in the filed below and we'll get back to you.
-          form(class="contact-form")
-            input(type="text" , name="name" , placeholder="Name", class="btn-cont")
-            input(type="email" , name="email" , placeholder="Email", class="btn-cont")
-            textarea(class="btn-cont")
-            button(type="submit" , name="submit") Submit
+          form(class="contact-form" action="/complaints" method="post")
+            input(type="text" , name="name" , placeholder="Name", class="btn-cont" value=user.firstName)
+            input(type="email" , name="email" , placeholder="Email", class="btn-cont" value=user.email)
+            textarea(class="btn-cont" name="title")
+            button(type="submit") Submit
+          h4.text-success.text-centered=success.message 
         div(class="col-lg-5 offset-lg-2 col-md-12 col-sm-12 cont-img")
             img(src="img/Home-page/undraw_messaging_uok8.svg")    
   |

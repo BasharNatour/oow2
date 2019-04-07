@@ -3,5 +3,5 @@ const router = new express.Router();
 module.exports = router;
 
 router.get("/",(req,res)=>{
-    res.render("remove-account-user");
+    res.render("remove-account-user",{user:req.user});
 });
