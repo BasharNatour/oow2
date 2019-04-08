@@ -5,7 +5,7 @@ const User =require("../../../schema/user");
 const populate_user = require("../../../middleware/populate_user");
 
 router.get("/",populate_user,(req,res)=>{
-    res.render("service_table",{user:req.user});
+    res.render("service_table",{user:req.user , readOnly:false});
     console.log(req.user);
 
 });
@@ -13,6 +13,6 @@ router.get("/",populate_user,(req,res)=>{
 router.post("/",populate_user,(req,res)=>{
     req.user.companyData.services = req.body.services;
     req.user.save().then(()=>{
-        res.redirect("/dashboard/plan");
+        res.redirect("/dashboard/service");
     }).catch((console.log));
 });

@@ -17,12 +17,26 @@ block pageContent
           a(class="navbar-brand", href="index.html")
               img(src="/img/Home-page/logo.png")
           
-          button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
-                
+          button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
           div(class="collapse navbar-collapse", id="silver")
             ul(class="navbar-nav ml-auto")
-                li(class="nav-item")
-                  a(href="/logout" role="button" class="btn oow" aria-pressed="true") LOG OUT      
+              li(class="nav-item dropdown")
+                a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
+                div(class="dropdown-menu")
+                  if user.type === "company"
+                    a(href="/company-profile" class="dropdown-item") Profile
+                    a(href="/search" class="dropdown-item") Search
+
+                  else
+                    a(href="/user-profile" class="dropdown-item") Profile
+                  a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
+                  if user.type === "company" && readOnly === false
+                    a(href="/dashboard/service" class="dropdown-item") your Services
+                    a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
+                  a(href="/complaints" class="dropdown-item") Complaints
+                  a(href="/update" class="dropdown-item") updatePassword
+                  a(href="/remove-account" class="dropdown-item") Remove Account
+                  a(href="/logout" class="dropdown-item") Log Out      
   hr                                                 
   |
   |
@@ -74,10 +88,10 @@ block pageContent
         div(class="pull-right")
           input(type="button" value="Add" class="top-buffer" onclick="addRow('data')")  
           
-        
-    div(class="pull-right")
-      .container
-        button(type="submit",class="top-buffer" ) Next
+      
+      div(class="pull-right")
+        .container
+          button(type="submit",class="top-buffer" ) save
           //- a(href="#") 
                       
 

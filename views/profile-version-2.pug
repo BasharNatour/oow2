@@ -20,10 +20,12 @@ block pageContent
                 div(class="dropdown-menu")
                   if user.type === "company"
                     a(href="/company-profile" class="dropdown-item") Profile
+                    a(href="/search" class="dropdown-item") Search
+
                   else
                     a(href="/user-profile" class="dropdown-item") Profile
                   a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
-                  if user.type === "company"
+                  if user.type === "company" && readOnly === false
                     a(href="/dashboard/service" class="dropdown-item") your Services
                     a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
                   a(href="/complaints" class="dropdown-item") Complaints
@@ -110,6 +112,8 @@ block pageContent
                   div
                     input.file-upload-input(type='file', accept='video/mp4' name="video")
                   button.btn.btn-success(type='submit') Add
+    .text-center
+      a(href="/dashboard/service" class="btn btn-oow" role="button" style="background:#ff1a47") Servies & Price
     // End profile-worker
     // start footer
     .footer-new

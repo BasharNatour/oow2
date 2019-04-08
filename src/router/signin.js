@@ -16,7 +16,7 @@ router.post("/",SigninValiadtion,(req,res,next)=>{
             res.redirect(req.query.redirect);
         }
         if(doc.type === "company" && doc.companyData.plan){
-               return res.redirect("/search");
+               return res.redirect("/company-profile");
             }
         if(doc.type === "company" && (!doc.companyData.plan)){
            return res.redirect("/dashboard/company_setting");
