@@ -1,0 +1,167 @@
+extends index
+block append linksCss 
+  link(rel="stylesheet" , href="css/contract/contract.css")
+
+block pageTitle
+  title Pricing & Table 
+        
+block pageContent
+    // start Nav
+    nav.navbar.navbar-toggleable-md.navbar-light
+      .container
+        a.navbar-brand(href='index.html')
+          img(src='img/Home-page/logo.png')
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
+        #silver.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle.href-color(data-toggle='dropdown', href='#') SETTINGS
+              .dropdown-menu
+                a.dropdown-item(href='#') Profile
+                a.dropdown-item(href='#') Account Settings
+                a.dropdown-item(href='#') Complaints
+                a.dropdown-item(href='#') Remove Account
+                a.dropdown-item(href='#') Log Out 
+    // End Nav
+    // start contract 
+    .future-worker
+      .heading-future
+        h3 Start Contract
+      .para-future
+        .sections
+          .row
+            div(class="col-lg-6")
+              .input-field
+                lebal First Name  & Last Name
+                input(type="text" class="account-sett-btn"  required)
+            div(class="col-lg-6")
+              .input-field
+                lebal Company Name
+                input(type="text"  class="account-sett-btn" disabled)
+                  
+            div(class="col-lg-6")
+              .input-field
+                lebal Email 
+                input(type="text" class="account-sett-btn"  required)
+            div(class="col-lg-6")
+              .input-field
+                lebal Phone Number 
+                input(type="text"  class="account-sett-btn" required)
+            .col-lg-6
+                    .form-group
+                      #datepicker.input-group.date
+                        input(class="xx").form-control(type="date")
+                        span.input-group-append.input-group-addon
+                          span.input-group-text
+                            i.fa.fa-calendar
+            .col-lg-6            
+                    .form-group
+                      #timepicker.input-group.time
+                        input(class="xx").form-control(type="time")
+                        span.input-group-append.input-group-addon
+                          span.input-group-text
+                            i.fa.fa-clock
+      .table-sec(class="text-center")
+        h2 Looking For My Services
+        p Please Select On The Services You Needed   
+            div(id="main")
+              div(class="container")
+                table(id="data" class="data-table data-table-horizontal data-table-highlight")
+                  tbody
+                    ul(class="heade-table list-unstyled")
+                      li  service
+                      li  Details
+                      li  Price
+                      li CheckBox
+                    tr
+                      td 
+                        input(type="text" disabled)
+                      td
+                        input(type="text" disabled) 
+                      td
+                        input(type="number" disabled) 
+                      td
+                        input(type="CheckBox")
+                            
+                  tr 
+                    td
+                      input(type="text" disabled)
+                    td
+                      input(type="text" disabled) 
+                    td
+                      input(type="number" disabled)   
+                    td
+                      input(type="CheckBox")
+
+                                
+                  tr
+                    td
+                      input(type="text" disabled)
+                    td
+                      input(type="text" disabled) 
+                    td
+                      input(type="number" disabled)   
+                    td
+                      input(type="CheckBox")
+
+      .conditions
+        .conditi
+          h4 The Conditions
+        p lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem v lorem lorem lorem lorem lorem lorem lorem v lorem lorem lorem lorem lorem lorem
+    
+        .sections
+          h4 Additional details
+          .input-field(class="styled-input")
+            textarea( required class="btn-setting-worker" )
+            label if you like to add any things 
+      
+        .sections
+          h4 please Download and sign the contract
+          .input-field(class="styled-input")
+            div(class="file-upload")
+              a(href="#" download)
+                span Download
+                span PDF
+                
+        .sections
+          h4 upload the contract after signing the site 
+          .input-field(class="styled-input")
+            div(class="file-uploads")
+              input(class="file-upload-input" type='file' required)
+
+
+            
+      .submit
+        p we will send contract on your email please check that's
+        input(type="radio")  
+        label Email
+        button(class="btn") Submit 
+    // End contract
+    // start footer
+    .footer-new
+      .container
+        .row
+          .col-lg-6.col-sm-12
+          .col-lg-6.col-sm-12
+            .social
+              ul.list-unstyled.lists
+                li
+                  a(href='#')
+                    i.fab.fa-facebook-square.fa-2x
+                li
+                  a(href='#')
+                    i.fab.fa-twitter-square.fa-2x
+                li
+                  a(href='#')
+                    i.fab.fa-instagram.fa-2x
+        .row
+          .col-lg-6.col-sm-12
+            p.white © 2018 Oow, all rights reserved 
+          .col-lg-6.col-sm-12
+            .link-footer
+              ul.list-unstyled
+                li.nav-item
+                  a.nav-link(href='#Terms & Conditions') TERMS & CONDITIONS
+                li.nav-item
+                  a.nav-link(href='#Privacy Policy') PRIVACY POLICY
+    // End footer
