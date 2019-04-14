@@ -34,6 +34,7 @@ const viewCompany  = require("./view-company");
 const termsPrivacy =require("./termsPrivacy");
 const homePlan =require("./homePlan");
 const contract = require("./contract");
+const viewService = require("./view-service");
 
 
 
@@ -57,6 +58,7 @@ router.use("/oursections",[authenticated,populateUser,activeted],ourSections);
 router.use("/company-profile",[authenticated,populateUser,isCompany,activeted],companyProfile);
 router.use("/user-profile",[authenticated,populateUser,isUser,activeted],userProfile);
 router.use("/view-company",[authenticated,populateUser,activeted],viewCompany);
+router.use("/view-service",[authenticated,populateUser,activeted],viewService);
 router.use("/company-video",[authenticated,populateUser,isCompany,activeted],companyVideo);
 router.use("/remove",[authenticated,populateUser,isCompany,activeted],removePictureOrvideo);
 router.use(company);

@@ -72,27 +72,42 @@ block pageContent
               li  Price
             - var services = user.companyData.services && user.companyData.services.length? user.companyData.services : [{ name : "", description: "" , price: 1  }]
             each service , i in services
-              tr(data-id=i)
-                td 
-                  input(type="text",value=service.name ,name=`services[${i}][name]`,required)
-                td
-                  input(type="text",value=service.description ,name=`services[${i}][description]`) 
-                td
-                  input(type="number",value=service.price ,name=`services[${i}][price]`, min="1",required)
-                td
-                  a(type="button" value="Delete" onclick="deleteRow(this)")
-                    i(class="fas fa-trash-alt fa-fw")
+              if !readOnly
+                tr(data-id=i)
+                  td 
+                    input(type="text",value=service.name ,name=`services[${i}][name]`,required)
+                  td
+                    input(type="text",value=service.description ,name=`services[${i}][description]`) 
+                  td
+                    input(type="number",value=service.price ,name=`services[${i}][price]`, min="1",required)
+                  td
+                    if !readOnly
+                      a(type="button" value="Delete" onclick="deleteRow(this)")
+                        i(class="fas fa-trash-alt fa-fw")
+            each service , i in services
+              if readOnly
+                tr(data-id=i)
+                  td 
+                    input(type="text",value=service.name ,name=`services[${i}][name]` disabled)
+                  td
+                    input(type="text",value=service.description ,name=`services[${i}][description]` disabled) 
+                  td
+                    input(type="number",value=service.price ,name=`services[${i}][price]`, min="1" disabled)
+                  td
+                    if !readOnly
+                      a(type="button" value="Delete" onclick="deleteRow(this)")
+                        i(class="fas fa-trash-alt fa-fw")
                     
 
-        
-        div(class="pull-right")
-          input(type="button" value="Add" class="top-buffer" onclick="addRow('data')")  
+        if !readOnly
+          div(class="pull-right")
+            input(type="button" value="Add" class="top-buffer" onclick="addRow('data')")  
           
-      
-      div(class="pull-right")
-        .container
-          button(type="submit",class="top-buffer" ) save
-          //- a(href="#") 
+      if !readOnly
+        div(class="pull-right")
+          .container
+            button(type="submit",class="top-buffer" ) save
+            //- a(href="#") 
                       
 
   

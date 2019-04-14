@@ -112,8 +112,11 @@ block pageContent
                   div
                     input.file-upload-input(type='file', accept='video/mp4' name="video")
                   button.btn.btn-success(type='submit') Add
-    .text-center
-      a(href="/dashboard/service" class="btn btn-oow" role="button" style="background:#ff1a47") Servies & Price
+          button.btn.btn-dark
+            if !readOnly
+              a(href="/dashboard/service") Your services
+            else
+              a(href=`/view-service/${user._id}`) View Services & Price
     // End profile-worker
     // start footer
     .footer-new
