@@ -1,6 +1,6 @@
 extends index
 block append linksCss 
-  link(rel="stylesheet" , href="css/contract/contract.css")
+  link(rel="stylesheet" , href="/css/contract/contract.css")
 
 block pageTitle
   title Pricing & Table 
@@ -10,7 +10,7 @@ block pageContent
     nav.navbar.navbar-toggleable-md.navbar-light
       .container
         a.navbar-brand(href='index.html')
-          img(src='img/Home-page/logo.png')
+          img(src='/img/Home-page/logo.png')
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
         #silver.collapse.navbar-collapse
           ul.navbar-nav.ml-auto
@@ -50,14 +50,14 @@ block pageContent
             .col-lg-6
                     .form-group
                       #datepicker.input-group.date
-                        input(class="xx").form-control(type="date")
+                        input.form-control(type="date" class="xx")
                         span.input-group-append.input-group-addon
                           span.input-group-text
                             i.fa.fa-calendar
             .col-lg-6            
                     .form-group
                       #timepicker.input-group.time
-                        input(class="xx").form-control(type="time")
+                        input.form-control(type="time" class="xx")
                         span.input-group-append.input-group-addon
                           span.input-group-text
                             i.fa.fa-clock

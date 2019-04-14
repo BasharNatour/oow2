@@ -33,6 +33,7 @@ const companyVideo = require("./company-video");
 const viewCompany  = require("./view-company");
 const termsPrivacy =require("./termsPrivacy");
 const homePlan =require("./homePlan");
+const contract = require("./contract");
 
 
 
@@ -64,6 +65,7 @@ router.use("/companies",[authenticated,populateUser,activeted],companies);
 router.use("/update",[authenticated,populateUser,activeted],updatePassword);
 router.use("/termsPrivacy",termsPrivacy);
 router.use("/homePlan",homePlan);
+router.use("/contract",contract);
 
 
 
