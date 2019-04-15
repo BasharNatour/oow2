@@ -1,0 +1,76 @@
+extends index
+block append linksCss 
+  link(rel="stylesheet" , href="css/time/time.css")
+
+block pageTitle
+  title Pricing & Table 
+        
+block pageContent
+    // start Nav
+    nav.navbar.navbar-toggleable-md.navbar-light
+      .container
+        a.navbar-brand(href='index.html')
+          img(src='img/Home-page/logo.png')
+        button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
+        #silver.collapse.navbar-collapse
+          ul.navbar-nav.ml-auto
+            li.nav-item.dropdown
+              a.nav-link.dropdown-toggle.href-color(data-toggle='dropdown', href='#') SETTINGS
+              .dropdown-menu
+                a.dropdown-item(href='#') Profile
+                a.dropdown-item(href='#') Account Settings
+                a.dropdown-item(href='#') Complaints
+                a.dropdown-item(href='#') Remove Account
+                a.dropdown-item(href='#') Log Out 
+    // End Nav
+    // start time 
+    .time
+      .section
+        h3(class="text-center") Please select the time 
+        .row
+            .col-lg-12
+                    .form-group
+                      #datepicker.input-group.date
+                        input(class="xx").form-control(type="date")
+                        span.input-group-append.input-group-addon
+                          span.input-group-text
+                            i.fa.fa-calendar
+            .col-lg-12           
+                    .form-group
+                      #timepicker.input-group.time
+                        input(class="xx").form-control(type="time")
+                        span.input-group-append.input-group-addon
+                          span.input-group-text
+                            i.fa.fa-clock
+            button(class="btn")
+              a(href="#") Next                  
+    // end time 
+    // start footer
+    .footer-new
+      .container
+        .row
+          .col-lg-6.col-sm-12
+          .col-lg-6.col-sm-12
+            .social
+              ul.list-unstyled.lists
+                li
+                  a(href='#')
+                    i.fab.fa-facebook-square.fa-2x
+                li
+                  a(href='#')
+                    i.fab.fa-twitter-square.fa-2x
+                li
+                  a(href='#')
+                    i.fab.fa-instagram.fa-2x
+        .row
+          .col-lg-6.col-sm-12
+            p.white © 2018 Oow, all rights reserved 
+          .col-lg-6.col-sm-12
+            .link-footer
+              ul.list-unstyled
+                li.nav-item
+                  a.nav-link(href='#Terms & Conditions') TERMS & CONDITIONS
+                li.nav-item
+                  a.nav-link(href='#Privacy Policy') PRIVACY POLICY
+    // End footer
+    
