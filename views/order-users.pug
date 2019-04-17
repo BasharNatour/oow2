@@ -24,20 +24,21 @@ block pageContent
                 a.dropdown-item(href='#') Log Out 
     // End Nav
     h2(class="text-center hea-cen") My Orders
-    // Start Oreders 
-    .orders
-      .container
-        .row
-          .col-lg-2.up
-            .one
-              img(src='img/our-section/worker/3.png')
-          .col-lg-10.down
-            .two
-              p(clas='name')
-                | Johan Dou - 
-                span.company-name Company 
-          button(class="btn")  
-            a(href='#') Print
+    // Start Oreders
+    each contract in contracts
+      .orders
+        .container
+          .row
+            .col-lg-2.up
+              .one
+                img(src=contract.company.profileimage)
+            .col-lg-10.down
+              .two
+                p
+                  span.name= contract.company.companyData.name 
+                  span.name.px-2 Johan Dou 
+            button(class="btn")  
+              a(href='#') Print
 
     // start footer
     .footer-new

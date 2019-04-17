@@ -4,6 +4,7 @@ block append linksCss
 
 block pageTitle
   title Pricing & Table 
+  script(src='https://code.jquery.com/jquery-1.12.4.min.js')
         
 block pageContent
     // start Nav
@@ -33,80 +34,76 @@ block pageContent
             div(class="col-lg-6")
               .input-field
                 lebal First Name  & Last Name
-                input(type="text" class="account-sett-btn"  required)
+                input(type="text" class="account-sett-btn" value=user.firstName+ user.lastName disabled)
             div(class="col-lg-6")
               .input-field
                 lebal Company Name
-                input(type="text"  class="account-sett-btn" disabled)
+                input(type="text"  class="account-sett-btn" value=company.companyData.name disabled)
                   
             div(class="col-lg-6")
               .input-field
                 lebal Email 
-                input(type="text" class="account-sett-btn"  required)
+                input(type="text" class="account-sett-btn" value=user.email disabled)
             div(class="col-lg-6")
               .input-field
                 lebal Phone Number 
-                input(type="text"  class="account-sett-btn" required)
-      .table-sec(class="text-center")
-        h2 Looking For My Services
-        p Please Select On The Services You Needed   
-            div(id="main")
-              div(class="container")
-                table(id="data" class="data-table data-table-horizontal data-table-highlight")
-                  tbody
-                    ul(class="heade-table list-unstyled")
-                      li  service
-                      li  Details
-                      li  Price
-                      li CheckBox
-                    tr
-                      td 
-                        input(type="text" disabled)
-                      td
-                        input(type="text" disabled) 
-                      td
-                        input(type="number" disabled) 
-                      td
-                        input(type="CheckBox")
-                            
-                  tr 
-                    td
-                      input(type="text" disabled)
-                    td
-                      input(type="text" disabled) 
-                    td
-                      input(type="number" disabled)   
-                    td
-                      input(type="CheckBox")
+                input(type="text"  class="account-sett-btn" value=user.phone disabled)
+      form(action="/contract" method= "post")
+        .table-sec(class="text-center")
+          h2 Looking For My Services
+          p Please Select On The Services You Needed   
+              div(id="main")
+                div(class="container")
+                  table(id="data" class="data-table data-table-horizontal data-table-highlight")
+                    tbody
+                      ul(class="heade-table list-unstyled")
+                        li  service
+                        li  Details
+                        li  Price
+                        li CheckBox
+                      - var services = company.companyData.services && company.companyData.services.length? company.companyData.services : [{ name : "", description: "" , price: 1  }]
+                      each service , i in services
+                        tr(data-id=i name="checked")
+                          td 
+                            input(type="text",value=service.name  disabled)
+                          td
+                            input(type="text",value=service.description  disabled) 
+                          td
+                            input(type="number",value=service.price , min="1" disabled)         
+                          td
+                            input(type="CheckBox" name="services" value=service._id checked=readOnly?contract.services.some(item=>item.equals(service._id)):false disabled=readOnly)
 
                                 
-                  tr
-                    td
-                      input(type="text" disabled)
-                    td
-                      input(type="text" disabled) 
-                    td
-                      input(type="number" disabled)   
-                    td
-                      input(type="CheckBox")
+                  
 
-      .conditions
-        .conditi
-          h4 The Conditions
-        p lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem lorem v lorem lorem lorem lorem lorem lorem lorem v lorem lorem lorem lorem lorem lorem
-    
-        .sections
-          h4 Additional details
-          .input-field(class="styled-input")
-            textarea( required class="btn-setting-worker" )
-            label if you like to add any things 
+        .conditions
+          .conditi
+            h4 The Conditions
+          p=`${company.companyData.conditions ? company.companyData.conditions : "The Company has no contractual requirements"} `
+
+        .conditions
+          .conditi
+            h4 Reservation Time
+          .row.p-3
+            div(class="col-md-6")
+              .input-field
+                lebal Time 
+                input(type="time" class="account-sett-btn"  name="time" value=contract?contract.getTimeString():"" required disabled=readOnly)
+            div(class="col-md-6")
+              .input-field
+                lebal Date
+                input(type="date"  class="account-sett-btn" name="date" value=contract?contract.getDateString():"" required disabled=readOnly)
       
-      .submit
-        p we will send contract on your email please check that's
-        input(type="radio")  
-        label Email
-        button(class="btn") Submit 
+          .sections
+            h4 Additional details
+            .input-field(class="styled-input")
+              textarea( required class="btn-setting-worker" name="notes" value= readOnly?contract.notes:"" disabled=readOnly)
+              label if you like to add any things 
+        
+        .submit
+          button(type="submit" class="btn") Submit 
     // End contract
+    
     // start footer
     .footer-new
       .container

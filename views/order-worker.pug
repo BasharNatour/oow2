@@ -25,48 +25,22 @@ block pageContent
     // End Nav
     h2(class="text-center hea-cen") My Orders
     // Start Oreders 
-    .orders
-      .container
-        .row
-          .col-lg-2.up
-            .one
-              img(src='img/our-section/worker/3.png')
-          .col-lg-10.down
-            .two
-              p(clas='name')
-                | Johan Dou - 
-                span.company-name Company 
-          .col-lg-2
-                button(class="btn")  
-                  a(href='#') Accept
-          .col-lg-2
-                button(class="btn")  
-                  a(href='#') Rejection
-          .col-lg-2
-                button(class="btn")  
-                  a(href='#') Print
-                  
-    
-    .orders
-      .container
-        .row
-          .col-lg-2.up
-            .one
-              img(src='img/our-section/worker/3.png')
-          .col-lg-10.down
-            .two
-              p(clas='name')
-                | Johan Dou - 
-                span.company-name Company 
-          .col-lg-2
-                button(class="btn")  
-                  a(href='#') Accept
-          .col-lg-2
-                button(class="btn")  
-                  a(href='#') Rejection
-          .col-lg-2
-                button(class="btn")  
-                  a(href='#') Print                  
+    each contract in contracts
+      .orders
+        .container
+          .row
+            .col-lg-2.up
+              .one
+                img(src=contract.user.profileimage)
+            .col-lg-10.down
+              .two
+                p(clas='name')
+                  span=contract.user.firstName 
+                  span.px-2=contract.user.lastName  
+            .col-lg-2
+                  button(class="btn")  
+                    a(href=`/view-contract/${contract._id}`) View
+                             
 
     // End orders 
     // start footer

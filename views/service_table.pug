@@ -103,11 +103,18 @@ block pageContent
           div(class="pull-right")
             input(type="button" value="Add" class="top-buffer" onclick="addRow('data')")  
           
-      if !readOnly
-        div(class="pull-right")
-          .container
-            button(type="submit",class="top-buffer" ) save
-            //- a(href="#") 
+        if !readOnly
+          div(class="pull-right")
+            .container
+              button(type="submit",class="top-buffer" ) save
+              //- a(href="#") 
+        if readOnly
+          div(class="pull-right")
+            .container
+              button.top-buffer 
+                a(href=`/contract/${user._id}`) Create Contract
+              //- a(href="#") 
+
                       
 
   

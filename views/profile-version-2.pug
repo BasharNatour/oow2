@@ -1,6 +1,7 @@
 extends index
 block append linksCss 
-  link(rel="stylesheet" , href="/css/profile-worker/worker-version-2.css")
+  link(rel="stylesheet" , href="/css/profile-worker/worker-version-2.css") 
+  link(rel="stylesheet" , href="/css/pricing-table/pricing-table.css")
   link(rel="stylesheet" , href="/css/our-section/our-section.css")
 
 block pageTitle
@@ -18,18 +19,22 @@ block pageContent
               li(class="nav-item dropdown")
                 a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
                 div(class="dropdown-menu")
-                  if user.type === "company"
+                  if loggedin.type === "company"
                     a(href="/company-profile" class="dropdown-item") Profile
                     a(href="/search" class="dropdown-item") Search
 
                   else
                     a(href="/user-profile" class="dropdown-item") Profile
                   a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
-                  if user.type === "company" && readOnly === false
+                  if loggedin.type === "company" && readOnly === false
                     a(href="/dashboard/service" class="dropdown-item") your Services
                     a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
                   a(href="/complaints" class="dropdown-item") Complaints
                   a(href="/update" class="dropdown-item") updatePassword
+                  if loggedin.type === "company" && readOnly === false
+                    a(href="/order-Company" class="dropdown-item") Your order
+                  if loggedin.type === "client" && readOnly === true
+                    a(href="/order-User" class="dropdown-item") Your order
                   a(href="/remove-account" class="dropdown-item") Remove Account
                   a(href="/logout" class="dropdown-item") Log Out
     // End Nav
@@ -112,11 +117,12 @@ block pageContent
                   div
                     input.file-upload-input(type='file', accept='video/mp4' name="video")
                   button.btn.btn-success(type='submit') Add
-          button.btn.btn-dark
             if !readOnly
-              a(href="/dashboard/service") Your services
+              button.top-buffer
+                a(href="/dashboard/service") Your services
             else
-              a(href=`/view-service/${user._id}`) View Services & Price
+              button.top-buffer
+                a(href=`/view-service/${user._id}`) View Services & Price
     // End profile-worker
     // start footer
     .footer-new
