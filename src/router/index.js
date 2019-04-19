@@ -46,6 +46,8 @@ const search =require("./search");
 const rejection =require("./rejection");
 const accept =require("./accept");
 const done =require("./done");
+const forget =require("./forgetPassword");
+const resetPassword =require("./resetPassword");
 
 
 
@@ -76,6 +78,8 @@ router.use("/termsPrivacy",termsPrivacy);
 router.use("/homePlan",homePlan);
 router.use("/contract",[authenticated,populateUser,isUser,activeted],contract);
 router.use("/time",time);
+router.use("/forget",forget);
+router.use("/reset-Password",resetPassword);
 router.use("/order-company",orderCompany);
 router.use("/order-User",[authenticated,populateUser,isUser,activeted],orderUser);
 router.use("/view-contract",[authenticated,populateUser,activeted],viewContract);
