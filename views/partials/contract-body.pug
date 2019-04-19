@@ -1,0 +1,50 @@
+.table-sec(class="text-center")
+  h2 Looking For My Services
+  p Please Select On The Services You Needed   
+      div(id="main")
+        div(class="container")
+          table(id="data" class="data-table data-table-horizontal data-table-highlight")
+            tbody
+              ul(class="heade-table list-unstyled")
+                li  service
+                li  Details
+                li  Price
+                li CheckBox
+              - var services = company.companyData.services && company.companyData.services.length? company.companyData.services : [{ name : "", description: "" , price: 1  }]
+              each service , i in services
+                tr(data-id=i name="checked")
+                  td 
+                    input(type="text",value=service.name  disabled)
+                  td
+                    input(type="text",value=service.description  disabled) 
+                  td
+                    input(type="number",value=service.price , min="1" disabled)         
+                  td
+                    input(type="CheckBox" name="services" value=service._id checked=readOnly?contract.services.some(item=>item.equals(service._id)):false disabled=readOnly)
+
+                        
+          
+
+.conditions
+  .conditi
+    h4 The Conditions
+  p=`${company.companyData.conditions ? company.companyData.conditions : "The Company has no contractual requirements"} `
+
+.conditions
+  .conditi
+    h4 Reservation Time
+  .row.p-3
+    div(class="col-md-6")
+      .input-field
+        lebal Time 
+        input(type="time" class="account-sett-btn"  name="time" value=contract?contract.getTimeString():"" required disabled=readOnly)
+    div(class="col-md-6")
+      .input-field
+        lebal Date
+        input(type="date"  class="account-sett-btn" name="date" value=contract?contract.getDateString():"" required disabled=readOnly)
+
+  .sections
+    h4 Additional details
+    .input-field(class="styled-input")
+      textarea( required class="btn-setting-worker" name="notes" disabled=readOnly)=readOnly?contract.notes:""
+      label(style=readOnly?"top:-5px":"") if you like to add any things 

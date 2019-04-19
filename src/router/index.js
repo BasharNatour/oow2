@@ -43,6 +43,9 @@ const viewContract = require("./view-contract");
 
 
 const search =require("./search");
+const rejection =require("./rejection");
+const accept =require("./accept");
+const done =require("./done");
 
 
 
@@ -71,11 +74,14 @@ router.use("/companies",[authenticated,populateUser,activeted],companies);
 router.use("/update",[authenticated,populateUser,activeted],updatePassword);
 router.use("/termsPrivacy",termsPrivacy);
 router.use("/homePlan",homePlan);
-router.use("/contract",[authenticated,populateUser,activeted],contract);
+router.use("/contract",[authenticated,populateUser,isUser,activeted],contract);
 router.use("/time",time);
 router.use("/order-company",orderCompany);
 router.use("/order-User",[authenticated,populateUser,isUser,activeted],orderUser);
 router.use("/view-contract",[authenticated,populateUser,activeted],viewContract);
+router.use("/reject",[authenticated,populateUser,isCompany,activeted],rejection);
+router.use("/accept",[authenticated,populateUser,isCompany,activeted],accept);
+router.use("/done",[authenticated,populateUser,isCompany,activeted],done);
 
 
 

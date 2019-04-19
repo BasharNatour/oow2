@@ -1,6 +1,7 @@
 extends index
 block append linksCss  
   link(rel="stylesheet" , href="css/search/search.css")
+  link(rel="stylesheet" , href="/css/contract/contract.css")
 
 block pageTitle
   title Search
@@ -18,23 +19,7 @@ block pageContent
           
           button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
                 
-          div(class="collapse navbar-collapse", id="silver")
-            ul(class="navbar-nav ml-auto")
-              li(class="nav-item dropdown")
-                a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
-                div(class="dropdown-menu")
-                  if user.type === "company"
-                    a(href="/company-profile" class="dropdown-item") Profile
-                  else
-                    a(href="/user-profile" class="dropdown-item") Profile
-                  a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
-                  if user.type === "company"
-                    a(href="/dashboard/service" class="dropdown-item") your Services
-                    a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
-                  a(href="/complaints" class="dropdown-item") Complaints
-                  a(href="/update" class="dropdown-item") updatePassword
-                  a(href="/remove-account" class="dropdown-item") Remove Account
-                  a(href="/logout" class="dropdown-item") Log Out 
+          include include/nav.pug
 
 
   |
@@ -53,16 +38,21 @@ block pageContent
             p(class="two") Search  local professionals with reviews, pricing, availability, and more
             form(action="/ourSections",method="get",id="form1")
               .input-field
-                select(required,name="governorate")
+                select(name="governorate")
                   option(hidden,value="") Search Governorates
                   each governorate in result
                     option(value=`${governorate._id}`)=governorate.name
                 button(type="submit",form="form1",class="search-btn")
                   a(href="/ourSections")
                   i(class="fa fa-search ")
-
-
-
+              div.submit.mt-3(style="display : flex; justify-content : center")
+                button.btn(style="margin: 0") Search
+  script.
+    window.addEventListener("keydown", function (e) {
+      if (e.keyCode === 13) {
+        $("#form1").submit();
+      }
+    });
                 
 
                                   

@@ -17,8 +17,7 @@ router.get("/:id",(req,res)=>{
    });
 });
 
-router.post("/",(req,res)=>{
-    console.log(Date.now() + req.body.date);
+router.post("/",(req,res,next)=>{
    let contract = new Contract({
     company: companyId,
     user: req.user._id,
@@ -28,6 +27,6 @@ router.post("/",(req,res)=>{
    });
    contract.save().then(()=>{
     res.redirect("/order-User");
-   });
+   }).catch(next);
     
 });

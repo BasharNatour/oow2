@@ -1,6 +1,6 @@
 extends index
 block append linksCss 
-  link(rel="stylesheet" , href="css/orders/order-user.css")
+  link(rel="stylesheet" , href="css/orders/order-worker.css")
 
 block pageTitle
   title Pricing & Table 
@@ -32,13 +32,36 @@ block pageContent
             .col-lg-2.up
               .one
                 img(src=contract.company.profileimage)
-            .col-lg-10.down
-              .two
-                p
-                  span.name= contract.company.companyData.name 
-                  span.name.px-2 Johan Dou 
-            button(class="btn")  
-              a(href='#') Print
+            .col-lg-10.down.row
+              .two.col-md-8
+                p(clas='name' style="padding :0")
+                  span=contract.company.firstName + " " + contract.company.lastName
+                  a(href=`/view-company/${contract.company._id}` target="_blank" style="color : #00F")
+                    span.px-2=contract.company.companyData.name 
+                
+                p(clas='name' style="padding :0")
+                  span(style="font-size:18px;color:rgba(0,0,0,0.64)")=contract.company.email 
+
+              .col-md-4.row
+                div.col-md-12
+                  if contract.done
+                    span.badge.badge-primary(style="font-size : 100%; float:right") Done
+                  else if contract.accepted
+                    span.badge.badge-success(style="font-size : 100%; float:right") Accepted
+                  
+                  else if contract.accepted === false
+                    span.badge.badge-danger(style="font-size : 100%; float:right") Rejected
+                  
+                  else 
+                    span.badge.badge-warning(style="font-size : 100%; float:right") Pending
+                if contract.accepted && !contract.done
+                  div.col-md-12.mt-3.text-right
+                    span You must go to the company's headquarters to complete your contract
+
+                  
+            .col-lg-12
+                  button(class="btn")  
+                    a(href=`/view-contract/${contract._id}`) View
 
     // start footer
     .footer-new

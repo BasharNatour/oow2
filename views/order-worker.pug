@@ -32,11 +32,27 @@ block pageContent
             .col-lg-2.up
               .one
                 img(src=contract.user.profileimage)
-            .col-lg-10.down
-              .two
-                p(clas='name')
+            .col-lg-10.down.row
+              .two.col-md-10
+                p(clas='name' style="padding :0")
                   span=contract.user.firstName 
                   span.px-2=contract.user.lastName  
+                
+                p(clas='name' style="padding :0")
+                  span(style="font-size:18px;color:rgba(0,0,0,0.64)")=contract.user.email 
+
+              .col-md-2
+                if contract.done
+                  span.badge.badge-primary(style="margin:0 15px; font-size : 100%") Done
+                else if contract.accepted
+                  span.badge.badge-success(style="margin:0 15px; font-size : 100%") Accepted
+                
+                else if contract.accepted === false
+                  span.badge.badge-danger(style="margin:0 15px; font-size : 100%") Rejected
+                
+                else 
+                  span.badge.badge-warning(style="margin:0 15px; font-size : 100%") Pending
+                  
             .col-lg-2
                   button(class="btn")  
                     a(href=`/view-contract/${contract._id}`) View

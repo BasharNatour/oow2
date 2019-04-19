@@ -8,6 +8,7 @@ router.get("/:id",(req,res)=>{
     Contract.findById(yourContract).populate("company").populate("user").then((per_contract)=>{
         if(req.user.type === "company"){
             res.render("contract",{
+                loggedin : req.user,
                 company:req.user,
                 user: per_contract.user,
                 contract: per_contract,
@@ -16,6 +17,7 @@ router.get("/:id",(req,res)=>{
         }
         else{
           res.render("contract",{
+            loggedin : req.user,
             company:per_contract.company,
             user: req.user,
             contract: per_contract,

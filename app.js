@@ -73,6 +73,6 @@ app.use((error, req, res, next) => {
     }
 });
 
-app.listen(80, () => {
+app.listen(80, "0.0.0.0", () => {
     console.log('App listening on port 80!');
 });

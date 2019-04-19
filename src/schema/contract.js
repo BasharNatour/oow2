@@ -22,6 +22,10 @@ const contract =  new mongoose.Schema({
     },
     accepted:{
         type:Boolean,
+    },
+    done:{
+        type:Boolean,
+        default:false
     }
 
 
@@ -33,7 +37,7 @@ function prefix(n){
 
 contract.methods.getDateString = function getDateString (){
     const date = this.date;
-    return(`${date.getFullYear()}-${prefix(date.getMonth()+1)}-${date.getDate()}`);
+    return(`${date.getFullYear()}-${prefix(date.getMonth()+1)}-${prefix(date.getDate())}`);
 }
 
 contract.methods.getTimeString = function getTimeString (){

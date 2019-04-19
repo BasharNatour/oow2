@@ -31,9 +31,9 @@ block pageContent
                     a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
                   a(href="/complaints" class="dropdown-item") Complaints
                   a(href="/update" class="dropdown-item") updatePassword
-                  if loggedin.type === "company" && readOnly === false
+                  if loggedin.type === "company" 
                     a(href="/order-Company" class="dropdown-item") Your order
-                  if loggedin.type === "client" && readOnly === true
+                  if loggedin.type === "client" 
                     a(href="/order-User" class="dropdown-item") Your order
                   a(href="/remove-account" class="dropdown-item") Remove Account
                   a(href="/logout" class="dropdown-item") Log Out

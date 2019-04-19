@@ -5,7 +5,30 @@ block append linksCss
 block pageTitle
   title Pricing & Table 
   script(src='https://code.jquery.com/jquery-1.12.4.min.js')
-        
+  style.
+    @media print {
+      nav {
+        display : none!important;
+      }
+      #main {
+        margin-bottom : 0!important;
+      }
+      .sections {
+        padding : 0!important;
+      }
+      .future-worker {
+        margin : 0!important;
+      }
+      .grid-inputs .col-md-6 {
+        width : 50%!important;
+      }
+      .grid-inputs label {
+        display : block!important;
+      }
+      .footer-new, .submit {
+        display : none!important;
+      }
+    }
 block pageContent
     // start Nav
     nav.navbar.navbar-toggleable-md.navbar-light
@@ -13,95 +36,54 @@ block pageContent
         a.navbar-brand(href='index.html')
           img(src='/img/Home-page/logo.png')
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
-        #silver.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
-            li.nav-item.dropdown
-              a.nav-link.dropdown-toggle.href-color(data-toggle='dropdown', href='#') SETTINGS
-              .dropdown-menu
-                a.dropdown-item(href='#') Profile
-                a.dropdown-item(href='#') Account Settings
-                a.dropdown-item(href='#') Complaints
-                a.dropdown-item(href='#') Remove Account
-                a.dropdown-item(href='#') Log Out 
+        include include/nav.pug
     // End Nav
     // start contract 
+    if success.message
+      .alert.alert-success.text-center(role='alert')=success.message
     .future-worker
       .heading-future
         h3 Start Contract
       .para-future
         .sections
-          .row
-            div(class="col-lg-6")
+          .row.grid-inputs
+            div(class="col-md-6")
               .input-field
-                lebal First Name  & Last Name
+                lebal First Name & Last Name
                 input(type="text" class="account-sett-btn" value=user.firstName+ user.lastName disabled)
-            div(class="col-lg-6")
+            div(class="col-md-6")
               .input-field
                 lebal Company Name
                 input(type="text"  class="account-sett-btn" value=company.companyData.name disabled)
                   
-            div(class="col-lg-6")
+            div(class="col-md-6")
               .input-field
-                lebal Email 
+                lebal Email&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 input(type="text" class="account-sett-btn" value=user.email disabled)
-            div(class="col-lg-6")
+            div(class="col-md-6")
               .input-field
                 lebal Phone Number 
                 input(type="text"  class="account-sett-btn" value=user.phone disabled)
-      form(action="/contract" method= "post")
-        .table-sec(class="text-center")
-          h2 Looking For My Services
-          p Please Select On The Services You Needed   
-              div(id="main")
-                div(class="container")
-                  table(id="data" class="data-table data-table-horizontal data-table-highlight")
-                    tbody
-                      ul(class="heade-table list-unstyled")
-                        li  service
-                        li  Details
-                        li  Price
-                        li CheckBox
-                      - var services = company.companyData.services && company.companyData.services.length? company.companyData.services : [{ name : "", description: "" , price: 1  }]
-                      each service , i in services
-                        tr(data-id=i name="checked")
-                          td 
-                            input(type="text",value=service.name  disabled)
-                          td
-                            input(type="text",value=service.description  disabled) 
-                          td
-                            input(type="number",value=service.price , min="1" disabled)         
-                          td
-                            input(type="CheckBox" name="services" value=service._id checked=readOnly?contract.services.some(item=>item.equals(service._id)):false disabled=readOnly)
-
-                                
-                  
-
-        .conditions
-          .conditi
-            h4 The Conditions
-          p=`${company.companyData.conditions ? company.companyData.conditions : "The Company has no contractual requirements"} `
-
-        .conditions
-          .conditi
-            h4 Reservation Time
-          .row.p-3
-            div(class="col-md-6")
-              .input-field
-                lebal Time 
-                input(type="time" class="account-sett-btn"  name="time" value=contract?contract.getTimeString():"" required disabled=readOnly)
-            div(class="col-md-6")
-              .input-field
-                lebal Date
-                input(type="date"  class="account-sett-btn" name="date" value=contract?contract.getDateString():"" required disabled=readOnly)
-      
-          .sections
-            h4 Additional details
-            .input-field(class="styled-input")
-              textarea( required class="btn-setting-worker" name="notes" value= readOnly?contract.notes:"" disabled=readOnly)
-              label if you like to add any things 
-        
-        .submit
-          button(type="submit" class="btn") Submit 
+      if !readOnly
+        form(action="/contract" method= "post")
+          include partials/contract-body.pug
+          .submit
+            button(type="submit" class="btn") Submit 
+      else
+        div
+          include partials/contract-body.pug
+          .submit(style="display:flex; justify-content: center")
+            if loggedin.type === "company"
+              if contract.accepted === undefined
+                form(action=`/accept/${contract._id}/` method="post") 
+                  button(type="submit" class="btn" style="margin:0 10px") Accept
+                form(action=`/reject/${contract._id}/` method="post")
+                  button(type="submit" class="btn" style="margin:0 10px") Reject 
+              else if contract.accepted && contract.done === false
+                form(action=`/done/${contract._id}/` method="post")
+                  button(type="submit" class="btn" style="margin:0 10px") Done 
+            a(href="")
+              button(type="button" class="btn" style="margin:0 10px" onclick="window.print()") Print 
     // End contract
     
     // start footer

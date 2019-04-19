@@ -4,12 +4,11 @@ module.exports = router;
 const Contract = require("../schema/contract"); 
 const User = require("../schema/user"); 
 
-router.get("/",(req,res)=>{
+router.get("/",(req,res, next)=>{
     Contract.find({user:req.user._id}).populate("company").then((contracts)=>{
-        console.log(contracts);
         res.render("order-users",{
             contracts
         });
         
-    });
+    }).catch(next);
 });

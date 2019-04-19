@@ -1,0 +1,21 @@
+div(class="collapse navbar-collapse", id="silver")
+  ul(class="navbar-nav ml-auto")
+    li(class="nav-item dropdown")
+      a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
+      div(class="dropdown-menu")
+        if loggedin.type === "company"
+          a(href="/company-profile" class="dropdown-item") Profile
+        else
+          a(href="/user-profile" class="dropdown-item") Profile
+        a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
+        if loggedin.type === "company"
+          a(href="/dashboard/service" class="dropdown-item") your Services
+          a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
+        if loggedin.type === "company" 
+          a(href="/order-Company" class="dropdown-item") Your order
+        if loggedin.type === "client" 
+          a(href="/order-User" class="dropdown-item") Your order
+        a(href="/complaints" class="dropdown-item") Complaints
+        a(href="/update" class="dropdown-item") updatePassword
+        a(href="/remove-account" class="dropdown-item") Remove Account
+        a(href="/logout" class="dropdown-item") Log Out 

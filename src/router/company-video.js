@@ -34,6 +34,6 @@ router.post("/", upload.fields([{
     } else {
         res.redirect("/company-profile");
     }
-    console.log(req.files);
+    
 
 });

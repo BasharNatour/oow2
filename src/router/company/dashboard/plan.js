@@ -6,8 +6,6 @@ const populate_user = require("../../../middleware/populate_user");
 
 router.get("/", (req, res, next) => {
     Plan.find({}).then((docs) => {
-        // console.log(docs);
-        // console.log(docs[0]._id);
         res.render("plan", {
             docs
         });
