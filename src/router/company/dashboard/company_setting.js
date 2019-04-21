@@ -13,7 +13,8 @@ router.get("/",populate_user,(req,res,next)=>{
     Category.find({}).then((categories)=>{
         res.render("setting-worker",{
             categories,
-            user : req.user
+            user : req.user,
+            loggedin : req.user,
         });
     }).catch(next);
 });
@@ -59,7 +60,8 @@ router.post("/",[upload.single('myImage')],companyValidation,(req,res,next)=>{
         if(phone){doc.telephone = telephone}
         doc.phone = phone;
         doc.save().then(()=>{
-            res.redirect("/dashboard/service");
+            req.flash("success",{message:"Saved your Changed"});
+            res.redirect("/dashboard/company_setting");
         }).catch(next);
     }).catch(next);
     

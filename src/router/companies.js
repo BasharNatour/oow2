@@ -18,6 +18,7 @@ router.get("/", (req, res, next) => {
                 page : data.page,
                 pages: data.pages,
                 user:req.user,
+                loggedin:req.user,
                 baseUrl:`/companies?${qureryString.stringify({ section , governorate })}`
 
             });

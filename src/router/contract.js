@@ -12,6 +12,7 @@ router.get("/:id",(req,res)=>{
             company,
             user: req.user,
             readOnly:false,
+            loggedin:req.user
 
         });  
    });

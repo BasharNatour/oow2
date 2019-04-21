@@ -11,32 +11,10 @@ block pageContent
     // start Nav
     nav.navbar.navbar-toggleable-md.navbar-light
       .container
-        a.navbar-brand(href='index.html')
+        a.navbar-brand(href='/')
           img(src='/img/Home-page/logo.png')
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
-        div(class="collapse navbar-collapse", id="silver")
-            ul(class="navbar-nav ml-auto")
-              li(class="nav-item dropdown")
-                a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
-                div(class="dropdown-menu")
-                  if loggedin.type === "company"
-                    a(href="/company-profile" class="dropdown-item") Profile
-                    a(href="/search" class="dropdown-item") Search
-
-                  else
-                    a(href="/user-profile" class="dropdown-item") Profile
-                  a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
-                  if loggedin.type === "company" && readOnly === false
-                    a(href="/dashboard/service" class="dropdown-item") your Services
-                    a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
-                  a(href="/complaints" class="dropdown-item") Complaints
-                  a(href="/update" class="dropdown-item") updatePassword
-                  if loggedin.type === "company" 
-                    a(href="/order-Company" class="dropdown-item") Your order
-                  if loggedin.type === "client" 
-                    a(href="/order-User" class="dropdown-item") Your order
-                  a(href="/remove-account" class="dropdown-item") Remove Account
-                  a(href="/logout" class="dropdown-item") Log Out
+        include include/nav.pug
     // End Nav
     // start profile-wroker
     .profile-worker
@@ -48,25 +26,25 @@ block pageContent
           .col-lg-10.down
             .two
               p(class='name')
-                span=user.firstName
-                span.px-2= user.lastName
+                span=user.firstName?user.firstName:""
+                span.px-2=user.lastName?user.lastName:""
               p
-                span.company-name=user.companyData.name 
+                span.company-name=user.companyData.name?user.companyData.name:""
                 span.company-name.m-2 
               p.city
-                span=user.governorate.name 
+                span=user.governorate.name?user.governorate.name:"" 
                 |  
-                span.px-2=user.companyData.location.city 
-              span.phone=user.phone 
+                span.px-2=user.companyData.location.city?user.companyData.location.city:"" 
+              span.phone=user.phone?user.phone:"" 
               span.phone.px-2=user.telephone 
           .col-lg.under
-            h4.job=user.companyData.categary.name
-            p.discretion=user.companyData.description
+            h4.job=user.companyData.categary ? user.companyData.categary.name : ""
+            p.discretion=user.companyData ? user.companyData.description:""
     .future-worker
       .heading-future
         h3 Features
       .para-future
-        p=user.companyData.features
+        p=user.companyData?user.companyData.features:""
     .future-worker
       .heading-future
         h3 conditions

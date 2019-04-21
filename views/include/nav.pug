@@ -9,13 +9,14 @@ div(class="collapse navbar-collapse", id="silver")
           a(href="/user-profile" class="dropdown-item") Profile
         a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
         if loggedin.type === "company"
-          a(href="/dashboard/service" class="dropdown-item") your Services
+          a(href="/dashboard/service" class="dropdown-item") Your services
           a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
         if loggedin.type === "company" 
           a(href="/order-Company" class="dropdown-item") Your order
         if loggedin.type === "client" 
           a(href="/order-User" class="dropdown-item") Your order
         a(href="/complaints" class="dropdown-item") Complaints
-        a(href="/update" class="dropdown-item") updatePassword
+        a(href="/Search" class="dropdown-item") Search
+        a(href="/update" class="dropdown-item") Update password
         a(href="/remove-account" class="dropdown-item") Remove Account
         a(href="/logout" class="dropdown-item") Log Out 

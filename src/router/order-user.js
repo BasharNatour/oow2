@@ -7,7 +7,8 @@ const User = require("../schema/user");
 router.get("/",(req,res, next)=>{
     Contract.find({user:req.user._id}).populate("company").then((contracts)=>{
         res.render("order-users",{
-            contracts
+            contracts,
+            loggedin:req.user
         });
         
     }).catch(next);

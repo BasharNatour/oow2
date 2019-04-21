@@ -12,7 +12,7 @@ block pageContent
      .container
           |
           |
-          a(class="navbar-brand", href="index.html")
+          a(class="navbar-brand", href="/")
               img(src="img/Home-page/logo.png")
 
   |
@@ -50,7 +50,7 @@ block pageContent
             .input-field
               input(type="email"    ,id="login-email"      , class="btn-sub", name="email", placeholder="Enter Your Email Address" required)
             .input-field
-              input(type="password" , id="login-password"  , class="btn-sub" ,name="password", placeholder="Enter Your password" minlength="8" pattern="^.{7,}$" title="This password incorrect" required)
+              input(type="password" , id="login-password"  , class="btn-sub" ,name="password", placeholder="Enter Your password" pattern="^.{7,}$" title="This password incorrect" required)
               .text-danger.text-centered= errors.signinError 
             div(class="form")
               button(type="submit", name="submit", class="btn-two") Login

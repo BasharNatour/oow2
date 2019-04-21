@@ -1,6 +1,7 @@
 extends index
 block append linksCss  
   link(rel="stylesheet" , href="/css/setting-worker/setting-worker.css")
+  link(rel="stylesheet" , href="/css/contract/contract.css")
 
 block pageTitle
   title Settings
@@ -12,15 +13,12 @@ block pageContent
      .container
           |
           |
-          a(class="navbar-brand", href="index.html")
+          a(class="navbar-brand", href="/")
               img(src="/img/Home-page/logo.png")
           
           button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
                 
-          div(class="collapse navbar-collapse", id="silver")
-            ul(class="navbar-nav ml-auto")
-                li(class="nav-item")
-                  a(href="/logout" role="button" class="btn oow" aria-pressed="true") Log Out
+          include include/nav.pug
                                             
   |
   |
@@ -100,8 +98,14 @@ block pageContent
                 .input-field(class="styled-input")
                   textarea( required class="btn-setting-worker" name="conditions")=user.companyData.conditions
                   label Write The Conditions About your Works 
-            
-              button(class="btn btn-oow submit-worker",type="submit") Submit        
+              h6.text-success.text-centered=success.message
+              button(class="btn btn-oow submit-worker",type="submit") Save  
+              if !user.companyData.plan
+                div(class="pull-right")
+                  .container
+                    button.top-buffer 
+                      a(href=`/dashboard/plan`) Next       
+                     
   |
   |
 

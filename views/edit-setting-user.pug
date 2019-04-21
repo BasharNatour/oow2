@@ -13,7 +13,7 @@ block pageContent
        .container
             |
             |
-            a(class="navbar-brand", href="index.html")
+            a(class="navbar-brand", href="/")
                 img(src="/img/Home-page/logo.png")
             
             button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
@@ -143,7 +143,6 @@ block pageContent
       $country.addEventListener("change",renderCities);
       renderCities();
       function renderCities(){
-        console.log($country.options);
         var country_id = $country.options[$country.selectedIndex].value;
         var filter = governorates.filter(function (governorate){return governorate.country === country_id;});
         $governorates.innerHTML = "";

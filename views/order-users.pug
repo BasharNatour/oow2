@@ -9,19 +9,10 @@ block pageContent
     // start Nav
     nav.navbar.navbar-toggleable-md.navbar-light
       .container
-        a.navbar-brand(href='index.html')
+        a.navbar-brand(href='/')
           img(src='img/Home-page/logo.png')
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
-        #silver.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
-            li.nav-item.dropdown
-              a.nav-link.dropdown-toggle.href-color(data-toggle='dropdown', href='#') SETTINGS
-              .dropdown-menu
-                a.dropdown-item(href='#') Profile
-                a.dropdown-item(href='#') Account Settings
-                a.dropdown-item(href='#') Complaints
-                a.dropdown-item(href='#') Remove Account
-                a.dropdown-item(href='#') Log Out 
+        include include/nav.pug
     // End Nav
     h2(class="text-center hea-cen") My Orders
     // Start Oreders

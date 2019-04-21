@@ -7,6 +7,7 @@ router.get("/:id",(req,res)=>{
     User.findById(req.params.id).then((company)=>{
          res.render("service_table",{
              user:company,
+             loggedin:req.user,
              readOnly:true
          });  
     })  

@@ -14,10 +14,10 @@ router.get("/",(req,res)=>{
         res.render("our-section",{governorate:null,category,user:req.user});
     }
     else{
-        console.log(category);
+        
        let governorate = req.query.governorate;
-        console.log(governorate);
-        res.render("our-section",{governorate , category,user:req.user});
+        
+        res.render("our-section",{governorate , loggedin:req.user,category,user:req.user});
     }
 }).catch(console.log);
 
