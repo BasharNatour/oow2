@@ -12,23 +12,7 @@ block pageContent
         a.navbar-brand(href='/')
           img(src='img/Home-page/logo.png')
         button.navbar-toggler(type='button', data-toggle='collapse', data-target='#silver', aria-controls='navbarSupportedContent', aria-expended='false', aria-lebal='toggle navgation') menu
-        #silver.collapse.navbar-collapse
-          ul.navbar-nav.ml-auto
-            li.nav-item.dropdown
-              a.nav-link.dropdown-toggle.href-color(data-toggle='dropdown', href='#') SETTINGS
-              .dropdown-menu
-                if user.type === "company"
-                  a(href="/company-profile" class="dropdown-item") Profile
-                else
-                  a(href="/user-profile" class="dropdown-item") Profile
-                a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
-                if user.type === "company"
-                  a(href="/dashboard/service" class="dropdown-item") your Services
-                  a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
-                a(href="/complaints" class="dropdown-item") Complaints
-                a(href="/update" class="dropdown-item") updatePassword
-                a(href="/remove-account" class="dropdown-item") Remove Account
-                a(href="/logout" class="dropdown-item") Log Out 
+        include include/nav.pug
     // End Nav
     // start profile-wroker
     div(class="profile-worker down")

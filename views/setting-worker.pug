@@ -1,7 +1,7 @@
 extends index
 block append linksCss  
+  //- link(rel="stylesheet" , href="/css/contract/contract.css")
   link(rel="stylesheet" , href="/css/setting-worker/setting-worker.css")
-  link(rel="stylesheet" , href="/css/contract/contract.css")
 
 block pageTitle
   title Settings
@@ -25,7 +25,12 @@ block pageContent
   <!-- End Nav -->
   |
   |
-  <!-- start settings worker --> 
+  <!-- start settings worker -->
+  if !user.companyData.plan.planId
+    .alert.alert-success.text-center(role='alert') Please Add Your Plan to be in searched 
+      a(href="/dashboard/plan") Click Here
+  else if success.message && user.companyData.plan
+    .alert.alert-success.text-center(role='alert')=success.message
   .setting-workers
     .row
       .container
@@ -98,7 +103,6 @@ block pageContent
                 .input-field(class="styled-input")
                   textarea( required class="btn-setting-worker" name="conditions")=user.companyData.conditions
                   label Write The Conditions About your Works 
-              h6.text-success.text-centered=success.message
               button(class="btn btn-oow submit-worker",type="submit") Save  
               if !user.companyData.plan
                 div(class="pull-right")

@@ -17,24 +17,7 @@ block pageContent
                 img(src="/img/Home-page/logo.png")
             
             button(class="navbar-toggler" type="button" data-toggle="collapse" data-target="#silver" aria-controls="navbarSupportedContent"  aria-expended="false" aria-lebal="toggle navgation") menu
-                  
-            div(class="collapse navbar-collapse", id="silver")
-              ul(class="navbar-nav ml-auto")
-                li(class="nav-item dropdown")
-                  a(class="nav-link dropdown-toggle href-color" data-toggle="dropdown" href="#") SETTINGS
-                  div(class="dropdown-menu")
-                    if user.type === "company"
-                      a(href="/company-profile" class="dropdown-item") Profile
-                    else
-                      a(href="/user-profile" class="dropdown-item") Profile
-                    a(href="/dashboard/editSetting" class="dropdown-item") Your personal settings
-                    if user.type === "company"
-                      a(href="/dashboard/service" class="dropdown-item") your Services
-                      a(href="/dashboard/company_setting" class="dropdown-item") Account Setting
-                    a(href="/complaints" class="dropdown-item") Complaints
-                    a(href="/update" class="dropdown-item") updatePassword
-                    a(href="/remove-account" class="dropdown-item") Remove Account
-                    a(href="/logout" class="dropdown-item") Log Out 
+            include include/nav.pug  
   
   
     |
@@ -45,6 +28,8 @@ block pageContent
     <!-- start account Settings users --> 
     |
     |
+    if success.message
+      .alert.alert-success.text-center(role='alert')=success.message
     .setting-account-users
       .row
         .container
@@ -98,9 +83,12 @@ block pageContent
               .sections
                 h4(class="id-national ") Id National Card
                 .input-field
-                  input(type="tel" , id="id-national" ,name="idNationalCard" class="btn-setting-worker" , placeholder="Enter Your Id  National Card" value=`${user.idNationalCard?user.idNationalCard:""}` required)
-                  h4.text-success.text-centered=success.message      
+                  input(type="tel" , id="id-national" ,name="idNationalCard" class="btn-setting-worker" , placeholder="Enter Your Id  National Card" value=`${user.idNationalCard?user.idNationalCard:""}` required)     
                 button(type="submit" class="btn btn-oow submit-save" form="form1") Save Change 
+                //- if user.idNationalCard
+                //-   .container
+                //-     button.top-buffer 
+                //-       a(href=`/dashboard/plan`) Go To your profile
     |
     |
     <!-- End setting account users -->

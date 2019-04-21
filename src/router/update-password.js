@@ -8,7 +8,7 @@ const ValidationUpdatePassword = require("../middleware/validation/update-passwo
 
 
 router.get("/",(req,res)=>{
-    res.render("update-password",{user:req.user});
+    res.render("update-password",{user:req.user,loggedin:req.user});
 });
 
 

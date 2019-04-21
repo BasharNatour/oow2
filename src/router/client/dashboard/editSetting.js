@@ -14,7 +14,7 @@ router.get("/",(req,res,next)=>{
     Country.find({}).then((countries)=>{
     Governorate.find({}).then((governorates)=>{
 
-        res.render("edit-setting-user",{user,countries,governorates});
+        res.render("edit-setting-user",{user,countries,governorates,loggedin:req.user});
     }).catch(next);
     }).catch(next);
 });

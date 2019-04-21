@@ -21,6 +21,10 @@ block pageContent
   |
   |
   <!-- start login -->
+  if success.message
+    .alert.alert-success.text-center(role='alert')=success.message
+  if errors.message
+    .alert.alert-danger.text-center(role='alert')=errors.message
   .singin
     .container
       .row
@@ -51,8 +55,8 @@ block pageContent
               input(type="email",id="login-email", class="btn-sub", name="email", placeholder="Enter Your Email Address" required)
             div(class="form")
               button(type="submit", name="submit", class="btn-two") Send
-            h6.text-danger.text-centered= errors.message 
-            h6.text-success.text-centered=success.message 
+          
+            
             
         .underfoo
           .group      
