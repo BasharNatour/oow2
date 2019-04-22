@@ -1,5 +1,6 @@
 const CountriesSeeder = require("./countries");
 const CategoriesSeeder = require("./categories");
+const AdminsSeeder = require("./admins");
 const mongoose = require("mongoose");
 
 let url = process.env.MONGO_URL;
@@ -8,8 +9,8 @@ mongoose.connect(url, {
 });
 Promise.all([
     CountriesSeeder(),
-    CategoriesSeeder()
-    
+    CategoriesSeeder(),
+    AdminsSeeder()
 ]).then(()=>{
     console.log("Database Seeded");
     process.exit();
