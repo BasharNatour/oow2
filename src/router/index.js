@@ -39,6 +39,7 @@ const orderCompany = require("./order-company");
 const orderUser = require("./order-user");
 const viewService = require("./view-service");
 const viewContract = require("./view-contract");
+const admin = require("./admin");
 
 
 
@@ -47,8 +48,28 @@ const rejection =require("./rejection");
 const accept =require("./accept");
 const done =require("./done");
 
+const next = require("next");
+const path = require("path");
 
 
+
+
+router.use("/admin/api", admin);
+
+const app = next({ dev : true, dir : path.join(process.cwd(), "admin/src") });
+const handle = app.getRequestHandler();
+
+app.prepare().then(() => {
+    router.get("/admin/category/:id", (req, res) => {
+        app.render(req, res, "/category", { category : req.params.id });
+    });
+
+    router.use("/admin", handle);
+    router.use("/admin/*", handle);
+    router.get("/_next/*", (req, res) => {
+        handle(req, res);
+    });
+}).catch(console.log);
 
 router.use("/",populateUser,main);
 router.use("/subscribe",subscription);
@@ -82,7 +103,6 @@ router.use("/view-contract",[authenticated,populateUser,activeted],viewContract)
 router.use("/reject",[authenticated,populateUser,isCompany,activeted],rejection);
 router.use("/accept",[authenticated,populateUser,isCompany,activeted],accept);
 router.use("/done",[authenticated,populateUser,isCompany,activeted],done);
-
 
 
 
