@@ -7,7 +7,8 @@ const User = require("../schema/user");
 
 router.get("/", (req, res) => {
     res.render("remove-account-user", {
-        user: req.user
+        user: req.user,
+        loggedin:req.user
     });
 });
 router.post("/", ValidationUpdatePassword, (req, res, next) => {

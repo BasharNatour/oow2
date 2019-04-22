@@ -9,7 +9,6 @@ const Unauthorized = require("../errors/unauthorized");
 
 
 router.post("/picture", (req, res, next) => {
-    // console.log(path.join(process.cwd(), "public", req.body.myImage));
     if(req.user.companyData.images.indexOf(req.body.myImage) === -1){
         return next(new Unauthorized());
     }

@@ -4,7 +4,7 @@ module.exports = router;
 const Complaint =require("../schema/complaint");
 
 router.get("/",(req,res)=>{
-    res.render("complaints",{user:req.user});
+    res.render("complaints",{user:req.user , loggedin:req.user});
 });
 
 router.post("/",(req,res)=>{

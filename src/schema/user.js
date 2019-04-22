@@ -2,6 +2,7 @@
 const mongoose = require("mongoose");
 const bcrypt  = require("bcrypt");
 const Verify = require("./verify");
+const Resetpassword = require("./forgetPassword");
 const randomstring = require("randomstring");
 const mongoosePaginate =require("mongoose-paginate");
 let users = new mongoose.Schema({
@@ -120,6 +121,20 @@ users.methods.generateVerifyToken = function generateVerifyToken(){
             user: this._id
         });
         return verify.save();
+    });
+    
+};
+users.methods.generateResetpasswordToken = function generateResetpasswordToken(){
+    return Resetpassword.findOne({user:this._id}).then((doc)=>{
+        if(doc){
+            doc.token = randomstring.generate(200);
+            return doc.save();
+        }
+        const resetPassword = new Resetpassword({
+            token : randomstring.generate(200),
+            user: this._id
+        });
+        return resetPassword.save();
     });
     
 };

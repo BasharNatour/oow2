@@ -21,12 +21,16 @@ block pageContent
   |
   |
   <!-- start login -->
+  if success.message
+    .alert.alert-success.text-center(role='alert')=success.message
+  if errors.message
+    .alert.alert-danger.text-center(role='alert')=errors.message
   .singin
     .container
       .row
         .left(class="col-lg-6 col-md-12 col-sm-12 text-center")
-          h1 Log In Into Your Account
-          p Welcome back! Please enter your access info
+          h1 
+          p 
           img(src="img/login/undraw_freelancer_b0my.svg")
             
           .group
@@ -44,25 +48,18 @@ block pageContent
               img(src="img/login/Group 197.svg")    
 
         .right(class="col-lg-6 col-md-12 col-sm-12 text-center" )
-          h1 Login
-          p Create New <a href="/signup"> Account </a>
-          form(id="login-form" action="/signin" method="post")
+          h1 Forget Password
+          p Add Your Email <a href="/signin"> OR  Back To Signin </a>
+          form(id="login-form" action="/forget" method="post")
             .input-field
-              input(type="email"    ,id="login-email"      , class="btn-sub", name="email", placeholder="Enter Your Email Address" required)
-            .input-field
-              input(type="password" , id="login-password"  , class="btn-sub" ,name="password", placeholder="Enter Your password" pattern="^.{7,}$" title="This password incorrect" required)
-              .text-danger.text-centered= errors.signinError 
+              input(type="email",id="login-email", class="btn-sub", name="email", placeholder="Enter Your Email Address" required)
             div(class="form")
-              button(type="submit", name="submit", class="btn-two") Login
-            .forget
-              a(href="/forget") Forget Password ?   
+              button(type="submit", name="submit", class="btn-two") Send
+          
+            
             
         .underfoo
           .group      
             .papple-one 
               img(src="img/login/Group 198.svg")     
-          p @Oow copyright  2018    
-    
-
-            
- 
+          p @Oow copyright  2018  

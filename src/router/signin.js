@@ -15,17 +15,19 @@ router.post("/",SigninValiadtion,(req,res,next)=>{
         if(req.query.redirect){
             res.redirect(req.query.redirect);
         }
-        if(doc.type === "company" && doc.companyData.plan){
-               return res.redirect("/company-profile");
+        if (doc.type === "company") {
+            if (!doc.companyData.plan) {
+                return res.redirect("/dashboard/company_setting");
+            } else {
+                return res.redirect("/company-profile");
             }
-        if(doc.type === "company" && (!doc.companyData.plan)){
-           return res.redirect("/dashboard/company_setting");
-        }
-        if(doc.type === "client" && doc.idNationalCard){
-            return res.redirect("/search");
-        }
-        if(doc.type === "client" && !doc.idNationalCard){
-            return res.redirect("/dashboard/editSetting");
+        } else {
+            if (!doc.idNationalCard) {
+                return res.redirect("/dashboard/editSetting");
+            } else {
+                
+                return res.redirect("/search");
+            }
         }
 
     }).catch(next);

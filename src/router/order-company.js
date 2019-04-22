@@ -6,7 +6,8 @@ const Contract = require("../schema/contract");
 router.get("/",(req,res)=>{
     Contract.find({company:req.user._id}).populate("user").then((contracts)=>{
         res.render("order-worker",{
-            contracts
+            contracts,
+            loggedin:req.user
         });
         
     });
