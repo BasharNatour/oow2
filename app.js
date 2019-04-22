@@ -54,6 +54,15 @@ app.use((req, res, next) => {
 app.use(require("./src/router"));
 
 app.use((error, req, res, next) => {
+    if (req.header("Accept").toLowerCase() === "application/json") {
+        if (error instanceof ValidationError) {
+            res.json({ errors : error.errors });
+        } else {
+            console.log(error);
+            res.status(500);
+            res.json({ message : "Something happaned" });
+        }
+    } else {
     if (error instanceof ValidationError) {
         req.flash("error", error.errors);
         req.flash("old", req.body);
@@ -70,6 +79,7 @@ app.use((error, req, res, next) => {
     else{
         res.end("Server error 500");
         console.log(error);
+    }
     }
 });
 
