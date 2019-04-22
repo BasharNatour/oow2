@@ -5,7 +5,7 @@ module.exports = function background (){
     return new Promise((resolve,reject)=>{
         Backgrounds.deleteMany({}).then(()=>{
             return Backgrounds.create([
-                {name:"Wedding Venues",description:"Browsing wedding venues is among the very first steps of planning your big day. But with so many wedding venues to choose from, how do you find The One? First, consider the style of venue you’d like: Garden or beach? Ballroom or barn? Then, read reviews of wedding venues in your desired city and select a few to tour in person. Happy venue hunting!.",image:"/img/our-section/Mask Group 17.png",section:},
+                {name:"Wedding Venues",description:"Browsing wedding venues is among the very first steps of planning your big day. But with so many wedding venues to choose from, how do you find The One? First, consider the style of venue you’d like: Garden or beach? Ballroom or barn? Then, read reviews of wedding venues in your desired city and select a few to tour in person. Happy venue hunting!.",image:"/img/our-section/Mask Group 17.png"},
 
                 {name:"Photography",description:"Finding a wedding photographer is not only about choosing a pro who takes great pictures.",image:"/img/our-section/Mask Group 12.png"},
 
@@ -28,5 +28,4 @@ module.exports = function background (){
             resolve();
         }).catch(reject);
     });
-
-    }
+}
