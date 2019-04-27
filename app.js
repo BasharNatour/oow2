@@ -54,7 +54,7 @@ app.use((req, res, next) => {
 app.use(require("./src/router"));
 
 app.use((error, req, res, next) => {
-    if (req.header("Accept").toLowerCase() === "application/json") {
+    if (req.header("Accept").toLowerCase().indexOf("application/json") > -1) {
         if (error instanceof ValidationError) {
             res.json({ errors : error.errors });
         } else {
@@ -63,23 +63,23 @@ app.use((error, req, res, next) => {
             res.json({ message : "Something happaned" });
         }
     } else {
-    if (error instanceof ValidationError) {
-        req.flash("error", error.errors);
-        req.flash("old", req.body);
-        // console.log(error.errors);
-        res.redirect('back');
-    }
-    else if (error instanceof NotFoundError) {
-        res.end("Not Found Page 404");
-        console.log(error.stack);
-    }
-    else if(error instanceof Unauthorized){
-        res.end(" Unauthorized 403");
-    }
-    else{
-        res.end("Server error 500");
-        console.log(error);
-    }
+        if (error instanceof ValidationError) {
+            req.flash("error", error.errors);
+            req.flash("old", req.body);
+            // console.log(error.errors);
+            res.redirect('back');
+        }
+        else if (error instanceof NotFoundError) {
+            res.end("Not Found Page 404");
+            console.log(error.stack);
+        }
+        else if(error instanceof Unauthorized){
+            res.end(" Unauthorized 403");
+        }
+        else{
+            res.end("Server error 500");
+            console.log(error);
+        }
     }
 });
 
