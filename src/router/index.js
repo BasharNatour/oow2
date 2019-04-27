@@ -50,28 +50,9 @@ const done =require("./done");
 const forget =require("./forgetPassword");
 const resetPassword =require("./resetPassword");
 
-const next = require("next");
-const path = require("path");
-
-
-
 
 router.use("/admin/api", admin);
 
-const app = next({ dev : true, dir : path.join(process.cwd(), "admin/src") });
-const handle = app.getRequestHandler();
-
-app.prepare().then(() => {
-    router.get("/admin/category/:id", (req, res) => {
-        app.render(req, res, "/category", { category : req.params.id });
-    });
-
-    router.use("/admin", handle);
-    router.use("/admin/*", handle);
-    router.get("/_next/*", (req, res) => {
-        handle(req, res);
-    });
-}).catch(console.log);
 
 router.use("/",populateUser,main);
 router.use("/subscribe",subscription);
