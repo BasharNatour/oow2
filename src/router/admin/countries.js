@@ -4,7 +4,6 @@ const router  = new express.Router();
 module.exports = router;
 
 const Country     = require("../../schema/country");
-const Governorate = require("../../schema/governorates");
 
 router.get("/", (req, res, next) => {
     Country
