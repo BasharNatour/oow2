@@ -7,14 +7,18 @@ const Country     = require("../../schema/country");
 
 router.get("/", (req, res, next) => {
     Country
-        .aggregate([{
+        .aggregate([
+            {
             $lookup : {
                 from         : "governorates",
                 localField   : "_id",
                 foreignField : "country",
                 as           : "governorates"
             }
-        }]).then((countries) => {
+            }, {
+                $sort : { _id : -1 }
+            }
+        ]).then((countries) => {
             res.json({ data : countries });
         }).catch(next);
 });
