@@ -34,7 +34,6 @@ router.get("/:id", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
     const country = new Country(req.body);
-    console.log(country);
     country
         .save()
         .then(() => res.json({ data : country }))
