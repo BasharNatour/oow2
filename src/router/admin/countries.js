@@ -1,5 +1,4 @@
 const express = require("express");
-const multer = require("multer");
 const router  = new express.Router();
 module.exports = router;
 
@@ -9,12 +8,12 @@ router.get("/", (req, res, next) => {
     Country
         .aggregate([
             {
-            $lookup : {
-                from         : "governorates",
-                localField   : "_id",
-                foreignField : "country",
-                as           : "governorates"
-            }
+                $lookup : {
+                    from         : "governorates",
+                    localField   : "_id",
+                    foreignField : "country",
+                    as           : "governorates"
+                }
             }, {
                 $sort : { _id : -1 }
             }
