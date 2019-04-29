@@ -9,7 +9,6 @@ const bcrypt = require("bcrypt");
 const jwt   = require("jsonwebtoken");
 
 router.post("/login", loginValidator, (req, res, next) => {
-    console.log(req.body);
     const { email, password } = req.body;
     Admin.findOne({ email })
         .then((doc) => {
