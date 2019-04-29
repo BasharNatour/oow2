@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const ValidationError = require("./src/errors/validationError");
 const NotFoundError   = require("./src/errors/not-found-error");
 const Unauthorized   = require("./src/errors/unauthorized");
+const Unauthenticated   = require("./src/errors/unauthenticated");
 const flash = require("connect-flash");
 
 
@@ -56,9 +57,12 @@ app.use(require("./src/router"));
 app.use((error, req, res, next) => {
     if (req.header("Accept").toLowerCase().indexOf("application/json") > -1) {
         if (error instanceof ValidationError) {
+            res.status(422);
             res.json({ errors : error.errors });
+        } else if (error instanceof Unauthenticated) {
+            res.status(401);
+            res.json({ message : "Unauthenticated" });
         } else {
-            console.log(error);
             res.status(500);
             res.json({ message : "Something happaned" });
         }
