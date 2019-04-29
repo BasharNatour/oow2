@@ -31,6 +31,10 @@ let users = new mongoose.Schema({
         type: String,
         required: true
     },
+    disabled : {
+        type : Boolean,
+        default : false  
+    },
     type: {
         type: String,
         enum: ["client", "company"],
