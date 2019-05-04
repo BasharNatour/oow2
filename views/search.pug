@@ -44,8 +44,7 @@ block pageContent
                   option(hidden,value="") Search Governorates
                   each governorate in result
                     option(value=`${governorate._id}`)=governorate.name
-                button(class="search-btns")
-                  a(href="") Enter     
+                button(class="search-btns" form="form1") Enter 
             //    button(type="submit",form="form1",class="search-btn")
                   a(href="/ourSections")
                   i(class="fa fa-search ")
