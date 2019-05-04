@@ -38,11 +38,15 @@ block pageContent
             p(class="two") Search  local professionals with reviews, pricing, availability, and more
             form(action="/ourSections",method="get",id="form1")
               .input-field
+                button(class="search-btn")
+                  i(class="fas fa-chevron-up")
                 select(name="governorate")
                   option(hidden,value="") Search Governorates
                   each governorate in result
                     option(value=`${governorate._id}`)=governorate.name
-                button(type="submit",form="form1",class="search-btn")
+                button(class="search-btns")
+                  a(href="") Enter     
+            //    button(type="submit",form="form1",class="search-btn")
                   a(href="/ourSections")
                   i(class="fa fa-search ")
               div.submit.mt-3(style="display : flex; justify-content : center")

@@ -18,14 +18,13 @@
 .orders .down p {
   font-weight: bold;
   color: #1C3024;
-  /* font-size: 1.7em; */
+  font-size: 1.7em;
 }
 .orders .down p .company-name {
   font-weight: lighter;
 }
 .orders .down .city {
   font-weight: bold;
-  font-size: 1.1em;
 }
 .orders .down .city .date {
   font-weight: lighter;
@@ -112,7 +111,7 @@ a:focus {
   }
   .down p {
     font-size: 1.2em !important;
-    padding-bottom: 8px;
+    padding-bottom: 10px;
   }
 
   .under {
