@@ -11,7 +11,7 @@ router.get("/", (req, res, next) => {
     let governorate = req.query.governorate;
     let section =req.query.section;
     Category.findById(req.query.section).then((sections) => {
-        User.paginate({governorate,type:"company","companyData.categary":section}, {page: +req.query.page || 1 , limit:7}).then((data)=>{
+        User.paginate({governorate,type:"company","companyData.categary":section,disabled:false}, {page: +req.query.page || 1 , limit:7}).then((data)=>{
             res.render("section-one", {
                 sections,
                 users :data.docs,

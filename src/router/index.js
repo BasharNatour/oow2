@@ -40,6 +40,7 @@ const orderUser = require("./order-user");
 const viewService = require("./view-service");
 const viewContract = require("./view-contract");
 const admin = require("./admin");
+const message = require("./message");
 
 
 
@@ -87,6 +88,7 @@ router.use("/order-User",[authenticated,populateUser,isUser,activeted],orderUser
 router.use("/view-contract",[authenticated,populateUser,activeted],viewContract);
 router.use("/reject",[authenticated,populateUser,isCompany,activeted],rejection);
 router.use("/accept",[authenticated,populateUser,isCompany,activeted],accept);
+router.use("/message",[authenticated,populateUser,isCompany,activeted],message);
 router.use("/done",[authenticated,populateUser,isCompany,activeted],done);
 
 

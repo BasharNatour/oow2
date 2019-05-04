@@ -42,13 +42,16 @@ block pageContent
                   
                   else if contract.accepted === false
                     span.badge.badge-danger(style="font-size : 100%; float:right") Rejected
+                    
                   
                   else 
                     span.badge.badge-warning(style="font-size : 100%; float:right") Pending
                 if contract.accepted && !contract.done
                   div.col-md-12.mt-3.text-right
                     span You must go to the company's headquarters to complete your contract
-
+                else if contract.accepted === false
+                  div.col-md-12.mt-3.text-right
+                    span=contract.message
                   
             .col-lg-12
                   button(class="btn")  

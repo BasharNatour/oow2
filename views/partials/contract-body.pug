@@ -10,7 +10,7 @@
                 li  Details
                 li  Price
                 li CheckBox
-              - var services = company.companyData.services && company.companyData.services.length? company.companyData.services : [{ name : "", description: "" , price: 1  }]
+              - var services = company.companyData.services && company.companyData.services.length? company.companyData.services : (!readOnly?[]:[{ name : "", description: "" , price: 1  }])
               each service , i in services
                 tr(data-id=i name="checked")
                   td 
@@ -20,7 +20,7 @@
                   td
                     input(type="number",value=service.price , min="1" disabled)         
                   td
-                    input(type="CheckBox" name="services" value=service._id checked=readOnly?contract.services.some(item=>item.equals(service._id)):false disabled=readOnly)
+                    input(type="CheckBox" name="services[]" value=service._id checked=readOnly?contract.services.some(item=>item.equals(service._id)):false disabled=readOnly)
 
                         
           

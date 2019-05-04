@@ -57,13 +57,15 @@ html(lang="en")
             |
             |
             <!-- start header -->
+            
             .header
               .container
                 .header-content
                   h1(class="text-color") Your Wedding <br> Adeventure Start Here
-                  .section-color(class="hide-on-small-only hide-on-med-only")
-                  a(class="btn btn-oow"  href="/signup" ) Sign Up
-                  p(class="text-color") Already a member? <a href="/signin" class="ooww">Log in</a> 
+                  if !user
+                    .section-color(class="hide-on-small-only hide-on-med-only")
+                    a(class="btn btn-oow"  href="/signup" ) Sign Up
+                    p(class="text-color") Already a member? <a href="/signin" class="ooww">Log in</a> 
             |
             |
             <!-- End Header -->

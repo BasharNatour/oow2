@@ -77,7 +77,7 @@ block pageContent
               if contract.accepted === undefined
                 form(action=`/accept/${contract._id}/` method="post") 
                   button(type="submit" class="btn" style="margin:0 10px") Accept
-                form(action=`/reject/${contract._id}/` method="post")
+                a(href=`/message/${contract._id}/`)
                   button(type="submit" class="btn" style="margin:0 10px") Reject 
               else if contract.accepted && contract.done === false
                 form(action=`/done/${contract._id}/` method="post")

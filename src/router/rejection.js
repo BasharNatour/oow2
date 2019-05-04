@@ -10,7 +10,9 @@ router.post("/:id",(req,res,next)=>{
         if(contract.accepted){
             return next (new Unauthorized());
         }
+        console.log(req.body);
         contract.accepted = false;
+        contract.message  = req.body.message; 
         contract.save().then(()=>{
             req.flash("success", {message : " This contract is rejected "});
             res.redirect(`/order-Company`)

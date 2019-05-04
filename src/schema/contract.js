@@ -26,6 +26,9 @@ const contract =  new mongoose.Schema({
     done:{
         type:Boolean,
         default:false
+    },
+    message:{
+        type:String
     }
 
 
