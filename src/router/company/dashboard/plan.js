@@ -3,8 +3,13 @@ const router = new express.Router();
 module.exports = router;
 const Plan = require("../../../schema/plan");
 const populate_user = require("../../../middleware/populate_user");
+const User = require("../../../schema/user");
 
-router.get("/", (req, res, next) => {
+router.get("/",populate_user,(req, res, next) => {
+    console.log(req.user.companyData.plan);
+    if(req.user.hasActivePlan()){
+        return res.redirect("/search")
+    }
     Plan.find({}).then((docs) => {
         res.render("plan", {
             docs

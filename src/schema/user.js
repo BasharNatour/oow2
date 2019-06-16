@@ -142,5 +142,8 @@ users.methods.generateResetpasswordToken = function generateResetpasswordToken()
     });
     
 };
+users.methods.hasActivePlan = function hasActivePlan (){
+    return this.companyData.plan.endDate && this.companyData.plan.endDate.getTime() > Date.now(); 
+}
 users.plugin(mongoosePaginate);
 module.exports = mongoose.model("users", users);

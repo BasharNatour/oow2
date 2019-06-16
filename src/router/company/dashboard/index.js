@@ -15,6 +15,7 @@ const isCompany = require("../../../middleware/is-company");
 
 
 
+
 router.use("/company_setting",[authenticated,populateUser,isCompany,activeted],company_setting);
 router.use("/plan",[authenticated,populateUser,isCompany,activeted],plan);
 router.use("/service",[authenticated,populateUser,isCompany,activeted],service);
